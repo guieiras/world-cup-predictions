@@ -1,0 +1,13 @@
+{
+  "name": "world-cup-bet",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guieiras/world-cup-master.git"
+  },
+  "contributors": [
+    "Guilherme Eiras <guialbertoeiras@hotmail.com>"
+  ]
+}
