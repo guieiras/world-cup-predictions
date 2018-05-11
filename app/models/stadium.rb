@@ -1,0 +1,2 @@
+class Stadium < ApplicationRecord
+end
