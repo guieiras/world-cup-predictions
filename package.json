@@ -1,11 +1,11 @@
 {
-  "name": "world-cup-bet",
+  "name": "world-cup-predictions",
   "version": "0.0.1",
   "license": "MIT",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/guieiras/world-cup-bet.git"
+    "url": "https://github.com/guieiras/world-cup-predictions.git"
   },
   "contributors": [
     "Guilherme Eiras <guialbertoeiras@hotmail.com>"
