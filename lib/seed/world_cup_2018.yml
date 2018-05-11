@@ -1,0 +1,775 @@
+stadiums:
+- id: 1
+  name: Luzhniki Stadium
+  city: Moscow
+  lat: 55.715765
+  lng: 37.5515217
+- id: 2
+  name: Otkrytiye Arena
+  city: Moscow
+  lat: 55.817765
+  lng: 37.440363
+- id: 3
+  name: Krestovsky Stadium
+  city: Saint Petersburg
+  lat: 59.97274
+  lng: 30.221408
+- id: 4
+  name: Kaliningrad Stadium
+  city: Kaliningrad
+  lat: 54.698157
+  lng: 20.533859
+- id: 5
+  name: Kazan Arena
+  city: Kazan
+  lat: 55.820983
+  lng: 49.160966
+- id: 6
+  name: Nizhny Novgorod Stadium
+  city: Nizhny Novgorod
+  lat: 56.337287
+  lng: 43.963251
+- id: 7
+  name: Cosmos Arena
+  city: Samara
+  lat: 53.278146
+  lng: 50.238854
+- id: 8
+  name: Volgograd Arena
+  city: Volgograd
+  lat: 48.734195
+  lng: 44.548345
+- id: 9
+  name: Mordovia Arena
+  city: Saransk
+  lat: 54.181795
+  lng: 45.203851
+- id: 10
+  name: Rostov Arena
+  city: Rostov-on-Don
+  lat: 47.209581
+  lng: 39.738424
+- id: 11
+  name: Fisht Olympic Stadium
+  city: Sochi
+  lat: 43.402011
+  lng: 39.955709
+- id: 12
+  name: Central Stadium
+  city: Yekaterinburg
+  lat: 56.83249
+  lng: 60.573585
+teams:
+- id: 1
+  name: Russia
+  fifaCode: RUS
+  iso2: ru
+  flag: https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/900px-Flag_of_Russia.png
+- id: 2
+  name: Saudi Arabia
+  fifaCode: KSA
+  iso2: sa
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/750px-Flag_of_Saudi_Arabia.png
+- id: 3
+  name: Egypt
+  fifaCode: EGY
+  iso2: eg
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/900px-Flag_of_Egypt.png
+- id: 4
+  name: Uruguay
+  fifaCode: URU
+  iso2: uy
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/900px-Flag_of_Uruguay.png
+- id: 5
+  name: Portugal
+  fifaCode: POR
+  iso2: pt
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/600px-Flag_of_Portugal.png
+- id: 6
+  name: Spain
+  fifaCode: ESP
+  iso2: es
+  flag: https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/750px-Flag_of_Spain.png
+- id: 7
+  name: Morocco
+  fifaCode: MAR
+  iso2: ma
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/900px-Flag_of_Morocco.png
+- id: 8
+  name: Iran
+  fifaCode: IRN
+  iso2: ir
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/630px-Flag_of_Iran.png
+- id: 9
+  name: France
+  fifaCode: FRA
+  iso2: fr
+  flag: https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/900px-Flag_of_France.png
+- id: 10
+  name: Australia
+  fifaCode: AUS
+  iso2: au
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/1280px-Flag_of_Australia_%28converted%29.png
+- id: 11
+  name: Peru
+  fifaCode: PER
+  iso2: pe
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Flag_of_Peru_%28state%29.svg/900px-Flag_of_Peru_%28state%29.png
+- id: 12
+  name: Denmark
+  fifaCode: DEN
+  iso2: dk
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/740px-Flag_of_Denmark.png
+- id: 13
+  name: Argentina
+  fifaCode: ARG
+  iso2: ar
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/800px-Flag_of_Argentina.png
+- id: 14
+  name: Iceland
+  fifaCode: ISL
+  iso2: is
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/800px-Flag_of_Iceland.png
+- id: 15
+  name: Croatia
+  fifaCode: CRO
+  iso2: hr
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/800px-Flag_of_Croatia.png
+- id: 16
+  name: Nigeria
+  fifaCode: NGA
+  iso2: ng
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/800px-Flag_of_Nigeria.png
+- id: 17
+  name: Brazil
+  fifaCode: BRA
+  iso2: br
+  flag: https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/720px-Flag_of_Brazil.png
+- id: 18
+  name: Switzerland
+  fifaCode: SUI
+  iso2: ch
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Flag_of_Switzerland_%28Pantone%29.svg/320px-Flag_of_Switzerland_%28Pantone%29.png
+- id: 19
+  name: Costa Rica
+  fifaCode: CRC
+  iso2: cr
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Costa_Rica_%28state%29.svg/833px-Flag_of_Costa_Rica_%28state%29.png
+- id: 20
+  name: Serbia
+  fifaCode: SRB
+  iso2: rs
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/1350px-Flag_of_Serbia.png
+- id: 21
+  name: Germany
+  fifaCode: GER
+  iso2: de
+  flag: https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/800px-Flag_of_Germany.png
+- id: 22
+  name: Mexico
+  fifaCode: MEX
+  iso2: mx
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/800px-Flag_of_Mexico.png
+- id: 23
+  name: Sweden
+  fifaCode: SWE
+  iso2: se
+  flag: https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1600px-Flag_of_Sweden.png
+- id: 24
+  name: South Korea
+  fifaCode: KOR
+  iso2: kr
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/900px-Flag_of_South_Korea.png
+- id: 25
+  name: Belgium
+  fifaCode: BEL
+  iso2: be
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/450px-Flag_of_Belgium.png
+- id: 26
+  name: Panama
+  fifaCode: PAN
+  iso2: pa
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/450px-Flag_of_Panama.png
+- id: 27
+  name: Tunisia
+  fifaCode: TUN
+  iso2: tn
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/1200px-Flag_of_Tunisia.png
+- id: 28
+  name: England
+  fifaCode: ENG
+  iso2: gb-eng
+  flag: https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/800px-Flag_of_England.png
+- id: 29
+  name: Poland
+  fifaCode: POL
+  iso2: pl
+  flag: https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/1280px-Flag_of_Poland.png
+- id: 30
+  name: Senegal
+  fifaCode: SEN
+  iso2: sn
+  flag: https://upload.wikimedia.org/wikipedia/commons/f/fd/Flag_of_Senegal.svg
+- id: 31
+  name: Colombia
+  fifaCode: COL
+  iso2: co
+  flag: https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/450px-Flag_of_Colombia.png
+- id: 32
+  name: Japan
+  fifaCode: JPN
+  iso2: jp
+  flag: https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/900px-Flag_of_Japan.png
+groups:
+  a:
+    name: Group A
+    matches:
+    - id: 1
+      type: group
+      home_team: 1
+      away_team: 2
+      date: '2018-06-14T18:00:00+03:00'
+      stadium: 1
+      finished: false
+      matchday: 1
+    - id: 2
+      type: group
+      home_team: 3
+      away_team: 4
+      date: '2018-06-15T17:00:00+05:00'
+      stadium: 12
+      finished: false
+      matchday: 1
+    - id: 17
+      type: group
+      home_team: 1
+      away_team: 3
+      date: '2018-06-19T21:00:00+03:00'
+      stadium: 3
+      finished: false
+      matchday: 2
+    - id: 18
+      type: group
+      home_team: 4
+      away_team: 2
+      date: '2018-06-20T18:00:00+03:00'
+      stadium: 10
+      finished: false
+      matchday: 2
+    - id: 33
+      type: group
+      home_team: 4
+      away_team: 1
+      date: '2018-06-25T18:00:00+04:00'
+      stadium: 7
+      finished: false
+      matchday: 3
+    - id: 34
+      type: group
+      home_team: 2
+      away_team: 3
+      date: '2018-06-25T17:00:00+03:00'
+      stadium: 8
+      finished: false
+      matchday: 3
+  b:
+    name: Group B
+    matches:
+    - id: 3
+      type: group
+      home_team: 5
+      away_team: 6
+      date: '2018-06-15T21:00:00+03:00'
+      stadium: 11
+      finished: false
+      matchday: 1
+    - id: 4
+      type: group
+      home_team: 7
+      away_team: 8
+      date: '2018-06-15T18:00:00+03:00'
+      stadium: 3
+      finished: false
+      matchday: 1
+    - id: 19
+      type: group
+      home_team: 5
+      away_team: 7
+      date: '2018-06-20T15:00:00+03:00'
+      stadium: 1
+      finished: false
+      matchday: 2
+    - id: 20
+      type: group
+      home_team: 8
+      away_team: 6
+      date: '2018-06-20T21:00:00+03:00'
+      stadium: 5
+      finished: false
+      matchday: 2
+    - id: 35
+      type: group
+      home_team: 8
+      away_team: 5
+      date: '2018-06-25T21:00:00+03:00'
+      stadium: 9
+      finished: false
+      matchday: 3
+    - id: 36
+      type: group
+      home_team: 6
+      away_team: 7
+      date: '2018-06-25T20:00:00+02:00'
+      stadium: 4
+      finished: false
+      matchday: 3
+  c:
+    name: Group C
+    matches:
+    - id: 5
+      type: group
+      home_team: 9
+      away_team: 10
+      date: '2018-06-16T13:00:00+03:00'
+      stadium: 5
+      finished: false
+      matchday: 1
+    - id: 6
+      type: group
+      home_team: 11
+      away_team: 12
+      date: '2018-06-16T19:00:00+03:00'
+      stadium: 9
+      finished: false
+      matchday: 1
+    - id: 21
+      type: group
+      home_team: 9
+      away_team: 11
+      date: '2018-06-21T20:00:00+05:00'
+      stadium: 12
+      finished: false
+      matchday: 2
+    - id: 22
+      type: group
+      home_team: 12
+      away_team: 10
+      date: '2018-06-21T16:00:00+04:00'
+      stadium: 7
+      finished: false
+      matchday: 2
+    - id: 37
+      type: group
+      home_team: 12
+      away_team: 9
+      date: '2018-06-26T17:00:00+03:00'
+      stadium: 1
+      finished: false
+      matchday: 3
+    - id: 38
+      type: group
+      home_team: 10
+      away_team: 11
+      date: '2018-06-26T17:00:00+02:00'
+      stadium: 11
+      finished: false
+      matchday: 3
+  d:
+    name: Group D
+    matches:
+    - id: 7
+      type: group
+      home_team: 13
+      away_team: 14
+      date: '2018-06-16T16:00:00+03:00'
+      stadium: 2
+      finished: false
+      matchday: 1
+    - id: 8
+      type: group
+      home_team: 15
+      away_team: 16
+      date: '2018-06-16T21:00:00+02:00'
+      stadium: 4
+      finished: false
+      matchday: 1
+    - id: 23
+      type: group
+      home_team: 13
+      away_team: 15
+      date: '2018-06-21T21:00:00+03:00'
+      stadium: 6
+      finished: false
+      matchday: 2
+    - id: 24
+      type: group
+      home_team: 16
+      away_team: 14
+      date: '2018-06-22T18:00:00+03:00'
+      stadium: 8
+      finished: false
+      matchday: 2
+    - id: 39
+      type: group
+      home_team: 16
+      away_team: 13
+      date: '2018-06-26T21:00:00+03:00'
+      stadium: 3
+      finished: false
+      matchday: 3
+    - id: 40
+      type: group
+      home_team: 14
+      away_team: 15
+      date: '2018-06-26T21:00:00+03:00'
+      stadium: 10
+      finished: false
+      matchday: 3
+  e:
+    name: Group E
+    matches:
+    - id: 9
+      type: group
+      home_team: 17
+      away_team: 18
+      date: '2018-06-17T21:00:00+03:00'
+      stadium: 10
+      finished: false
+      matchday: 1
+    - id: 10
+      type: group
+      home_team: 19
+      away_team: 20
+      date: '2018-06-17T16:00:00+04:00'
+      stadium: 7
+      finished: false
+      matchday: 1
+    - id: 25
+      type: group
+      home_team: 17
+      away_team: 19
+      date: '2018-06-22T15:00:00+03:00'
+      stadium: 3
+      finished: false
+      matchday: 2
+    - id: 26
+      type: group
+      home_team: 20
+      away_team: 18
+      date: '2018-06-22T20:00:00+02:00'
+      stadium: 4
+      finished: false
+      matchday: 2
+    - id: 41
+      type: group
+      home_team: 20
+      away_team: 17
+      date: '2018-06-27T21:00:00+03:00'
+      stadium: 2
+      finished: false
+      matchday: 3
+    - id: 42
+      type: group
+      home_team: 18
+      away_team: 19
+      date: '2018-06-27T21:00:00+03:00'
+      stadium: 6
+      finished: false
+      matchday: 3
+  f:
+    name: Group F
+    matches:
+    - id: 11
+      type: group
+      home_team: 21
+      away_team: 22
+      date: '2018-06-17T18:00:00+03:00'
+      stadium: 1
+      finished: false
+      matchday: 1
+    - id: 12
+      type: group
+      home_team: 23
+      away_team: 24
+      date: '2018-06-18T15:00:00+03:00'
+      stadium: 6
+      finished: false
+      matchday: 1
+    - id: 27
+      type: group
+      home_team: 21
+      away_team: 23
+      date: '2018-06-23T21:00:00+03:00'
+      stadium: 11
+      finished: false
+      matchday: 2
+    - id: 28
+      type: group
+      home_team: 24
+      away_team: 22
+      date: '2018-06-23T18:00:00+03:00'
+      stadium: 10
+      finished: false
+      matchday: 2
+    - id: 43
+      type: group
+      home_team: 24
+      away_team: 21
+      date: '2018-06-27T17:00:00+03:00'
+      stadium: 5
+      finished: false
+      matchday: 3
+    - id: 44
+      type: group
+      home_team: 22
+      away_team: 23
+      date: '2018-06-27T19:00:00+05:00'
+      stadium: 12
+      finished: false
+      matchday: 3
+  g:
+    name: Group G
+    matches:
+    - id: 13
+      type: group
+      home_team: 25
+      away_team: 26
+      date: '2018-06-18T18:00:00+03:00'
+      stadium: 11
+      finished: false
+      matchday: 1
+    - id: 14
+      type: group
+      home_team: 27
+      away_team: 28
+      date: '2018-06-18T21:00:00+03:00'
+      stadium: 8
+      finished: false
+      matchday: 1
+    - id: 29
+      type: group
+      home_team: 25
+      away_team: 27
+      date: '2018-06-23T15:00:00+03:00'
+      stadium: 2
+      finished: false
+      matchday: 2
+    - id: 30
+      type: group
+      home_team: 28
+      away_team: 26
+      date: '2018-06-24T15:00:00+03:00'
+      stadium: 6
+      finished: false
+      matchday: 2
+    - id: 45
+      type: group
+      home_team: 28
+      away_team: 25
+      date: '2018-06-28T20:00:00+02:00'
+      stadium: 4
+      finished: false
+      matchday: 3
+    - id: 46
+      type: group
+      home_team: 26
+      away_team: 27
+      date: '2018-06-28T21:00:00+03:00'
+      stadium: 9
+      finished: false
+      matchday: 3
+  h:
+    name: Group H
+    matches:
+    - id: 15
+      type: group
+      home_team: 29
+      away_team: 30
+      date: '2018-06-19T18:00:00+03:00'
+      stadium: 2
+      finished: false
+      matchday: 1
+    - id: 16
+      type: group
+      home_team: 31
+      away_team: 32
+      date: '2018-06-19T15:00:00+03:00'
+      stadium: 9
+      finished: false
+      matchday: 1
+    - id: 31
+      type: group
+      home_team: 29
+      away_team: 31
+      date: '2018-06-24T20:00:00+05:00'
+      stadium: 5
+      finished: false
+      matchday: 2
+    - id: 32
+      type: group
+      home_team: 32
+      away_team: 30
+      date: '2018-06-24T21:00:00+03:00'
+      stadium: 12
+      finished: false
+      matchday: 2
+    - id: 47
+      type: group
+      home_team: 32
+      away_team: 29
+      date: '2018-06-28T17:00:00+03:00'
+      stadium: 8
+      finished: false
+      matchday: 3
+    - id: 48
+      type: group
+      home_team: 30
+      away_team: 31
+      date: '2018-06-28T18:00:00+04:00'
+      stadium: 7
+      finished: false
+      matchday: 3
+knockout:
+  round_16:
+    name: Round of 16
+    matches:
+    - id: 49
+      type: qualified
+      home_team: winner_a
+      away_team: runner_b
+      date: '2018-06-30T17:00:00+03:00'
+      stadium: 11
+      finished: false
+      matchday: 4
+    - id: 50
+      type: qualified
+      home_team: winner_c
+      away_team: runner_d
+      date: '2018-06-30T21:00:00+03:00'
+      stadium: 5
+      finished: false
+      matchday: 4
+    - id: 51
+      type: qualified
+      home_team: winner_b
+      away_team: runner_a
+      date: '2018-07-01T17:00:00+03:00'
+      stadium: 1
+      finished: false
+      matchday: 4
+    - id: 52
+      type: qualified
+      home_team: winner_d
+      away_team: runner_c
+      date: '2018-07-01T21:00:00+03:00'
+      stadium: 6
+      finished: false
+      matchday: 4
+    - id: 53
+      type: qualified
+      home_team: winner_e
+      away_team: runner_f
+      date: '2018-07-02T18:00:00+04:00'
+      stadium: 7
+      finished: false
+      matchday: 4
+    - id: 54
+      type: qualified
+      home_team: winner_g
+      away_team: runner_h
+      date: '2018-07-02T21:00:00+03:00'
+      stadium: 10
+      finished: false
+      matchday: 4
+    - id: 55
+      type: qualified
+      home_team: winner_f
+      away_team: runner_e
+      date: '2018-07-03T17:00:00+03:00'
+      stadium: 3
+      finished: false
+      matchday: 4
+    - id: 56
+      type: qualified
+      home_team: winner_h
+      away_team: runner_g
+      date: '2018-07-03T21:00:00+03:00'
+      stadium: 2
+      finished: false
+      matchday: 4
+  round_8:
+    name: Quarter-finals
+    matches:
+    - id: 57
+      type: winner
+      home_team: 49
+      away_team: 50
+      date: '2018-07-06T17:00:00+03:00'
+      stadium: 6
+      finished: false
+      matchday: 5
+    - id: 58
+      type: winner
+      home_team: 53
+      away_team: 54
+      date: '2018-07-06T21:00:00+03:00'
+      stadium: 5
+      finished: false
+      matchday: 5
+    - id: 59
+      type: winner
+      home_team: 51
+      away_team: 52
+      date: '2018-07-07T21:00:00+03:00'
+      stadium: 11
+      finished: false
+      matchday: 5
+    - id: 60
+      type: winner
+      home_team: 55
+      away_team: 56
+      date: '2018-07-07T18:00:00+04:00'
+      stadium: 7
+      finished: false
+      matchday: 5
+  round_4:
+    name: Semi-finals
+    matches:
+    - id: 61
+      type: winner
+      home_team: 57
+      away_team: 58
+      date: '2018-07-10T21:00:00+03:00'
+      stadium: 3
+      finished: false
+      matchday: 6
+    - id: 62
+      type: winner
+      home_team: 59
+      away_team: 60
+      date: '2018-07-11T21:00:00+03:00'
+      stadium: 1
+      finished: false
+      matchday: 6
+  round_2_loser:
+    name: Third place play-off
+    matches:
+    - id: 63
+      type: loser
+      home_team: 61
+      away_team: 62
+      date: '2018-07-14T17:00:00+03:00'
+      stadium: 3
+      finished: false
+      matchday: 7
+  round_2:
+    name: Final
+    matches:
+    - id: 64
+      type: winner
+      home_team: 61
+      away_team: 62
+      date: '2018-07-15T18:00:00+03:00'
+      stadium: 1
+      finished: false
+      matchday: 7
