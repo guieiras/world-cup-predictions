@@ -12,5 +12,8 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+//= require jquery/dist/jquery.min
+//= require slimscroll/example/ssmaster/jquery.slimscroll.min
+//= require bootstrap/dist/js/bootstrap.min
+//= require admin-lte/dist/js/adminlte.min
 //= require_tree .
