@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :matchday do
     code 1
-    name "Round 1"
-    finished false
+    started_at { DateTime.current }
+    ended_at { 1.week.from_now }
   end
 end
