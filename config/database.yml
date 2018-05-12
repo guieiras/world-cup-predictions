@@ -8,8 +8,8 @@ default: &default
 
 development:
   <<: *default
-  database: world_cup_master_development
+  database: world_cup_predictions_development
 
 test:
   <<: *default
-  database: world_cup_master_test
+  database: world_cup_predictions_test
