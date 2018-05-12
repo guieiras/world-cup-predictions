@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :stadium do
-    name "MyString"
-    city "MyString"
+    name "Test Arena"
+    city "Test"
     latitude 1.5
     longitude 1.5
   end
