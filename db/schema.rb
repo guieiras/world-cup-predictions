@@ -10,6 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_05_12_135046) do
 
+  create_table "matchdays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "code"
+    t.string "name"
+    t.boolean "finished"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "matches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "home_score"
+    t.integer "away_score"
+    t.integer "home_penalty"
+    t.integer "away_penalty"
+    t.datetime "datetime"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "home_team_id"
+    t.bigint "away_team_id"
+    t.bigint "stadium_id"
+    t.bigint "matchday_id"
+    t.index ["away_team_id"], name: "index_matches_on_away_team_id"
+    t.index ["home_team_id"], name: "index_matches_on_home_team_id"
+    t.index ["matchday_id"], name: "index_matches_on_matchday_id"
+    t.index ["stadium_id"], name: "index_matches_on_stadium_id"
+  end
+
+  create_table "stadiums", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "city"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "fifa_code"
+    t.string "flag_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "matches", "matchdays"
+  add_foreign_key "matches", "stadiums"
+  add_foreign_key "matches", "teams", column: "away_team_id"
+  add_foreign_key "matches", "teams", column: "home_team_id"
 end
