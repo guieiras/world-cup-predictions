@@ -1,6 +1,6 @@
 class PredictionsController < ApplicationController
   def index
-    @matches = Match.where(matchday: Matchday.available).includes(:home_team, :away_team, :stadium)
+    @matches = Match.includes(:home_team, :away_team, :stadium).where(matchday: Matchday.available)
     @predictions = current_user.predictions.each_with_object({}) do |prediction, hash|
       hash[prediction.match_id] = prediction
     end

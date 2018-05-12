@@ -11,7 +11,13 @@
       </div>
     </div>
     <ul class="sidebar-menu" data-widget="tree">
-      <li class="header">MAIN NAVIGATION</li>
+      <li class="header"><%= t('navigation.title') %></li>
+      <li>
+        <%= link_to predictions_path do %>
+          <i class="fa fa-list"></i>
+          <span><%= t('navigation.predictions') %></span>
+        <% end %>
+      </li>
       <li class="treeview">
         <a href="#">
           <i class="fa fa-dashboard"></i>
