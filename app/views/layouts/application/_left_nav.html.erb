@@ -14,8 +14,14 @@
       <li class="header"><%= t('navigation.title') %></li>
       <li>
         <%= link_to predictions_path do %>
-          <i class="fa fa-list"></i>
+          <i class="fa fa-futbol-o"></i>
           <span><%= t('navigation.predictions') %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to matches_path do %>
+          <i class="fa fa-table"></i>
+          <span><%= t('navigation.matches') %></span>
         <% end %>
       </li>
       <li class="treeview">

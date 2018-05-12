@@ -1,9 +1,9 @@
 pt-BR:
   matchday:
-    1: Rodada 1
-    2: Rodada 2
-    3: Rodada 3
-    4: Oitavas de Final
-    5: Quartas de Final
-    6: Semi-Final
-    7: Final & Disputa de 3º Lugar
+    '1': Rodada 1
+    '2': Rodada 2
+    '3': Rodada 3
+    '4': Oitavas de Final
+    '5': Quartas de Final
+    '6': Semi-Final
+    '7': Final & Disputa de 3º Lugar

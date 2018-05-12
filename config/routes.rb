@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :predictions, only: [:index, :create]
+  resources :matches, only: :index
 end
