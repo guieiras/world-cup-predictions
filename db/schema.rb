@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_12_144813) do
+ActiveRecord::Schema.define(version: 2018_05_12_155042) do
 
   create_table "matchdays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "code"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2018_05_12_144813) do
     t.bigint "away_team_id"
     t.bigint "stadium_id"
     t.bigint "matchday_id"
+    t.integer "code"
+    t.string "stage"
     t.index ["away_team_id"], name: "index_matches_on_away_team_id"
     t.index ["home_team_id"], name: "index_matches_on_home_team_id"
     t.index ["matchday_id"], name: "index_matches_on_matchday_id"
