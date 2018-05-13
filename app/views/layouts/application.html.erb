@@ -14,7 +14,6 @@
   </head>
 
   <body class="skin-blue">
-    <!-- Site wrapper -->
     <div class="wrapper">
       <%= render 'layouts/application/header' %>
       <%= render 'layouts/application/left_nav' %>
@@ -29,14 +28,11 @@
       </div>
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Versão</b> 0.0.1-alpha
+          <b><%= t('application.version') %></b> 0.0.1-alpha
         </div>
-        <strong>&copy; 2018
-          World Cup Predictions.</strong> Todos os direitos reservados.
+        <strong>&copy; <%= Date.current.year %> <%= t('application.company') %></strong> | <%= t('application.copyright') %>
       </footer>
       <%= render 'layouts/application/right_nav' %>
-
     </div>
-    <!-- ./wrapper -->
   </body>
 </html>

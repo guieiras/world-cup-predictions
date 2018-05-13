@@ -1,6 +1,9 @@
 pt-BR:
   application:
     title: Bolão Copa do Mundo 2018
+    company: ""
+    copyright: Todos os direitos Reservados
+    version: Versão
   navigation:
     title: Menu de Navegação
     predictions: Palpites
