@@ -59,12 +59,11 @@ pt-BR:
     fields:
       email: E-mail
       password: Senha
-    form:
+    new:
       forgot_password:
         "Esqueceu sua senha?"
       sign_up:
         "Registrar-se"
-    new:
       title:
         "Iniciar uma sessão"
   users:

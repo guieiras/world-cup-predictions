@@ -1,4 +1,4 @@
-<%= form_tag predictions_path, method: :post %>
+<%= form_tag predictions_path, method: :post do %>
   <div class="row">
     <% @matches.each do |match| %>
       <div class="col-lg-6">
@@ -33,4 +33,4 @@
       <button class="btn btn-primary">Salvar</button>
     </div>
   </div>
-</form>
+<% end %>

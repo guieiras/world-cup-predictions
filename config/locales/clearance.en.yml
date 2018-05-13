@@ -51,10 +51,9 @@ en:
     fields:
       email: Email
       password: Password
-    form:
+    new:
       forgot_password: Forgot password?
       sign_up: Sign up
-    new:
       title: Sign in
   users:
     new:
