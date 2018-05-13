@@ -10,4 +10,8 @@ Rails.application.routes.draw do
 
   resources :predictions, only: [:index, :create]
   resources :matches, only: :index
+
+  namespace :admin do
+    resources :matchdays, only: [:index, :create]
+  end
 end

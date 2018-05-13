@@ -6,8 +6,10 @@ pt-BR:
     version: Versão
   navigation:
     admin: Administrador
-    title: Menu de Navegação
+    admin_menu: Painel Administrativo
     predictions: Palpites
     matches: Jogos
+    matchdays: Rodadas
+    title: Menu de Navegação
   definitions:
     game: Jogo

@@ -7,3 +7,10 @@ pt-BR:
     '5': Quartas de Final
     '6': Semi-Final
     '7': Final & Disputa de 3º Lugar
+  admin:
+    matchdays:
+      index:
+        started_at: 'Início da Rodada:'
+        ended_at: 'Fim da Rodada:'
+        matches_count: 'Quantidade de Jogos:'
+        edit: Editar
