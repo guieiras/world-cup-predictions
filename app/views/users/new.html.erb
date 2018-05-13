@@ -1,0 +1,29 @@
+<h2 class="login-box-msg"><%= t(".title") %></h2>
+
+<%= form_for @user do |form| %>
+  <div class="form-group has-feedback">
+    <%= form.text_field :name, type: 'text', class: 'form-control', placeholder: t('activerecord.attributes.user.name') %>
+    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+  </div>
+
+  <div class="form-group has-feedback">
+    <%= form.text_field :username, type: 'text', class: 'form-control', placeholder: t('activerecord.attributes.user.username') %>
+    <span class="glyphicon glyphicon-globe form-control-feedback"></span>
+  </div>
+
+  <div class="form-group has-feedback">
+    <%= form.text_field :email, type: 'email', class: 'form-control', placeholder: t('activerecord.attributes.user.email') %>
+    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+  </div>
+
+  <div class="form-group has-feedback">
+    <%= form.password_field :password, class: 'form-control', placeholder: t('activerecord.attributes.user.password') %>
+    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+  </div>
+
+  <%= form.submit class: "btn btn-primary btn-block btn-flat" %>
+<% end %>
+
+<div class="social-auth-links">
+  <%= link_to t(".sign_in"), sign_in_path %>
+</div>

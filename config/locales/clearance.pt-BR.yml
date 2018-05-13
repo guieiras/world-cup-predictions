@@ -56,6 +56,9 @@ pt-BR:
       title:
         "Resete sua senha"
   sessions:
+    fields:
+      email: E-mail
+      password: Senha
     form:
       forgot_password:
         "Esqueceu sua senha?"
@@ -63,10 +66,10 @@ pt-BR:
         "Registrar-se"
     new:
       title:
-        "Entre"
+        "Iniciar uma sessão"
   users:
     new:
       title:
-        "Registre-se"
+        "Criar uma conta"
       sign_in:
         "Entrar"
