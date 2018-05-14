@@ -23,6 +23,10 @@
               <%= f.text_field :ended_at, value: @matchday.ended_at&.strftime('%d/%m/%Y'), class: "form-control", data: { provide: "datepicker" } %>
             </div>
           </div>
+
+          <div class="text-right">
+            <%= f.submit class: 'btn btn-primary' %>
+          </div>
         <% end %>
       </div>
     </div>

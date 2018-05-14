@@ -1,4 +1,8 @@
 pt-BR:
+  helpers:
+    submit:
+      matchday:
+        update: Atualizar dados
   matchday:
     '1': Rodada 1
     '2': Rodada 2
