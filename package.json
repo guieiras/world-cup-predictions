@@ -11,6 +11,7 @@
     "Guilherme Eiras <guialbertoeiras@hotmail.com>"
   ],
   "dependencies": {
-    "admin-lte": "^2.4.3"
+    "admin-lte": "^2.4.3",
+    "select2": "^3.5.1"
   }
 }

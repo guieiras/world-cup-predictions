@@ -14,6 +14,8 @@
  *= require font-awesome/css/font-awesome.min
  *= require admin-lte/dist/css/AdminLTE.min
  *= require admin-lte/dist/css/skins/skin-blue.min
+ *= require select2/select2
+ *= require select2/select2-bootstrap
  *= require bootstrap-datepicker/dist/css/bootstrap-datepicker
  *= require_tree .
  *= require_self
