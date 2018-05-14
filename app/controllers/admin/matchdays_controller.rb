@@ -5,7 +5,7 @@ class Admin::MatchdaysController < AdminController
 
   def edit
     @matchday = Matchday.find(params[:id])
-    @matches = Match.includes(:home_team, :away_team, :stadium).where(matchday: @matchday)
+    @matches = Match.includes(:home_team, :away_team).where(matchday: @matchday)
     @teams = Team.all
   end
 
@@ -16,7 +16,12 @@ class Admin::MatchdaysController < AdminController
     params['matches'].permit!
     Match.transaction do
       params['matches'].each do |match_id, match_score|
-        Match.where(id: match_id).update_all(match_score.to_h)
+        match = Match.find(match_id)
+        match.assign_attributes(match_score.to_h)
+
+        if match.changed?
+          match.save
+        end
       end
     end
 

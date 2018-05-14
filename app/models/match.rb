@@ -4,7 +4,14 @@ class Match < ApplicationRecord
   belongs_to :stadium
   belongs_to :matchday
 
+  before_save :populate_finished
+
   def past?
     datetime < DateTime.current
+  end
+
+  private
+  def populate_finished
+    self.finished = home_score.present? && away_score.present?
   end
 end
