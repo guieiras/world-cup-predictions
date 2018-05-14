@@ -6,3 +6,6 @@ pt-BR:
         username: "Nome de Usuário"
         email: "E-mail"
         password: "Senha"
+      matchday:
+        started_at: Início
+        ended_at: Término

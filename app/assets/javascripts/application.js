@@ -16,4 +16,9 @@
 //= require slimscroll/example/ssmaster/jquery.slimscroll.min
 //= require bootstrap/dist/js/bootstrap.min
 //= require admin-lte/dist/js/adminlte.min
+//= require select2/select2
+//= require bootstrap-datepicker/dist/js/bootstrap-datepicker
+//= require bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min
 //= require_tree .
+
+$.fn.datepicker.defaults.language = "pt-BR"

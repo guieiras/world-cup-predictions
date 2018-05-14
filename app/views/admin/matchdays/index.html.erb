@@ -20,7 +20,9 @@
           </div>
         </div>
         <div class="box-footer text-right">
-          <button class="btn btn-default"><i class="fa fa-edit"></i> <%= t('.edit') %></button>
+          <%= link_to edit_admin_matchday_path(matchday), class: "btn btn-default" do %>
+            <i class="fa fa-edit"></i> <%= t('.edit') %>
+          <% end %>
         </div>
       </div>
     </div>

@@ -14,3 +14,6 @@ pt-BR:
         ended_at: 'Fim da Rodada:'
         matches_count: 'Quantidade de Jogos:'
         edit: Editar
+      edit:
+        settings: Informações gerais
+        settings_description: Configurações da disponibilidade da rodada para palpites. Fora do período informado, não será possível fazer edições nos palpites.
