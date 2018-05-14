@@ -16,7 +16,7 @@ class Admin::MatchdaysController < AdminController
     params['matches'].permit!
     Match.transaction do
       params['matches'].each do |match_id, match_score|
-        Match.where(id: match_id).update(match_score)
+        Match.where(id: match_id).update_all(match_score.to_h)
       end
     end
 
