@@ -1,17 +1,17 @@
 <%= form_tag predictions_path, method: :post do %>
   <div class="row">
-    <% @matches.each do |match| %>
+    <% MatchPresenter.wrap(@matches).each do |match| %>
       <div class="col-lg-6">
         <div class="panel panel-default game-info">
           <div class="panel-heading">
-            <b><%= t('definitions.game') %> <%= match.code %></b> - <%= match.stadium.name %> - <%= match.datetime.strftime("%d/%m %H:%M") %>
+            <b><%= match.identifier %></b> - <%= match.stadium.name %> - <%= match.datetime %>
           </div>
           <div class="panel-body">
             <div class="game-teams">
               <i class="fa fa-minus fa-2x game-score-divisor"></i>
               <div class="home-team pull-left">
-                <img class="team-flag" src="<%= match.home_team&.flag_url || 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/2000px-Flag_of_None.svg.png'%>">
-                <span class="team-name"><%= match.home_team&.fifa_code %></span>
+                <img class="team-flag" src="<%= match.home_team.flag_url %>">
+                <span class="team-name"><%= match.home_team.fifa_code %></span>
                 <span class="team-score">
                   <input
                     type="text"
@@ -30,8 +30,8 @@
                     value="<%= @predictions[match.id]&.away_score %>"
                     data-inputmask="'mask': '9'">
                 </span>
-                <span class="team-name"><%= match.away_team&.fifa_code %></span>
-                <img class="team-flag" src="<%= match.away_team&.flag_url || 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/2000px-Flag_of_None.svg.png'%>">
+                <span class="team-name"><%= match.away_team.fifa_code %></span>
+                <img class="team-flag" src="<%= match.away_team.flag_url %>">
               </div>
             </div>
             <div class="clearfix"></div>
@@ -40,7 +40,7 @@
       </div>
     <% end %>
     <div class="col-md-12 text-right">
-      <button class="btn btn-primary">Salvar</button>
+      <button class="btn btn-primary"><%= t('.save') %></button>
     </div>
   </div>
 <% end %>
