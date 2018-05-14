@@ -1,0 +1,3 @@
+pt-BR:
+  match:
+    identifier: Jogo %{code}

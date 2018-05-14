@@ -5,22 +5,22 @@
         <div class="panel-heading"><%= I18n.t(matchday.code, scope: 'matchday') %></div>
         <div class="panel-body">
           <table class="table table-bordered match-table">
-            <% matchday.matches.each do |match| %>
+            <% MatchPresenter.wrap(matchday.matches).each do |match| %>
               <tr>
-                <td class="match-code hidden-xs"><%= t('definitions.game') %> <%= match.code %></td>
-                <td class="match-date hidden-xs"><%= match.datetime.strftime("%d/%m %H:%M") %></td>
+                <td class="match-code hidden-xs"><%= match.identifier %></td>
+                <td class="match-date hidden-xs"><%= match.datetime %></td>
                 <td class="match-stadium hidden-xs hidden-sm"><%= match.stadium.name %></td>
                 <td class="match-team match-home-team">
-                  <img class="team-flag" src="<%= match.home_team&.flag_url || 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/2000px-Flag_of_None.svg.png'%>">
-                  <span class="team-name hidden-xs"><%= t(match.home_team&.fifa_code, scope: 'teams') %></span>
-                  <span class="team-code hidden-lg hidden-md hidden-sm"><%= match.home_team&.fifa_code %></span>
+                  <img class="team-flag" src="<%= match.home_team.flag_url %>">
+                  <span class="team-name hidden-xs"><%= match.home_team.name %></span>
+                  <span class="team-code hidden-lg hidden-md hidden-sm"><%= match.home_team.fifa_code %></span>
                 </td>
-                <td class="match-score match-home-score"><%= match.home_score || '-' %><%= " (#{match.home_penalty})" if  match.home_penalty%></td>
-                <td class="match-score match-away-score"><%= "(#{match.away_penalty}) " if  match.away_penalty%><%= match.away_score || '-' %></td>
+                <td class="match-score match-home-score"><%= match.home_score %></td>
+                <td class="match-score match-away-score"><%= match.away_score %></td>
                 <td class="match-team match-away-team">
-                  <span class="team-code hidden-lg hidden-md hidden-sm"><%= match.away_team&.fifa_code %></span>
-                  <span class="team-name hidden-xs"><%= t(match.away_team&.fifa_code, scope: 'teams') %></span>
-                  <img class="team-flag" src="<%= match.away_team&.flag_url || 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/2000px-Flag_of_None.svg.png'%>">
+                  <span class="team-code hidden-lg hidden-md hidden-sm"><%= match.away_team.fifa_code %></span>
+                  <span class="team-name hidden-xs"><%= match.away_team.name %></span>
+                  <img class="team-flag" src="<%= match.away_team.flag_url %>">
                 </td>
                 <td class="match-actions">
                   <a>
