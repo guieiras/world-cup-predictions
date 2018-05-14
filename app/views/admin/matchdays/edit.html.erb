@@ -6,10 +6,10 @@
           <i class="fa fa-gears"></i> <%= t(@matchday.code, scope: 'matchday') %>
         </h3>
       </div>
-      <div class="box-body">
-        <h4><%= t('.settings') %></h4>
-        <p><%= t('.settings_description') %></p>
-        <%= form_for ['admin', @matchday], method: :put, html: { class: 'form-horizontal' } do |f| %>
+      <%= form_for ['admin', @matchday], method: :put, html: { class: 'form-horizontal' } do |f| %>
+        <div class="box-body">
+          <h4><%= t('.settings') %></h4>
+          <p><%= t('.settings_description') %></p>
           <div class="form-group">
             <%= f.label :started_at, class: "col-sm-2 control-label" %>
             <div class="col-sm-10">
@@ -24,11 +24,66 @@
             </div>
           </div>
 
-          <div class="text-right">
-            <%= f.submit class: 'btn btn-primary' %>
-          </div>
-        <% end %>
-      </div>
+          <hr>
+          <h4><%= t('.games') %></h4>
+          <p><%= t('.games_description') %></p>
+          <table class="table table-bordered match-table">
+            <% @matches.each do |match| %>
+              <tr class="<%='played-match' if match.past? %>">
+                <td class="match-code hidden-xs"><%= t('definitions.game') %> <%= match.code %></td>
+                <td class="match-date hidden-xs">
+                  <%= match.datetime.strftime("%d/%m %H:%M") %>
+                </td>
+                <td class="match-team match-home-team">
+                  <img class="team-flag" src="<%= match.home_team&.flag_url || 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/2000px-Flag_of_None.svg.png'%>">
+                  <span class="team-name hidden-xs"><%= t(match.home_team&.fifa_code, scope: 'teams') %></span>
+                  <span class="team-code hidden-lg hidden-md hidden-sm"><%= match.home_team&.fifa_code %></span>
+                </td>
+                <td class="match-score match-score-input match-home-score">
+                  <input
+                    type="text"
+                    class="form-control game-score game-penalty"
+                    name="matches[<%=match.id %>][home_penalty]"
+                    value="<%= match.home_penalty %>"
+                    data-inputmask="'mask': '9'">
+                </td>
+                <td class="match-score match-score-input match-home-score">
+                  <input
+                    type="text"
+                    class="form-control game-score"
+                    name="matches[<%=match.id %>][home_score]"
+                    value="<%= match.home_score %>"
+                    data-inputmask="'mask': '9'">
+                </td>
+                <td class="match-score match-score-input match-away-score">
+                  <input
+                    type="text"
+                    class="form-control game-score"
+                    name="matches[<%=match.id %>][away_score]"
+                    value="<%= match.away_score %>"
+                    data-inputmask="'mask': '9'">
+                </td>
+                <td class="match-score match-score-input match-away-score">
+                  <input
+                    type="text"
+                    class="form-control game-score game-penalty"
+                    name="matches[<%=match.id %>][away_penalty]"
+                    value="<%= match.away_penalty %>"
+                    data-inputmask="'mask': '9'">
+                </td>
+                <td class="match-team match-away-team">
+                  <span class="team-code hidden-lg hidden-md hidden-sm"><%= match.away_team&.fifa_code %></span>
+                  <span class="team-name hidden-xs"><%= t(match.away_team&.fifa_code, scope: 'teams') %></span>
+                  <img class="team-flag" src="<%= match.away_team&.flag_url || 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/2000px-Flag_of_None.svg.png'%>">
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+        <div class="box-footer text-right">
+          <%= f.submit class: 'btn btn-primary' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

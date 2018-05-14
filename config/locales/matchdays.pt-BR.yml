@@ -21,3 +21,5 @@ pt-BR:
       edit:
         settings: Informações gerais
         settings_description: Configurações da disponibilidade da rodada para palpites. Fora do período informado, não será possível fazer edições nos palpites.
+        games: Resultados dos Jogos
+        games_description: Após a consolidação dos resultados, não será possível mais fazer palpites e os pontos de cada jogador serão calculados automaticamente.
