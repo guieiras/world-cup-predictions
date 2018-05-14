@@ -4,6 +4,8 @@ class Match < ApplicationRecord
   belongs_to :stadium
   belongs_to :matchday
 
+  has_many :predictions
+
   before_save :populate_finished
 
   def past?
