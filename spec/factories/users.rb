@@ -4,5 +4,6 @@ FactoryBot.define do
     username "johndoe"
     email "john@doe.com"
     avatar "http://photos.url/johndoe"
+    password "123"
   end
 end
