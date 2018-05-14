@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_12_225946) do
+ActiveRecord::Schema.define(version: 2018_05_14_140038) do
 
   create_table "matchdays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "code"
@@ -38,6 +38,22 @@ ActiveRecord::Schema.define(version: 2018_05_12_225946) do
     t.index ["home_team_id"], name: "index_matches_on_home_team_id"
     t.index ["matchday_id"], name: "index_matches_on_matchday_id"
     t.index ["stadium_id"], name: "index_matches_on_stadium_id"
+  end
+
+  create_table "prediction_results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.boolean "home_score"
+    t.boolean "away_score"
+    t.boolean "home_penalty"
+    t.boolean "away_penalty"
+    t.boolean "game_winner"
+    t.boolean "penalty_winner"
+    t.boolean "match_winner"
+    t.boolean "score_difference"
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "prediction_id", null: false
+    t.index ["prediction_id"], name: "index_prediction_results_on_prediction_id"
   end
 
   create_table "predictions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,6 +105,7 @@ ActiveRecord::Schema.define(version: 2018_05_12_225946) do
   add_foreign_key "matches", "stadiums"
   add_foreign_key "matches", "teams", column: "away_team_id"
   add_foreign_key "matches", "teams", column: "home_team_id"
+  add_foreign_key "prediction_results", "predictions"
   add_foreign_key "predictions", "matches"
   add_foreign_key "predictions", "users"
 end
