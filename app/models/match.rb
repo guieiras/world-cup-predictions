@@ -8,6 +8,11 @@ class Match < ApplicationRecord
 
   before_save :populate_finished
 
+  scope :predictable, -> do
+    where(arel_table[:datetime].between(5.days.ago..5.hours.ago))
+      .where.not(home_team: nil, away_team: nil)
+  end
+
   def past?
     datetime < DateTime.current
   end

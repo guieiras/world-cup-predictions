@@ -30,12 +30,7 @@ namespace :setup do
 
       # Creating Matchdays
       (1..7).each do |code|
-        cached_matchdays[code] =
-          Matchday.create(
-            code: code,
-            started_at: Time.current.beginning_of_day,
-            ended_at: Date.new(2018, 6, 13)
-          )
+        cached_matchdays[code] = Matchday.create(code: code)
       end
 
       # Creating Matches
