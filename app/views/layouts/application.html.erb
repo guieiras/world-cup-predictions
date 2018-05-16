@@ -19,8 +19,11 @@
       <%= render 'layouts/application/left_nav' %>
       <div class="content-wrapper">
         <section class="content-header">
-          <%= yield :head %>
-
+          <% if content_for? :head %>
+            <%= yield :head %>
+          <% else %>
+            <h1 class="panel panel-body"><% t('.title') %></h1>
+          <% end %>
         </section>
         <section class="content">
           <%= yield %>
