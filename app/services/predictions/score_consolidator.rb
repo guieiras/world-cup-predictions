@@ -19,7 +19,7 @@ class Predictions::ScoreConsolidator
         result.penalty_winner = correct_penalty_winner? prediction
         result.match_winner = correct_match_winner? prediction
 
-        result.score = Predictions::ScoreCalculator.call(result)
+        result.score = Predictions::ScoreCalculator.calculate(result)
         result.save
       end
     end

@@ -4,6 +4,6 @@ class ConsolidatePredictionResultsJob < ApplicationJob
   def perform(match_id)
     match = Match.find(match_id)
 
-    ScoreConsolidator.new(match).consolidate
+    Predictions::ScoreConsolidator.new(match).consolidate
   end
 end

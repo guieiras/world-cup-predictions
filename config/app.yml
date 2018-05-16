@@ -1,7 +1,14 @@
 # config/app.yml for rails-settings-cached
 defaults: &defaults
-  foo: "Foo"
-  bar: 123
+  score:
+    home_score: 1
+    away_score: 1
+    home_penalty: 1
+    away_penalty: 1
+    game_winner: 1
+    score_difference: 1
+    penalty_winner: 1
+    match_winner: 1
 
 development:
   <<: *defaults
