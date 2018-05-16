@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_16_022917) do
+ActiveRecord::Schema.define(version: 2018_05_16_024703) do
 
   create_table "matchdays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "code"
@@ -44,8 +44,6 @@ ActiveRecord::Schema.define(version: 2018_05_16_022917) do
   create_table "prediction_results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "home_score"
     t.boolean "away_score"
-    t.boolean "home_penalty"
-    t.boolean "away_penalty"
     t.boolean "game_winner"
     t.boolean "penalty_winner"
     t.boolean "match_winner"
@@ -54,6 +52,7 @@ ActiveRecord::Schema.define(version: 2018_05_16_022917) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "prediction_id", null: false
+    t.boolean "penalty_result"
     t.index ["prediction_id"], name: "index_prediction_results_on_prediction_id"
   end
 

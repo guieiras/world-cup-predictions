@@ -3,10 +3,9 @@ defaults: &defaults
   score:
     home_score: 1
     away_score: 1
-    home_penalty: 1
-    away_penalty: 1
     game_winner: 1
     score_difference: 1
+    penalty_result: 1
     penalty_winner: 1
     match_winner: 1
 
