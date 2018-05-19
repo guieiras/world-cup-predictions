@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   resources :matches, only: :index
 
   namespace :admin do
-    resources :matchdays, only: [:index, :edit, :update]
+    resources :matches, only: [:index, :update]
   end
 end

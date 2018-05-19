@@ -1,3 +1,14 @@
 pt-BR:
+  admin:
+    matches:
+      index:
+        title: Edição de Jogos
+  helpers:
+    submit:
+      match:
+        update: Salvar
   match:
     identifier: Jogo %{code}
+  matches:
+    index:
+      title: Resultados

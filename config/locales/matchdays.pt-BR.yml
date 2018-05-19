@@ -1,8 +1,4 @@
 pt-BR:
-  helpers:
-    submit:
-      matchday:
-        update: Atualizar dados
   matchday:
     '1': Rodada 1
     '2': Rodada 2
@@ -11,15 +7,3 @@ pt-BR:
     '5': Quartas de Final
     '6': Semi-Final
     '7': Final & Disputa de 3º Lugar
-  admin:
-    matchdays:
-      index:
-        started_at: 'Início da Rodada:'
-        ended_at: 'Fim da Rodada:'
-        matches_count: 'Quantidade de Jogos:'
-        edit: Editar
-      edit:
-        settings: Informações gerais
-        settings_description: Configurações da disponibilidade da rodada para palpites. Fora do período informado, não será possível fazer edições nos palpites.
-        games: Resultados dos Jogos
-        games_description: Após a consolidação dos resultados, não será possível mais fazer palpites e os pontos de cada jogador serão calculados automaticamente.

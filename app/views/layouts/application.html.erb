@@ -22,7 +22,9 @@
           <% if content_for? :head %>
             <%= yield :head %>
           <% else %>
-            <h1 class="panel panel-body"><% t('.title') %></h1>
+            <h1 class="panel panel-body">
+              <%= t('title', scope: [controller_path.split('/'), action_name].flatten) %>
+            </h1>
           <% end %>
         </section>
         <section class="content">

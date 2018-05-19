@@ -54,7 +54,7 @@
       <% if current_user.admin? %>
         <li class="header"><%= t('navigation.admin_menu') %></li>
         <li>
-          <%= link_to admin_matchdays_path do %>
+          <%= link_to admin_matches_path do %>
             <i class="fa fa-calendar-check-o"></i>
             <span><%= t('navigation.matchdays') %></span>
           <% end %>

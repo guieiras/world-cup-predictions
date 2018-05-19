@@ -1,0 +1,49 @@
+<table class="table table-bordered match-table">
+  <% MatchPresenter.wrap(matches).each do |match| %>
+    <%= form_for ['admin', match], method: :put, remote: true do |f| %>
+      <tr class="<%='played-match' if match.past? %>">
+        <td class="match-code hidden-xs"><%= match.identifier %></td>
+        <td class="match-date hidden-xs">
+          <%= match.datetime %>
+        </td>
+        <td class="match-team match-home-team">
+          <img class="team-flag" src="<%= match.home_team.flag_url %>">
+          <span class="team-name hidden-xs"><%= match.home_team.name %></span>
+          <span class="team-code hidden-lg hidden-md hidden-sm"><%= match.home_team.fifa_code %></span>
+        </td>
+        <td class="match-score match-score-input match-home-score">
+          <%= f.text_field :home_penalty, \
+            class: "form-control game-score game-penalty", \
+            value: match.home_penalty, \
+            data: { inputmask: "'mask': '9'" } %>
+        </td>
+        <td class="match-score match-score-input match-home-score">
+          <%= f.text_field :home_score, \
+            class: "form-control game-score", \
+            value: match.home_score, \
+            data: { inputmask: "'mask': '9'" } %>
+        </td>
+        <td class="match-score match-score-input match-away-score">
+          <%= f.text_field :away_score, \
+            class: "form-control game-score", \
+            value: match.away_score, \
+            data: { inputmask: "'mask': '9'" } %>
+        </td>
+        <td class="match-score match-score-input match-away-score">
+          <%= f.text_field :away_penalty, \
+            class: "form-control game-score game-penalty", \
+            value: match.away_penalty, \
+            data: { inputmask: "'mask': '9'" } %>
+        </td>
+        <td class="match-team match-away-team">
+          <span class="team-code hidden-lg hidden-md hidden-sm"><%= match.away_team.fifa_code %></span>
+          <span class="team-name hidden-xs"><%= match.away_team.name %></span>
+          <img class="team-flag" src="<%= match.away_team.flag_url %>">
+        </td>
+        <td class="match-details-actions text-center">
+          <%= f.submit class: 'btn btn-primary' %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
