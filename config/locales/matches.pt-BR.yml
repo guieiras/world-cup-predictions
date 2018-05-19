@@ -1,6 +1,8 @@
 pt-BR:
   admin:
     matches:
+      form:
+        finished: Encerrado
       index:
         title: Gerenciamento de Jogos
       update:

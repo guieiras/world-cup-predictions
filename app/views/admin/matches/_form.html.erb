@@ -20,16 +20,24 @@
           </td>
         <% end %>
         <td class="match-score match-score-input match-home-score">
-          <%= f.text_field :home_score, \
-            class: "form-control game-score", \
-            value: match.home_score, \
-            data: { inputmask: "'mask': '9'" } %>
+          <% if !match.finished? %>
+            <%= f.text_field :home_score, \
+              class: "form-control game-score", \
+              value: match.home_score, \
+              data: { inputmask: "'mask': '9'" } %>
+          <% else %>
+            <span><%= match.home_complete_score %></span>
+          <% end %>
         </td>
         <td class="match-score match-score-input match-away-score">
-          <%= f.text_field :away_score, \
-            class: "form-control game-score", \
-            value: match.away_score, \
-            data: { inputmask: "'mask': '9'" } %>
+          <% if !match.finished? %>
+            <%= f.text_field :away_score, \
+              class: "form-control game-score", \
+              value: match.away_score, \
+              data: { inputmask: "'mask': '9'" } %>
+          <% else %>
+            <span><%= match.away_complete_score %></span>
+          <% end %>
         </td>
         <% if match.knockout? %>
           <td class="match-score match-score-input match-away-score">
@@ -45,7 +53,11 @@
           <img class="team-flag" src="<%= match.away_team.flag_url %>">
         </td>
         <td class="match-details-actions text-center">
-          <%= f.submit class: 'btn btn-primary' %>
+          <% if match.finished? %>
+            <p><%= t('.finished') %></p>
+          <% else %>
+            <%= f.submit class: 'btn btn-primary' %>
+          <% end %>
         </td>
       </tr>
     <% end %>

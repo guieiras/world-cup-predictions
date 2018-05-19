@@ -8,6 +8,6 @@ class Admin::MatchesController < AdminController
     match_params = params.require(:match).permit(:home_penalty, :away_penalty, :home_score, :away_score)
     match = Match.find(params[:id])
 
-    match.update(match_params)
+    ConsolidatePredictionResultsJob.perform_now(match.id) if match.update(match_params)
   end
 end

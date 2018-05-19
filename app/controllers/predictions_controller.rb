@@ -2,12 +2,14 @@ class PredictionsController < ApplicationController
   def index
     @predictions = current_user
                      .predictions
+                     .joins(:match)
+                     .order('matches.datetime ASC')
                      .includes(:result, match: [:home_team, :away_team])
   end
 
   def current
     @matches = Match.includes(:home_team, :away_team, :stadium).predictable
-    @predictions = current_user.predictions.where(id: @matches).each_with_object({}) do |prediction, hash|
+    @predictions = current_user.predictions.where(match_id: @matches).each_with_object({}) do |prediction, hash|
       hash[prediction.match_id] = prediction
     end
   end
