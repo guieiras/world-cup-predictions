@@ -1,40 +1,44 @@
 <div class="row">
   <% @predictions.each do |prediction| %>
     <% match = MatchPresenter.new(prediction.match) %>
-    <div class="col-lg-4">
+    <% result = PredictionResultPresenter.new(prediction.result) %>
+    <div class="col-md-6 col-lg-4">
       <div class="panel panel-default prediction-item">
-        <div class="panel-heading">
-          <div class="game-info">
-            <div class="team home-team">
-              <img class="team-flag" src="<%= match.home_team.flag_url %>">
-              <span class="team-name"><%= match.home_team.fifa_code %></span>
-            </div>
-            <i class="fa fa-times"></i>
-            <div class="team away-team">
-              <span class="team-name"><%= match.away_team.fifa_code %></span>
-              <img class="team-flag" src="<%= match.away_team.flag_url %>">
-            </div>
-          </div>
-        </div>
-        <div class="panel-body text-center">
-          <label>Palpite</label>
-          <p>
-            <%= match.home_team.fifa_code %> <%= prediction.home_score %>
-            <span>x</span>
-            <%= prediction.away_score %> <%= match.away_team.fifa_code %>
-          </p>
-          <label>Resultado</label>
-          <p>
-            <%= match.home_team.fifa_code %> <%= match.home_score %>
-            <span>x</span>
-            <%= match.away_score %> <%= match.away_team.fifa_code %>
-          </p>
-          <label>Resultado</label>
-          <p>
-            <%= match.home_team.fifa_code %> <%= match.home_score %>
-            <span>x</span>
-            <%= match.away_score %> <%= match.away_team.fifa_code %>
-          </p>
+        <div class="panel-heading"><%= match.identifier %></div>
+        <div class="panel-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Palpite</th>
+                <th class="text-center"><i class="fa fa-dot-circle-o"></i></th>
+                <th class="text-center"><i class="fa fa-futbol-o"></i></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <img class="team-flag" src="<%= match.home_team.flag_url %>">
+                  <%= match.home_team.name %>
+                  <span class="hidden-xs"> (<%= match.home_team.fifa_code %>)</span>
+                </td>
+                <td class="text-center predictions-table-score"><%= prediction.home_score %></td>
+                <td class="text-center predictions-table-score"><%= match.home_score %></td>
+              </tr>
+              <tr>
+                <td>
+                  <img class="team-flag" src="<%= match.away_team.flag_url %>">
+                  <%= match.away_team.name %>
+                  <span class="hidden-xs"> (<%= match.away_team.fifa_code %>)</span>
+                </td>
+                <td class="text-center"><%= prediction.away_score %></td>
+                <td class="text-center"><%= match.away_score %></td>
+              </tr>
+            </tbody>
+          </table>
+          <% result.successes.each do |s| %>
+            <p><%= s %></p>
+          <% end %>
+          <p>Score: <span><%= result.score %></p>
         </div>
       </div>
     </div>

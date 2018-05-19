@@ -9,7 +9,7 @@ class Match < ApplicationRecord
   before_save :populate_finished
 
   scope :predictable, -> do
-    where(arel_table[:datetime].between(5.hours.from_now..5.days.from_now))
+    where(arel_table[:datetime].between(5.hours.from_now..29.days.from_now))
       .where.not(home_team: nil, away_team: nil)
   end
 
@@ -18,7 +18,7 @@ class Match < ApplicationRecord
   end
 
   def predictable?
-    (5.hours.from_now..30.days.from_now).cover? datetime
+    (5.hours.from_now..29.days.from_now).cover?(datetime) && !finished?
   end
 
   private

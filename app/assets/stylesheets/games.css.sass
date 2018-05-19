@@ -2,31 +2,15 @@
   width: 30px
   height: 20px
 
-.game-score-divisor
-  position: absolute
-  top: 50%
-  left: calc(50% - 11px)
+.team-score
+  float: right
 
 .game-teams
   position: relative
   display: block
   width: 100%
   .home-team, .away-team
-    margin: 0 1.3%
-  .away-team
-    text-align: right
-
-  .team-score
-    display: inline
-    position: absolute
-    top: -5px
-
-  .home-team
-    .team-score
-      left: calc(50% - 60px)
-  .away-team
-    .team-score
-      right: calc(50% - 60px)
+    margin: 5px 0
 
 .game-prediction-score, .game-score
   width: 40px
@@ -38,3 +22,7 @@
     width: 35px
     border-radius: 50px
     font-size: 13px
+
+.predictions-table-score
+  width: 55px
+  font-size: 15px

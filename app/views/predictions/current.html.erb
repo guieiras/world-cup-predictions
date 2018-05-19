@@ -2,17 +2,19 @@
   <%= form_tag predictions_path, method: :post do %>
     <div class="row">
       <% MatchPresenter.wrap(@matches).each do |match| %>
-        <div class="col-lg-6">
+        <div class="col-sm-6 col-md-4">
           <div class="panel panel-default game-info">
             <div class="panel-heading">
-              <b><%= match.identifier %></b> - <%= match.stadium.name %> - <%= match.datetime %>
+              <b><%= match.identifier %></b>
+              <span class="hidden-lg"><br></span>
+              <span class="hidden-xs hidden-sm hidden-md"> - </span>
+              <%= match.datetime :long %>
             </div>
             <div class="panel-body">
               <div class="game-teams">
-                <i class="fa fa-minus fa-2x game-score-divisor"></i>
-                <div class="home-team pull-left">
+                <div class="home-team">
                   <img class="team-flag" src="<%= match.home_team.flag_url %>">
-                  <span class="team-name"><%= match.home_team.fifa_code %></span>
+                  <span class="team-name"><%= match.home_team.name %></span>
                   <span class="team-score">
                     <input
                       type="text"
@@ -21,8 +23,11 @@
                       value="<%= @predictions[match.id]&.home_score %>"
                       data-inputmask="'mask': '9'">
                   </span>
+                  <div class="clearfix"></div>
                 </div>
-                <div class="away-team pull-right">
+                <div class="away-team">
+                  <img class="team-flag" src="<%= match.away_team.flag_url %>">
+                  <span class="team-name"><%= match.away_team.name %></span>
                   <span class="team-score">
                     <input
                       type="text"
@@ -31,15 +36,14 @@
                       value="<%= @predictions[match.id]&.away_score %>"
                       data-inputmask="'mask': '9'">
                   </span>
-                  <span class="team-name"><%= match.away_team.fifa_code %></span>
-                  <img class="team-flag" src="<%= match.away_team.flag_url %>">
+                  <div class="clearfix"></div>
                 </div>
               </div>
-              <div class="clearfix"></div>
             </div>
           </div>
         </div>
       <% end %>
+      <div class="clearfix"></div>
       <div class="col-md-12 text-right">
         <button class="btn btn-primary"><%= t('.save') %></button>
       </div>

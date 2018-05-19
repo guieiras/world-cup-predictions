@@ -32,7 +32,7 @@ class MatchPresenter < SimpleDelegator
     away_score ? away_score.to_s + penalty_score : '-'
   end
 
-  def datetime
-    I18n.l(match.datetime, format: :xshort)
+  def datetime format=:xshort
+    I18n.l(match.datetime, format: format)
   end
 end
