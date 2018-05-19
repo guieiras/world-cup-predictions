@@ -11,5 +11,6 @@ FactoryBot.define do
     matchday
     datetime "2018-05-12 13:50:46"
     stage "round_1"
+    match_type "group"
   end
 end

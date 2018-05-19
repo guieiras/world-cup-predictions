@@ -3,8 +3,7 @@ FactoryBot.define do
     prediction
     home_score false
     away_score false
-    home_penalty false
-    away_penalty false
+    penalty_result false
     game_winner false
     penalty_winner false
     match_winner false
