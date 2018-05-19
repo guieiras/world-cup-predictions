@@ -21,6 +21,7 @@
 //= require bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min
 //= require inputmask/dist/min/jquery.inputmask.bundle.min
 //= require inputmask/dist/inputmask/bindings/inputmask.binding
+//= require toastr/build/toastr.min
 //= require_tree .
 
 $.fn.datepicker.defaults.language = "pt-BR"
