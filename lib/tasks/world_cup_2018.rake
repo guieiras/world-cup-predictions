@@ -43,6 +43,7 @@ namespace :setup do
             matchday: cached_matchdays[match["matchday"]],
             stadium: cached_stadiums[match["stadium"]],
             datetime: match["date"],
+            match_type: "group",
             stage: "group_#{group_name}")
         end
       end
@@ -54,6 +55,7 @@ namespace :setup do
             matchday: cached_matchdays[match["matchday"]],
             stadium: cached_stadiums[match["stadium"]],
             datetime: match["date"],
+            match_type: "knockout",
             stage: stage)
         end
       end
