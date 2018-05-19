@@ -17,6 +17,10 @@ class Match < ApplicationRecord
     datetime < DateTime.current
   end
 
+  def predictable?
+    (5.hours.from_now..30.days.from_now).cover? datetime
+  end
+
   private
   def populate_finished
     self.finished = home_score.present? && away_score.present?

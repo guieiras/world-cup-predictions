@@ -21,8 +21,14 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header"><%= t('navigation.title') %></li>
       <li>
-        <%= link_to predictions_path do %>
+        <%= link_to current_predictions_path do %>
           <i class="fa fa-futbol-o"></i>
+          <span><%= t('navigation.current_predictions') %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to predictions_path do %>
+          <i class="fa fa-history"></i>
           <span><%= t('navigation.predictions') %></span>
         <% end %>
       </li>
@@ -56,7 +62,7 @@
         <li>
           <%= link_to admin_matches_path do %>
             <i class="fa fa-calendar-check-o"></i>
-            <span><%= t('navigation.matchdays') %></span>
+            <span><%= t('navigation.match_management') %></span>
           <% end %>
         </li>
       <% end %>

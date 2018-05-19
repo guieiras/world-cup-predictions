@@ -1,5 +1,11 @@
 class PredictionsController < ApplicationController
   def index
+    @predictions = current_user
+                     .predictions
+                     .includes(:result, match: [:home_team, :away_team])
+  end
+
+  def current
     @matches = Match.includes(:home_team, :away_team, :stadium).predictable
     @predictions = current_user.predictions.where(id: @matches)
   end

@@ -6,7 +6,7 @@ class Prediction < ApplicationRecord
   validate :match_available?, if: -> { home_score_changed? || away_score_changed? }
 
   private
-  def matchday_available?
+  def match_available?
     match.predictable?
   end
 end

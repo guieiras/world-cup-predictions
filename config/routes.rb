@@ -8,7 +8,11 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
-  resources :predictions, only: [:index, :create]
+  resources :predictions, only: [:index, :create] do
+    collection do
+      get :current
+    end
+  end
   resources :matches, only: :index
 
   namespace :admin do

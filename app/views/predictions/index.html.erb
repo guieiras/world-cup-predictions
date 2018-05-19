@@ -1,50 +1,42 @@
-<% if @matches.present? %>
-  <%= form_tag predictions_path, method: :post do %>
-    <div class="row">
-      <% MatchPresenter.wrap(@matches).each do |match| %>
-        <div class="col-lg-6">
-          <div class="panel panel-default game-info">
-            <div class="panel-heading">
-              <b><%= match.identifier %></b> - <%= match.stadium.name %> - <%= match.datetime %>
+<div class="row">
+  <% @predictions.each do |prediction| %>
+    <% match = MatchPresenter.new(prediction.match) %>
+    <div class="col-lg-4">
+      <div class="panel panel-default prediction-item">
+        <div class="panel-heading">
+          <div class="game-info">
+            <div class="team home-team">
+              <img class="team-flag" src="<%= match.home_team.flag_url %>">
+              <span class="team-name"><%= match.home_team.fifa_code %></span>
             </div>
-            <div class="panel-body">
-              <div class="game-teams">
-                <i class="fa fa-minus fa-2x game-score-divisor"></i>
-                <div class="home-team pull-left">
-                  <img class="team-flag" src="<%= match.home_team.flag_url %>">
-                  <span class="team-name"><%= match.home_team.fifa_code %></span>
-                  <span class="team-score">
-                    <input
-                      type="text"
-                      class="form-control game-prediction-score"
-                      name="predictions[<%=match.id%>][home_score]"
-                      value="<%= @predictions[match.id]&.home_score %>"
-                      data-inputmask="'mask': '9'">
-                  </span>
-                </div>
-                <div class="away-team pull-right">
-                  <span class="team-score">
-                    <input
-                      type="text"
-                      class="form-control game-prediction-score"
-                      name="predictions[<%=match.id%>][away_score]"
-                      value="<%= @predictions[match.id]&.away_score %>"
-                      data-inputmask="'mask': '9'">
-                  </span>
-                  <span class="team-name"><%= match.away_team.fifa_code %></span>
-                  <img class="team-flag" src="<%= match.away_team.flag_url %>">
-                </div>
-              </div>
-              <div class="clearfix"></div>
+            <i class="fa fa-times"></i>
+            <div class="team away-team">
+              <span class="team-name"><%= match.away_team.fifa_code %></span>
+              <img class="team-flag" src="<%= match.away_team.flag_url %>">
             </div>
           </div>
         </div>
-      <% end %>
-      <div class="col-md-12 text-right">
-        <button class="btn btn-primary"><%= t('.save') %></button>
+        <div class="panel-body text-center">
+          <label>Palpite</label>
+          <p>
+            <%= match.home_team.fifa_code %> <%= prediction.home_score %>
+            <span>x</span>
+            <%= prediction.away_score %> <%= match.away_team.fifa_code %>
+          </p>
+          <label>Resultado</label>
+          <p>
+            <%= match.home_team.fifa_code %> <%= match.home_score %>
+            <span>x</span>
+            <%= match.away_score %> <%= match.away_team.fifa_code %>
+          </p>
+          <label>Resultado</label>
+          <p>
+            <%= match.home_team.fifa_code %> <%= match.home_score %>
+            <span>x</span>
+            <%= match.away_score %> <%= match.away_team.fifa_code %>
+          </p>
+        </div>
       </div>
     </div>
   <% end %>
-<% else %>
-  <div class="well text-center"><%= t('.message') %></div>
-<% end %>
+</div>

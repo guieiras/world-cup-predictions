@@ -2,7 +2,7 @@ pt-BR:
   admin:
     matches:
       index:
-        title: Edição de Jogos
+        title: Gerenciamento de Jogos
       update:
         message: O jogo foi atualizado com sucesso!
   helpers:
@@ -13,4 +13,4 @@ pt-BR:
     identifier: Jogo %{code}
   matches:
     index:
-      title: Resultados
+      title: Tabela de Jogos
