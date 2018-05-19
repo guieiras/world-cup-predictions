@@ -3,6 +3,8 @@ pt-BR:
     matches:
       index:
         title: Edição de Jogos
+      update:
+        message: O jogo foi atualizado com sucesso!
   helpers:
     submit:
       match:
