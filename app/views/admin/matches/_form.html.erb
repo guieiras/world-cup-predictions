@@ -11,12 +11,14 @@
           <span class="team-name hidden-xs"><%= match.home_team.name %></span>
           <span class="team-code hidden-lg hidden-md hidden-sm"><%= match.home_team.fifa_code %></span>
         </td>
-        <td class="match-score match-score-input match-home-score">
-          <%= f.text_field :home_penalty, \
-            class: "form-control game-score game-penalty", \
-            value: match.home_penalty, \
-            data: { inputmask: "'mask': '9'" } %>
-        </td>
+        <% if match.knockout? %>
+          <td class="match-score match-score-input match-home-score">
+            <%= f.text_field :home_penalty, \
+              class: "form-control game-score game-penalty", \
+              value: match.home_penalty, \
+              data: { inputmask: "'mask': '9'" } %>
+          </td>
+        <% end %>
         <td class="match-score match-score-input match-home-score">
           <%= f.text_field :home_score, \
             class: "form-control game-score", \
@@ -29,12 +31,14 @@
             value: match.away_score, \
             data: { inputmask: "'mask': '9'" } %>
         </td>
-        <td class="match-score match-score-input match-away-score">
-          <%= f.text_field :away_penalty, \
-            class: "form-control game-score game-penalty", \
-            value: match.away_penalty, \
-            data: { inputmask: "'mask': '9'" } %>
-        </td>
+        <% if match.knockout? %>
+          <td class="match-score match-score-input match-away-score">
+            <%= f.text_field :away_penalty, \
+              class: "form-control game-score game-penalty", \
+              value: match.away_penalty, \
+              data: { inputmask: "'mask': '9'" } %>
+          </td>
+        <% end %>
         <td class="match-team match-away-team">
           <span class="team-code hidden-lg hidden-md hidden-sm"><%= match.away_team.fifa_code %></span>
           <span class="team-name hidden-xs"><%= match.away_team.name %></span>

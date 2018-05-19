@@ -5,4 +5,18 @@ pt-BR:
       title: Central de Palpites
       save: Salvar
     index:
+      not_finished: Este jogo ainda não foi finalizado
+      prediction: Palpite
       title: Meus Palpites
+      score: "Pontos:"
+      info:
+        caption: Critérios de pontuação
+        group_criteria: "Durante jogos na fase de grupos:"
+        knockout_criteria: "Durante jogos na fase eliminatória:"
+        home_score: Gols do time local
+        away_score: Gols do time visitante
+        score_difference: Saldo de gols
+        penalty_result: Placar nos pênaltis
+        game_winner: Vencedor do confronto (inclui empate)
+        penalty_winner: Vencedor nos pênaltis
+        match_winner: Classificado

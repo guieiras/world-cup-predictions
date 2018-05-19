@@ -1,22 +1,29 @@
 class PredictionResultPresenter < SimpleDelegator
-  attr_reader :result
+  attr_reader :match, :result
 
-  def initialize(result)
+  def initialize(result, match)
     @result = result
+    @match = match
     __setobj__(result)
   end
 
-  def successes
-    return [] if result.nil?
-    [].tap do |criteria|
-      criteria << :home_score if home_score?
-      criteria << :away_score if away_score?
-      criteria << :game_winner if game_winner?
-      criteria << :score_difference if score_difference?
-      criteria << :penalty_result if penalty_result?
-      criteria << :penalty_winner if penalty_winner?
-      criteria << :match_winner if match_winner?
+  def criteria
+    result = {
+      home_score: OpenStruct.new(hit?: home_score?),
+      away_score: OpenStruct.new(hit?: away_score?),
+      score_difference: OpenStruct.new(hit?: score_difference?)
+    }
+
+    if match.group?
+      result[:game_winner] = OpenStruct.new(hit?: game_winner?)
+    else
+      result[:penalty_result] = OpenStruct.new(hit?: penalty_result?)
+      result[:game_winner] = OpenStruct.new(hit?: game_winner?)
+      result[:penalty_winner] = OpenStruct.new(hit?: penalty_winner?)
+      result[:match_winner] = OpenStruct.new(hit?: match_winner?)
     end
+
+    result
   end
 
   def score

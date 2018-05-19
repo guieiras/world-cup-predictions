@@ -17,6 +17,14 @@ class Match < ApplicationRecord
     datetime < DateTime.current
   end
 
+  def group?
+    match_type == 'group'
+  end
+
+  def knockout?
+    match_type == 'knockout'
+  end
+
   def predictable?
     (5.hours.from_now..29.days.from_now).cover?(datetime) && !finished?
   end

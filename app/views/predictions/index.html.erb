@@ -1,7 +1,7 @@
 <div class="row">
   <% @predictions.each do |prediction| %>
     <% match = MatchPresenter.new(prediction.match) %>
-    <% result = PredictionResultPresenter.new(prediction.result) %>
+    <% result = PredictionResultPresenter.new(prediction.result, match) %>
     <div class="col-md-6 col-lg-4">
       <div class="panel panel-default prediction-item">
         <div class="panel-heading"><%= match.identifier %></div>
@@ -9,7 +9,7 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th>Palpite</th>
+                <th><%= t('.prediction') %></th>
                 <th class="text-center"><i class="fa fa-dot-circle-o"></i></th>
                 <th class="text-center"><i class="fa fa-futbol-o"></i></th>
               </tr>
@@ -22,7 +22,7 @@
                   <span class="hidden-xs"> (<%= match.home_team.fifa_code %>)</span>
                 </td>
                 <td class="text-center predictions-table-score"><%= prediction.home_score %></td>
-                <td class="text-center predictions-table-score"><%= match.home_score %></td>
+                <td class="text-center predictions-table-score"><b><%= match.home_score %></b></td>
               </tr>
               <tr>
                 <td>
@@ -30,17 +30,28 @@
                   <%= match.away_team.name %>
                   <span class="hidden-xs"> (<%= match.away_team.fifa_code %>)</span>
                 </td>
-                <td class="text-center"><%= prediction.away_score %></td>
-                <td class="text-center"><%= match.away_score %></td>
+                <td class="text-center predictions-table-score"><%= prediction.away_score %></td>
+                <td class="text-center predictions-table-score"><b><%= match.away_score %></b></td>
               </tr>
             </tbody>
           </table>
-          <% result.successes.each do |s| %>
-            <p><%= s %></p>
-          <% end %>
-          <p>Score: <span><%= result.score %></p>
+          <div class="row">
+            <% if match.finished? %>
+              <div class="col-xs-7">
+                <% result.criteria.each do |name, criteria| %>
+                  <i class="fa fa-circle<%= "-o" unless criteria.hit? %>"></i>
+                <% end %>
+              </div>
+              <div class="col-xs-5 text-right">
+                <p><%= t('.score') %> <span><%= result.score %></p>
+              </div>
+            <% else %>
+              <p class="col-xs-12"><%= t('.not_finished') %></p>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+<%= render 'predictions/index/info' %>
