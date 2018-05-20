@@ -21,6 +21,12 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header"><%= t('navigation.title') %></li>
       <li>
+        <%= link_to root_path do %>
+          <i class="fa fa-home"></i>
+          <span><%= t('navigation.home') %></span>
+        <% end %>
+      </li>
+      <li>
         <%= link_to current_predictions_path do %>
           <i class="fa fa-futbol-o"></i>
           <span><%= t('navigation.current_predictions') %></span>

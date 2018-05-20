@@ -1,0 +1,9 @@
+pt-BR:
+  home:
+    index:
+      title: Página Inicial
+      total_score:
+        title: Pontuação Total
+        score_link: Meus palpites
+      score_evolution:
+        title: Pontuação por dia
