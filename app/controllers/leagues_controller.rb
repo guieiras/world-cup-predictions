@@ -1,4 +1,12 @@
 class LeaguesController < ApplicationController
+  def index
+    @leagues = League.where(creator: current_user)
+  end
+
+  def show
+    @league = League.find_by(uuid: params[:id])
+  end
+
   def new
     @league = League.new
   end

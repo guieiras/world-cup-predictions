@@ -1,0 +1,40 @@
+<%= content_for :head do %>
+  <h1 class="panel panel-body">
+    <%= t('leagues.index.title') %>
+    <%= link_to new_league_path, class: 'btn btn-success pull-right' do %>
+      <i class="fa fa-plus"></i>
+      <%= t('.new_league') %>
+    <% end %>
+  </h1>
+<% end %>
+
+<div class="well"><%= t('leagues.info.message_html') %></div>
+
+<div class="row">
+  <% @leagues.each do |league| %>
+    <div class="col-md-6 col-lg-3">
+      <div class="box box-default">
+        <div class="box-body">
+          <h3 class="box-title text-center"><%= league.name %></h3>
+          <ul class="list-group list-group-unbordered">
+            <li class="list-group-item">
+              <b><%= t('.labels.creator') %></b>
+              <span class="text-sm pull-right"><%= league.creator.name %></span>
+            </li>
+            <li class="list-group-item">
+              <b><%= t('.labels.members') %></b>
+              <span class="text-sm pull-right">1</span>
+            </li>
+            <li class="list-group-item">
+              <b><%= t('.labels.created_at') %></b>
+              <span class="text-sm pull-right"><%= l(league.created_at, format: :short) %></span>
+            </li>
+          </ul>
+        </div>
+        <div class="box-footer text-right">
+          <%= link_to t('.labels.details'), league_path(id: league.uuid), class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
