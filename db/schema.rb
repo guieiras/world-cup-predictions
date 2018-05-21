@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_19_134655) do
+ActiveRecord::Schema.define(version: 2018_05_20_141454) do
+
+  create_table "leagues", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "uuid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "creator_id"
+    t.index ["creator_id"], name: "index_leagues_on_creator_id"
+  end
 
   create_table "matchdays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "code"
@@ -110,6 +120,7 @@ ActiveRecord::Schema.define(version: 2018_05_19_134655) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "leagues", "users", column: "creator_id"
   add_foreign_key "matches", "matchdays"
   add_foreign_key "matches", "stadiums"
   add_foreign_key "matches", "teams", column: "away_team_id"
