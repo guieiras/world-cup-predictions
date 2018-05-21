@@ -8,12 +8,13 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
+  resources :leagues, only: [:new, :create]
+  resources :matches, only: :index
   resources :predictions, only: [:index, :create] do
     collection do
       get :current
     end
   end
-  resources :matches, only: :index
 
   namespace :admin do
     resources :matches, only: [:index, :update]

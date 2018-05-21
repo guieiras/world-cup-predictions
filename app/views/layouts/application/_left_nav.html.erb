@@ -39,6 +39,12 @@
         <% end %>
       </li>
       <li>
+        <%= link_to new_league_path do %>
+          <i class="fa fa-list"></i>
+          <span><%= t('navigation.leagues') %></span>
+        <% end %>
+      </li>
+      <li>
         <%= link_to matches_path do %>
           <i class="fa fa-table"></i>
           <span><%= t('navigation.matches') %></span>

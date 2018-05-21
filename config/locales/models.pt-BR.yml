@@ -1,11 +1,13 @@
 pt-BR:
   activerecord:
+    models:
+      league: Liga
     attributes:
       user:
         name: "Nome"
         username: "Nome de Usuário"
         email: "E-mail"
         password: "Senha"
-      matchday:
-        started_at: Início
-        ended_at: Término
+      league:
+        name: Nome
+        description: Descrição

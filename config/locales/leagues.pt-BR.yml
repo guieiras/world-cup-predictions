@@ -1,0 +1,11 @@
+pt-BR:
+  leagues:
+    info:
+      message_html:
+        <p>As ligas são um jeito rápido e divertido para disputar o bolão com sua turma!</p>
+        <p>Todos os palpites são privados enquanto estiverem disponíveis na <i>Central</i>. Ao final do prazo, os palpites são revelados e todos os jogadores podem conferí-los.</p>
+        <p>Ao final de cada jogo, o sistema atualiza a classificação geral da liga. Assim, ninguém precisa se preocupar em saber quem está marcando os pontos!</p>
+    new:
+      title: Criação de Ligas
+    create:
+      title: Criação de Ligas

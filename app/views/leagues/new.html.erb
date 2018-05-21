@@ -1,0 +1,28 @@
+<div class="well"><%= t('leagues.info.message_html') %></div>
+
+<div class="box box-primary">
+  <%= form_for @league, html: { class: 'form-horizontal' } do |f| %>
+    <div class="box-body">
+      <div class="form-group <%= 'has-error' if @league.errors[:name].present? %>">
+        <%= f.label :name, class: 'control-label col-sm-2' %>
+
+        <div class="col-sm-10">
+          <%= f.text_field :name, class: 'form-control' %>
+          <% if @league.errors[:name].present? %>
+            <span class="help-block"><%= @league.errors[:name].first %></span>
+          <% end %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :description, class: 'control-label col-sm-2' %>
+
+        <div class="col-sm-10">
+          <%= f.text_field :description, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div class="box-footer">
+      <%= f.submit class: 'btn btn-primary pull-right' %>
+    </div>
+  <% end %>
+</div>
