@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_20_141454) do
+ActiveRecord::Schema.define(version: 2018_05_20_160338) do
 
   create_table "leagues", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2018_05_20_141454) do
     t.datetime "updated_at", null: false
     t.bigint "creator_id"
     t.index ["creator_id"], name: "index_leagues_on_creator_id"
+    t.index ["uuid"], name: "index_leagues_on_uuid", unique: true
   end
 
   create_table "matchdays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
