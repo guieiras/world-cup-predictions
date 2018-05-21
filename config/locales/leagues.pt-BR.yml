@@ -13,6 +13,14 @@ pt-BR:
         details: Detalhes
         members: Participantes
       title: Minhas Ligas
+    show:
+      title: Detalhes da Liga
+      leaderboard:
+        title: Classificação Geral
+        labels:
+          player: Jogador
+          performance: Desempenho
+          score: Pontos
     new:
       title: Criação de Ligas
     create:

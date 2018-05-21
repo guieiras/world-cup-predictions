@@ -23,6 +23,7 @@
 //= require inputmask/dist/inputmask/bindings/inputmask.binding
 //= require toastr/build/toastr.min
 //= require chart.js/Chart.min
+//= require jquery-sparkline/jquery.sparkline.min.js
 //= require_tree .
 
 $.fn.datepicker.defaults.language = "pt-BR"
