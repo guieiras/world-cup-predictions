@@ -4,13 +4,16 @@ pt-BR:
     company: ""
     copyright: Todos os direitos Reservados
     version: Versão
+    name_html: "Bolão <b>Copa 2018</b>"
   navigation:
+    headers:
+      admin: Painel Administrativo
+      main: Menu de Navegação
+      tournament: Detalhes da Competição
     admin: Administrador
-    admin_menu: Painel Administrativo
     current_predictions: Central de Palpites
     home: Página Inicial
     leagues: Ligas
     predictions: Meus Palpites
     match_management: Gerenciamento de Jogos
     matches: Tabela de Jogos
-    title: Menu de Navegação

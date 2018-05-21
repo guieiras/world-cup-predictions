@@ -9,6 +9,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= favicon_link_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -16,7 +17,7 @@
     <div class="login-box">
       <div class="login-logo">
         <%= link_to root_path do %>
-          <b>World Cup</b> Predictions</a>
+          <%= t('application.name_html') %>
         <% end %>
       </div>
 

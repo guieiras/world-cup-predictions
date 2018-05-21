@@ -19,7 +19,7 @@
       </div>
     </div>
     <ul class="sidebar-menu" data-widget="tree">
-      <li class="header"><%= t('navigation.title') %></li>
+      <li class="header"><%= t('navigation.headers.main') %></li>
       <li>
         <%= link_to root_path do %>
           <i class="fa fa-home"></i>
@@ -44,33 +44,15 @@
           <span><%= t('navigation.leagues') %></span>
         <% end %>
       </li>
+      <li class="header"><%= t('navigation.headers.tournament') %></li>
       <li>
         <%= link_to matches_path do %>
           <i class="fa fa-table"></i>
           <span><%= t('navigation.matches') %></span>
         <% end %>
       </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-dashboard"></i>
-          <span>Dashboard</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li>
-            <a href="../../index.html">
-              <i class="fa fa-circle-o"></i> Dashboard v1</a>
-          </li>
-          <li>
-            <a href="../../index2.html">
-              <i class="fa fa-circle-o"></i> Dashboard v2</a>
-          </li>
-        </ul>
-      </li>
       <% if current_user.admin? %>
-        <li class="header"><%= t('navigation.admin_menu') %></li>
+        <li class="header"><%= t('navigation.headers.admin') %></li>
         <li>
           <%= link_to admin_matches_path do %>
             <i class="fa fa-calendar-check-o"></i>
