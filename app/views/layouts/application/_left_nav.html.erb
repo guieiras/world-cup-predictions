@@ -19,46 +19,18 @@
       </div>
     </div>
     <ul class="sidebar-menu" data-widget="tree">
-      <li class="header"><%= t('navigation.headers.main') %></li>
-      <li>
-        <%= link_to root_path do %>
-          <i class="fa fa-home"></i>
-          <span><%= t('navigation.home') %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to current_predictions_path do %>
-          <i class="fa fa-futbol-o"></i>
-          <span><%= t('navigation.current_predictions') %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to predictions_path do %>
-          <i class="fa fa-history"></i>
-          <span><%= t('navigation.predictions') %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to leagues_path do %>
-          <i class="fa fa-list"></i>
-          <span><%= t('navigation.leagues') %></span>
-        <% end %>
-      </li>
-      <li class="header"><%= t('navigation.headers.tournament') %></li>
-      <li>
-        <%= link_to matches_path do %>
-          <i class="fa fa-table"></i>
-          <span><%= t('navigation.matches') %></span>
-        <% end %>
-      </li>
+      <%= menu_header_for t('navigation.headers.main') %>
+      <%= menu_item_for root_path, icon: 'home', text: t('navigation.home') %>
+      <%= menu_item_for current_predictions_path, icon: 'futbol-o', text: t('navigation.current_predictions') %>
+      <%= menu_item_for predictions_path, icon: 'history', text: t('navigation.predictions') %>
+      <%= menu_item_for leagues_path, icon: 'trophy', text: t('navigation.leagues') %>
+
+      <%= menu_header_for t('navigation.headers.tournament') %>
+      <%= menu_item_for matches_path, icon: 'table', text: t('navigation.matches') %>
+
       <% if current_user.admin? %>
-        <li class="header"><%= t('navigation.headers.admin') %></li>
-        <li>
-          <%= link_to admin_matches_path do %>
-            <i class="fa fa-calendar-check-o"></i>
-            <span><%= t('navigation.match_management') %></span>
-          <% end %>
-        </li>
+        <%= menu_header_for t('navigation.headers.admin') %>
+        <%= menu_item_for admin_matches_path, icon: 'calendar-check-o', text: t('navigation.match_management') %>
       <% end %>
     </ul>
   </section>
