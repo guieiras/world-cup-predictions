@@ -8,6 +8,7 @@ class PredictionResultPresenter < SimpleDelegator
   end
 
   def criteria
+    return {} if result.nil?
     result = {
       home_score: OpenStruct.new(hit?: home_score?),
       away_score: OpenStruct.new(hit?: away_score?),
