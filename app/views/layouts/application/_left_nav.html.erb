@@ -23,7 +23,11 @@
       <%= menu_item_for root_path, icon: 'home', text: t('navigation.home') %>
       <%= menu_item_for current_predictions_path, icon: 'futbol-o', text: t('navigation.current_predictions') %>
       <%= menu_item_for predictions_path, icon: 'history', text: t('navigation.predictions') %>
-      <%= menu_item_for leagues_path, icon: 'trophy', text: t('navigation.leagues') %>
+
+      <%= submenu_for Hash(controller: 'leagues'), { icon: 'trophy', text: t('navigation.leagues.root') } do %>
+        <%= menu_item_for leagues_path, icon: 'list', text: t('navigation.leagues.index') %>
+        <%= menu_item_for new_league_path, icon: 'plus', text: t('navigation.leagues.new') %>
+      <% end %>
 
       <%= menu_header_for t('navigation.headers.tournament') %>
       <%= menu_item_for matches_path, icon: 'table', text: t('navigation.matches') %>

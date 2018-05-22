@@ -13,7 +13,10 @@ pt-BR:
     admin: Administrador
     current_predictions: Central de Palpites
     home: Página Inicial
-    leagues: Ligas
+    leagues:
+      root: Ligas
+      index: Minhas Ligas
+      new: Criar Liga
     predictions: Meus Palpites
     match_management: Gerenciamento de Jogos
     matches: Tabela de Jogos
