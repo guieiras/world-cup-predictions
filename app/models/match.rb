@@ -36,9 +36,6 @@ class Match < ApplicationRecord
   end
 
   def self.predictable_time
-    close_time = Setting['predictions.hours_before_game_to_close'].to_i.hours.from_now
-    open_time = Setting['predictions.hours_before_game_to_open'].to_i.hours.from_now
-
-    close_time..open_time
+    PredictionSettings.close_time.from_now..PredictionSettings.open_time.from_now
   end
 end

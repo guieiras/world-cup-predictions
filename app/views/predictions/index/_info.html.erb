@@ -12,21 +12,21 @@
         <div class="row">
           <div class="col-lg-6">
             <p><%= t('.group_criteria') %></p>
-            <%= render partial: 'predictions/index/info_item', locals: { score: Setting['score.home_score'], label: t('.home_score') } %>
-            <%= render partial: 'predictions/index/info_item', locals: { score: Setting['score.away_score'], label: t('.away_score') } %>
-            <%= render partial: 'predictions/index/info_item', locals: { score: Setting['score.score_difference'], label: t('.score_difference') } %>
-            <%= render partial: 'predictions/index/info_item', locals: { score: (Setting['score.game_winner'] + Setting['score.match_winner']), label: t('.game_winner') } %>
+            <%= render partial: 'predictions/index/info_item', locals: { score: ScoreSettings.home_score, label: t('.home_score') } %>
+            <%= render partial: 'predictions/index/info_item', locals: { score: ScoreSettings.away_score, label: t('.away_score') } %>
+            <%= render partial: 'predictions/index/info_item', locals: { score: ScoreSettings.score_difference, label: t('.score_difference') } %>
+            <%= render partial: 'predictions/index/info_item', locals: { score: (ScoreSettings.game_winner + ScoreSettings.match_winner), label: t('.game_winner') } %>
             <div class="m-t-lg"></div>
           </div>
           <div class="col-md-6">
             <p><%= t('.knockout_criteria') %></p>
-            <%= render partial: 'predictions/index/info_item', locals: { score: Setting['score.home_score'], label: t('.home_score') } %>
-            <%= render partial: 'predictions/index/info_item', locals: { score: Setting['score.away_score'], label: t('.away_score') } %>
-            <%= render partial: 'predictions/index/info_item', locals: { score: Setting['score.score_difference'], label: t('.score_difference') } %>
-            <%= render partial: 'predictions/index/info_item', locals: { score: Setting['score.penalty_result'], label: t('.penalty_result') } %>
-            <%= render partial: 'predictions/index/info_item', locals: { score: Setting['score.game_winner'], label: t('.game_winner') } %>
-            <%= render partial: 'predictions/index/info_item', locals: { score: Setting['score.penalty_winner'], label: t('.penalty_winner') } %>
-            <%= render partial: 'predictions/index/info_item', locals: { score: Setting['score.match_winner'], label: t('.match_winner') } %>
+            <%= render partial: 'predictions/index/info_item', locals: { score: ScoreSettings.home_score, label: t('.home_score') } %>
+            <%= render partial: 'predictions/index/info_item', locals: { score: ScoreSettings.away_score, label: t('.away_score') } %>
+            <%= render partial: 'predictions/index/info_item', locals: { score: ScoreSettings.score_difference, label: t('.score_difference') } %>
+            <%= render partial: 'predictions/index/info_item', locals: { score: ScoreSettings.penalty_result, label: t('.penalty_result') } %>
+            <%= render partial: 'predictions/index/info_item', locals: { score: ScoreSettings.game_winner, label: t('.game_winner') } %>
+            <%= render partial: 'predictions/index/info_item', locals: { score: ScoreSettings.penalty_winner, label: t('.penalty_winner') } %>
+            <%= render partial: 'predictions/index/info_item', locals: { score: ScoreSettings.match_winner, label: t('.match_winner') } %>
           </div>
         </div>
       </div>
