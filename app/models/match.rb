@@ -14,6 +14,11 @@ class Match < ApplicationRecord
       .where.not(home_team: nil, away_team: nil)
   end
 
+  scope :closed, -> do
+    where(arel_table[:datetime].lteq(PredictionSettings.close_time.from_now))
+      .or(where(finished: true))
+  end
+
   def past?
     datetime < DateTime.current
   end
