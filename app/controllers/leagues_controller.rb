@@ -4,7 +4,8 @@ class LeaguesController < ApplicationController
   end
 
   def show
-    @league = LeagueReport.new(League.find_by(uuid: params[:id]))
+    @league = League.find_by(uuid: params[:id])
+    @leaderboard = LeaderboardQuery.execute(league_id: @league.id)
   end
 
   def new
