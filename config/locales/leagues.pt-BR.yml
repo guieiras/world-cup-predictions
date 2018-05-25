@@ -16,6 +16,8 @@ pt-BR:
     show:
       title: Detalhes da Liga
       leaderboard:
+        no_results: Sem Resultados
+        not_finished: Não finalizado
         title: Classificação Geral
         labels:
           player: Jogador

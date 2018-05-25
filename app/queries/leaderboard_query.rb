@@ -7,13 +7,13 @@ class LeaderboardQuery < BaseQuery
     <<-SQL
 SELECT u.id, u.name,
        if(COUNT(p.id) = 0, '{}',
-		  json_objectagg(p.match_id,
+		  json_objectagg(COALESCE(p.match_id, 0),
 						 json_object(
 							"home_score", p.home_score,
                             "away_score", p.away_score,
                             "home_penalty", p.home_penalty,
                             "away_penalty", p.away_penalty,
-                            "score", res.score)
+                            "score", COALESCE(res.score, -1))
 	   )) results,
        COALESCE(sum(res.score), 0) total_score
 FROM users u

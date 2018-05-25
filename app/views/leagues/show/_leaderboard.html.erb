@@ -48,7 +48,8 @@
     }
   });
   $('.peity [data-value]').mousemove(function (e) {
-		$('#peity-tooltip').html("<i class='fa fa-circle' style='color: " + $(this).attr('fill') + "'></i> " + $(this).data('value')).css({left: e.pageX + 8, top: e.pageY + 8});
+    var score = $(this).data('value')
+		$('#peity-tooltip').html("<i class='fa fa-circle' style='color: " + $(this).attr('fill') + "'></i> " + (score == "-1" ? "<%= t('.not_finished')%>" : score)).css({left: e.pageX + 8, top: e.pageY + 8});
 	}).hover(
     function() {
       $('#peity-tooltip').addClass('show');
@@ -56,4 +57,7 @@
       $('#peity-tooltip').removeClass('show');
     }
   );
+  $("div.peity").each(function() {
+    if(!$(this).text().trim()) { $(this).parent().html("<%= t('.no_results') %>")}
+  });
 </script>
