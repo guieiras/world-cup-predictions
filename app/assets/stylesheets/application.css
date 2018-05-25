@@ -19,5 +19,6 @@
  *= require bootstrap-datepicker/dist/css/bootstrap-datepicker
  *= require toastr/build/toastr.min
  *= require_tree .
+ *= require_tree ./libraries
  *= require_self
  */

@@ -12,6 +12,7 @@
   ],
   "dependencies": {
     "admin-lte": "^2.4.3",
+    "peity": "^3.3.0",
     "select2": "^3.5.1",
     "toastr": "^2.1.4"
   }
