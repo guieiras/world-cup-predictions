@@ -18,5 +18,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :matches, only: [:index, :update]
+    resources :settings, only: [:index, :create]
   end
 end

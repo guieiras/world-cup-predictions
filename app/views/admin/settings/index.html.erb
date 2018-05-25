@@ -1,0 +1,34 @@
+<%= form_tag admin_settings_path, method: :post do %>
+  <div class="box">
+    <div class="box-body no-padding">
+      <table class="table table-bordered settings-table">
+        <thead>
+          <tr>
+            <th>Chave</th>
+            <th class="hidden-xs">Descrição</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @settings.each do |namespace| %>
+            <tr>
+              <td colspan="3" class="namespace">
+                <b><%= namespace[0] %></b>
+              </td>
+            </tr>
+            <% namespace[1].each do |key, value| %>
+              <tr>
+                <td><%= key %></td>
+                <td class="hidden-xs"><%= t("#{namespace[0]}.#{key}", scope: 'settings.name') %></td>
+                <td><input class="form-control" name="settings[<%=namespace[0]%>.<%=key%>]" value="<%= value %>" /></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="box-footer text-right">
+      <input type="submit" class="btn btn-primary" value="<%= t('.save') %>">
+    </div>
+  </div>
+<% end %>

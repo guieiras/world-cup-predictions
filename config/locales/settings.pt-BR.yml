@@ -1,0 +1,19 @@
+pt-BR:
+  admin:
+    settings:
+      index:
+        title: Painel de Controle
+        save: Salvar
+  settings:
+    name:
+      predictions:
+        hours_before_game_to_open: Quantidade de horas antes do jogo que o sistema será aberto para palpites
+        hours_before_game_to_close: Quantidade de horas antes do jogo que o sistema fechará para palpites
+      score:
+        home_score: Pontos pelo acerto do número de gols do time local
+        away_score: Pontos pelo acerto do número de gols do time visitante
+        game_winner: Pontos pelo acerto do vencedor do jogo no tempo normal/prorrogação
+        score_difference: Pontos pelo acerto do saldo de gols do jogo
+        penalty_result: Pontos pelo acerto do placar nos pênaltis
+        penalty_winner: Pontos pelo acerto do vencedor nos pênaltis
+        match_winner: Pontos pelo acerto do vencedor do jogo

@@ -1,5 +1,8 @@
 # config/app.yml for rails-settings-cached
 defaults: &defaults
+  predictions:
+    hours_before_game_to_open: 168
+    hours_before_game_to_close: 5
   score:
     home_score: 1
     away_score: 1
