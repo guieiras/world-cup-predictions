@@ -18,13 +18,13 @@
             </tr>
           </thead>
           <tbody>
-            <% @leaderboard.each_with_index do |row, idx| %>
+            <% @league.leaderboard.each_with_index do |row, idx| %>
               <tr>
                 <td><strong><%= idx + 1 %></strong></td>
                 <td><%= row.player_name %></td>
                 <td class="hidden-xs">
                   <div class="peity" id="peity-<%= row.player_id %>">
-                    <%= JSON.parse(row.results).values.join(',') %>
+                    <%= row.results.join(',') %>
                   </div>
                 </td>
                 <td class="text-center"><%= row.total_score %></td>
