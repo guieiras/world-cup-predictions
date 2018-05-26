@@ -23,6 +23,15 @@ pt-BR:
           player: Jogador
           performance: Desempenho
           score: Pontos
+      match_predictions:
+        none: Nenhum jogo finalizado para palpites!
+        no_prediction: Não feito
+        title: Palpites dos Jogos
+        labels:
+          position: "#"
+          player_name: Jogador
+          prediction: Palpite
+          score: Pontuação
     new:
       title: Criação de Ligas
     create:

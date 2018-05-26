@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <h3 class="box-title"><%= t('.title') %></h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+      </div>
+      <div class="box-body no-padding">
+        <% if @league.predictions.empty? %>
+          <div class="well text-center"><%= t('.none') %></div>
+        <% end %>
+        <table class="table table-bordered">
+          <tbody>
+            <% @league.predictions.each do |row| %>
+              <tr>
+                <td colspan="4">
+                  <span ><%= row.match.identifier %> | </span>
+                  <img class="team-flag" src="<%= row.match.home_team.flag_url %>">
+                  <span class="team-name hidden-xs"><%= row.match.home_team.name %></span>
+                  <span><%= row.match.home_complete_score %></span>
+                  <span> x </span>
+                  <span><%= row.match.away_complete_score %></span>
+                  <span class="team-name hidden-xs"><%= row.match.away_team.name %></span>
+                  <img class="team-flag" src="<%= row.match.away_team.flag_url %>">
+                  <a href="#" data-toggle="<%= row.match.id %>" class="pull-right"><i class="fa fa-caret-left"></i></a>
+                </td>
+              </tr>
+              <tr data-row="<%= row.match.id %>" class="hidden">
+                <th><%= t('.labels.position') %></th>
+                <th><%= t('.labels.player_name') %></th>
+                <th><%= t('.labels.prediction') %></th>
+                <th><%= t('.labels.score') %></th>
+              </tr>
+              <% row.predictions.each_with_index do |prediction, idx| %>
+                <tr data-row="<%= row.match.id %>" class="hidden">
+                  <td><%= idx + 1 %></td>
+                  <td><%= prediction[:player_name] %></td>
+                  <td>
+                    <% if prediction[:score].nil? %>
+                      <p><%= t('.no_prediction') %>
+                    <% else %>
+                      <span><%= prediction[:values].home_complete_score %></span>
+                      <span> x </span>
+                      <span><%= prediction[:values].away_complete_score %></span>
+                    <% end %>
+                  </td>
+                  <td><%= prediction[:score] %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('a[data-toggle]').click(function() {
+    $('[data-row=' + $(this).data('toggle') + ']').toggleClass('hidden');
+    $(this).find('i').toggleClass('fa-caret-left');
+    $(this).find('i').toggleClass('fa-caret-down');
+  });
+</script>
