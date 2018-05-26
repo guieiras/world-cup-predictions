@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :user do
-    name "John Doe"
-    username "johndoe"
-    email "john@doe.com"
-    avatar "http://photos.url/johndoe"
-    password "123"
+    name { Faker::Name.unique.name }
+    username { Faker::Internet.unique.user_name }
+    email { Faker::Internet.unique.email }
+    avatar { Faker::Avatar.unique.image }
+    password { Faker::Internet.unique.password }
   end
 end
