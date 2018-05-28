@@ -17,7 +17,7 @@ class LeaguesController < ApplicationController
 
     ActiveRecord::Base.transaction do
       if @league.update(creator: current_user, uuid: SecureRandom.uuid)
-        LeagueParticipation.create(league: @league, user: current_user, invite: SecureRandom.uuid, active: true)
+        LeagueParticipation.create(league: @league, user: current_user)
         redirect_to league_path @league.uuid
       else
         render 'new'

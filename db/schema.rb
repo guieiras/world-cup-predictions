@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_20_212340) do
+ActiveRecord::Schema.define(version: 2018_05_28_131821) do
+
+  create_table "league_invites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "email"
+    t.string "uuid"
+    t.boolean "answered"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "inviter_id"
+    t.bigint "league_id"
+    t.index ["email"], name: "index_league_invites_on_email"
+    t.index ["inviter_id"], name: "index_league_invites_on_inviter_id"
+    t.index ["league_id"], name: "index_league_invites_on_league_id"
+  end
 
   create_table "league_participations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "invite"
-    t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -133,6 +144,8 @@ ActiveRecord::Schema.define(version: 2018_05_20_212340) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "league_invites", "leagues"
+  add_foreign_key "league_invites", "users", column: "inviter_id"
   add_foreign_key "league_participations", "leagues"
   add_foreign_key "league_participations", "users"
   add_foreign_key "leagues", "users", column: "creator_id"
