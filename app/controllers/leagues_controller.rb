@@ -5,6 +5,7 @@ class LeaguesController < ApplicationController
 
   def show
     @league = League.find_by(uuid: params[:id])
+    authorize @league
     @report = LeagueReport.new(@league)
   end
 
@@ -27,9 +28,7 @@ class LeaguesController < ApplicationController
 
   def members
     @league = League.find_by(uuid: params[:league_id])
-    unless current_user.admin? || @league.creator == current_user
-      raise ActionController::RoutingError.new('Unauthorized User')
-    end
+    authorize @league
     @participations = @league.participations.includes(:user)
   end
 end

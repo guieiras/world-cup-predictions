@@ -14,12 +14,15 @@ pt-BR:
         members: Participantes
       title: Minhas Ligas
     members:
+      current_participants: Participantes
       destroy: Excluir
       invite: Adicionar
+      invites: Convites pendentes
       labels:
         actions: Ações
         email: E-mail
         invite: "Convidar novos membros:"
+        invited_at: Convidado em
         name: Nome
         username: Nome de usuário
       title: Gerenciar membros

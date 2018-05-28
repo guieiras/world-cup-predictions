@@ -1,0 +1,5 @@
+pt-BR:
+  league_invites:
+    actions:
+      created: O convite foi criado com sucesso!
+      destroyed: O convite foi revogado com sucesso!

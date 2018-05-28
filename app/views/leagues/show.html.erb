@@ -2,7 +2,9 @@
   <h1 class="panel panel-body">
     <%= @league.name %>
     <small><%= @league.description %></small>
-    <%= link_to t('.members'), league_members_path(@league.uuid), class: 'btn btn-success pull-right' %>
+    <% if policy(@league).members? %>
+      <%= link_to t('.members'), league_members_path(@league.uuid), class: 'btn btn-success pull-right' %>
+    <% end %>
   </h1>
 <% end %>
 <%= render partial: "leagues/show/leaderboard", locals: { report: @report } %>
