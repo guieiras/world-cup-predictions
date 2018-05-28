@@ -13,7 +13,16 @@ pt-BR:
         details: Detalhes
         members: Participantes
       title: Minhas Ligas
+    members:
+      destroy: Excluir
+      labels:
+        actions: Ações
+        email: E-mail
+        name: Nome
+        username: Nome de usuário
+      title: Gerenciar membros
     show:
+      members: Gerenciar membros
       title: Detalhes da Liga
       leaderboard:
         no_results: Sem Resultados

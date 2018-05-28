@@ -1,0 +1,24 @@
+<div class="box">
+  <div class="box-body no-padding">
+    <table class="table table bordered">
+      <thead>
+        <tr>
+          <th><%= t('.labels.name') %></th>
+          <th><%= t('.labels.username') %></th>
+          <th><%= t('.labels.email') %></th>
+          <th><%= t('.labels.actions') %></th>
+        </tr>
+      </thead>
+      <% @participations.each do |participation| %>
+        <tr>
+          <td><%= participation.user.name %></td>
+          <td><%= participation.user.username %></td>
+          <td><%= participation.user.email %></td>
+          <td>
+            <%= link_to t('.destroy'), root_path, class: 'btn btn-xs btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
