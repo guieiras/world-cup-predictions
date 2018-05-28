@@ -1,3 +1,15 @@
+app:
+  build: .
+  environment:
+    RAILS_ENV: development
+  ports:
+    - "3000:3000"
+  volumes:
+    - ".:/workspace"
+  links:
+    - mysql
+    - mailcatcher
+
 mysql:
   image: mysql:5.7.22
   ports:
@@ -8,13 +20,8 @@ mysql:
     - MYSQL_ROOT_PASSWORD=root
     - MYSQL_DATABASE=dev
 
-app:
-  build: .
-  environment:
-    RAILS_ENV: development
+mailcatcher:
+  image: tophfr/mailcatcher
   ports:
-    - "3000:3000"
-  volumes:
-    - ".:/workspace"
-  links:
-    - "mysql"
+    - "1080:80"
+    - "1025:25"
