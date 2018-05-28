@@ -15,9 +15,11 @@ pt-BR:
       title: Minhas Ligas
     members:
       destroy: Excluir
+      invite: Adicionar
       labels:
         actions: Ações
         email: E-mail
+        invite: "Convidar novos membros:"
         name: Nome
         username: Nome de usuário
       title: Gerenciar membros

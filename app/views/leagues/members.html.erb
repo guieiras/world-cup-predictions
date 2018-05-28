@@ -20,5 +20,17 @@
         </tr>
       <% end %>
     </table>
+    <%= form_tag league_participations_path do %>
+      <%= hidden_field_tag 'league_id', @league.uuid %>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <b><%= t('.labels.invite') %></b>
+        </span>
+        <%= text_field_tag 'user_email', nil, class: 'form-control' %>
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="button"><%= t('.invite') %></button>
+        </span>
+      </div>
+    <% end %>
   </div>
 </div>
