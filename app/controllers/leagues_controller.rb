@@ -4,7 +4,8 @@ class LeaguesController < ApplicationController
   end
 
   def show
-    @league = LeagueReport.new(League.find_by(uuid: params[:id]))
+    @league = League.find_by(uuid: params[:id])
+    @report = LeagueReport.new(@league)
   end
 
   def new
@@ -17,7 +18,7 @@ class LeaguesController < ApplicationController
     ActiveRecord::Base.transaction do
       if @league.update(creator: current_user, uuid: SecureRandom.uuid)
         LeagueParticipation.create(league: @league, user: current_user, invite: SecureRandom.uuid, active: true)
-        redirect_to root_path
+        redirect_to league_path @league.uuid
       else
         render 'new'
       end

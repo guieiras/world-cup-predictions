@@ -1,2 +1,8 @@
-<%= render partial: "leagues/show/leaderboard", locals: { league: @league } %>
-<%= render partial: "leagues/show/match_predictions", locals: { league: @league } %>
+<%= content_for :head do %>
+  <h1 class="panel panel-body">
+    <%= @league.name %>
+    <small><%= @league.description %></small>
+  </h1>
+<% end %>
+<%= render partial: "leagues/show/leaderboard", locals: { report: @report } %>
+<%= render partial: "leagues/show/match_predictions", locals: { report: @report } %>

@@ -8,12 +8,12 @@
         </div>
       </div>
       <div class="box-body no-padding">
-        <% if @league.predictions.empty? %>
+        <% if report.predictions.empty? %>
           <div class="well text-center"><%= t('.none') %></div>
         <% end %>
         <table class="table table-bordered">
           <tbody>
-            <% @league.predictions.each do |row| %>
+            <% report.predictions.each do |row| %>
               <tr>
                 <td colspan="4">
                   <span ><%= row.match.identifier %> | </span>
