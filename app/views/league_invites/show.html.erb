@@ -1,0 +1,25 @@
+<%= content_for :head do %>
+  <div></div>
+<% end %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="box box-widget widget-user-2">
+      <div class="widget-user-header bg-light-blue">
+        <h3><%= @invite.league.name %></h3>
+        <i class="text-sm"><%= @invite.league.description %></i>
+      </div>
+      <div class="box-body">
+        <strong class="m-b-lg btn-block"><%= current_user.name %>,</strong>
+        <%= t('.body_html') %>
+      </div>
+      <div class="box-footer text-right">
+        <%= link_to league_invite_refuse_path(@invite.uuid), class: "btn btn-default m-r-sm" do %>
+          <i class="fa fa-times"></i> <%= t('.refuse') %>
+        <% end %>
+        <%= link_to league_invite_accept_path(@invite.uuid), class: "btn btn-success" do %>
+          <i class="fa fa-check"></i> <%= t('.accept') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,10 @@
+<% invite = LeagueInvite.find_by_uuid(params[:invite]) %>
 <h2 class="login-box-msg"><%= t(".title") %></h2>
-
 <%= form_for @user do |form| %>
+  <% if invite %>
+    <p>Depois disso, você poderá se inscrever na liga <b><%= invite.league.name %></b>
+    <%= hidden_field_tag :invite, params[:invite] %>
+  <% end %>
   <div class="form-group has-feedback">
     <%= form.text_field :name, type: 'text', class: 'form-control', placeholder: t('activerecord.attributes.user.name') %>
     <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -12,7 +16,11 @@
   </div>
 
   <div class="form-group has-feedback">
-    <%= form.text_field :email, type: 'email', class: 'form-control', placeholder: t('activerecord.attributes.user.email') %>
+    <% if invite %>
+      <%= form.text_field :email, value: invite.email, type: 'email', class: 'form-control', readonly: true %>
+    <% else %>
+      <%= form.text_field :email, type: 'email', class: 'form-control', placeholder: t('activerecord.attributes.user.email') %>
+    <% end %>
     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
   </div>
 

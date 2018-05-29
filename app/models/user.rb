@@ -4,4 +4,6 @@ class User < ApplicationRecord
   has_many :predictions
   has_many :participations, class_name: 'LeagueParticipation'
   has_many :leagues, through: :participations
+
+  scope :by_email, ->(email) { where(email: email) }
 end

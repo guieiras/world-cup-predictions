@@ -1,8 +1,18 @@
 pt-BR:
   league_invites:
     actions:
+      accepted: O convite foi aceito com sucesso!
       created: O convite foi criado com sucesso!
       destroyed: O convite foi revogado com sucesso!
+      refused: O convite foi recusado com sucesso!
+    show:
+      accept: Aceitar
+      refuse: Recusar
+      body_html: |
+        <p>Você foi convidado para jogar esta liga.</p>
+        <p>As ligas são um jeito divertido de disputar o bolão com seus amigos. Mostre para eles que você sabe tudo de futebol!</p>
+        <p>Ao aceitar, seus palpites serão compartilhados com todos os membros após o fechamento de cada jogo na Central de Palpites.</p>
+
   league_invite_mailer:
     welcome:
       greet: Olá
