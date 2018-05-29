@@ -4,12 +4,11 @@ class LeagueInvitesController < ApplicationController
   end
 
   def create
-    league = League.find_by(uuid: params[:league_id])
+    league = League.find_by_uuid params[:league_id]
     invite = LeagueInvite.new(
               inviter: current_user,
               league: league,
-              email: params[:user_email],
-              uuid: SecureRandom.uuid)
+              email: params[:user_email])
 
     authorize invite
     invite.save
@@ -19,7 +18,7 @@ class LeagueInvitesController < ApplicationController
   end
 
   def destroy
-    invite = LeagueInvite.find_by(uuid: params[:id])
+    invite = LeagueInvite.find_by_uuid params[:id]
     league = invite.league
 
     authorize invite

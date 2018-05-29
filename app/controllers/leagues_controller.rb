@@ -4,7 +4,7 @@ class LeaguesController < ApplicationController
   end
 
   def show
-    @league = League.find_by(uuid: params[:id])
+    @league = League.find_by_uuid params[:id]
     authorize @league
     @report = LeagueReport.new(@league)
   end
@@ -17,7 +17,7 @@ class LeaguesController < ApplicationController
     @league = League.new(params.require(:league).permit(:name, :description))
 
     ActiveRecord::Base.transaction do
-      if @league.update(creator: current_user, uuid: SecureRandom.uuid)
+      if @league.update(creator: current_user)
         LeagueParticipation.create(league: @league, user: current_user)
         redirect_to league_path @league.uuid
       else
@@ -27,7 +27,7 @@ class LeaguesController < ApplicationController
   end
 
   def members
-    @league = League.find_by(uuid: params[:league_id])
+    @league = League.find_by_uuid params[:league_id]
     authorize @league
     @participations = @league.participations.includes(:user)
   end
