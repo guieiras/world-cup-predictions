@@ -1,6 +1,7 @@
 app:
   build: .
   environment:
+    EMAIL_HOST: "localhost:3000"
     RAILS_ENV: development
   ports:
     - "3000:3000"

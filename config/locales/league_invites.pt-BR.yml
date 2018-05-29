@@ -3,3 +3,12 @@ pt-BR:
     actions:
       created: O convite foi criado com sucesso!
       destroyed: O convite foi revogado com sucesso!
+  league_invite_mailer:
+    welcome:
+      greet: Olá
+      show: Ver convite
+      subject: Convite para participar do Bolão da Copa 2018
+      body_html: |
+        <p>Você foi convidado por <span style="text-decoration: underline">%{inviter}</span> para jogar uma liga no Bolão da Copa do Mundo 2018: <b>%{league}</b></p>
+        <p>Se você já tem uma conta em nosso site, aceite o convite e já poderá mostrar que é o melhor! Se ainda não tem, nós vamos te ajudar.</p>
+        <p>Conheça nosso site e veja como é divertido prever os resultados do maior campeonato entre seleções de futebol! Criando uma conta, você poderá competir com pessoas do mundo todo e mostrar que sabe tudo de Copa do Mundo.</p>

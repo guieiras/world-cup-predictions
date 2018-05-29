@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :leagues, only: [:index, :show, :new, :create] do
     get 'members'
   end
-  resources :league_invites, only: [:create, :destroy]
+  resources :league_invites, only: [:show, :create, :destroy]
   resources :league_participations, only: [:create, :destroy]
   resources :matches, only: :index
   resources :predictions, only: [:index, :create] do
