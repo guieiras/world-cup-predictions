@@ -3,6 +3,5 @@ FactoryBot.define do
     email { Faker::Internet.email }
     association :inviter, factory: :user
     league
-    answered false
   end
 end
