@@ -1,0 +1,4 @@
+pt-BR:
+  league_participations:
+    destroy:
+      success: O participante foi excluído da liga com sucesso!

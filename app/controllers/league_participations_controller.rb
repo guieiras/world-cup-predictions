@@ -1,7 +1,12 @@
 class LeagueParticipationsController < ApplicationController
-  def create
-    @league = League.find_by_uuid: params[:league_id]
+  def destroy
+    participation = LeagueParticipation.find params[:id]
+    league = participation.league
 
-    redirect_to league_path @league.uuid
+    authorize participation
+    participation.destroy
+
+    flash[:success] = I18n.t('league_participations.destroy.success')
+    redirect_to league_members_path league.uuid
   end
 end

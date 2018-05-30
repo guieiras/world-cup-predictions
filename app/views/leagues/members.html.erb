@@ -18,7 +18,11 @@
           <td><%= participation.user.username %></td>
           <td><%= participation.user.email %></td>
           <td>
-            <%= link_to t('.destroy'), root_path, class: 'btn btn-xs btn-danger' %>
+            <% if participation.user_id != current_user.id %>
+              <%= link_to t('.destroy'),
+                league_participation_path(participation),
+                class: 'btn btn-xs btn-danger', method: :delete %>
+            <% end %>
           </td>
         </tr>
       <% end %>
