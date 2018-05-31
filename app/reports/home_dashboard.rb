@@ -1,10 +1,17 @@
 class HomeDashboard
-  def initialize(scope)
+  attr_reader :user, :items
+
+  def initialize(user, scope)
+    @user = user
     @items = scope.to_a
   end
 
+  def leagues
+    @leagues ||= user.leagues
+  end
+
   def total_score
-    @total_score ||= @items.inject(0) do |memo, prediction|
+    @total_score ||= items.inject(0) do |memo, prediction|
       memo + (prediction.result&.score || 0)
     end
   end

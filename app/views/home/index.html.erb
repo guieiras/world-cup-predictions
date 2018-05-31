@@ -1,3 +1,16 @@
-<%= render 'home/index/total_score' %>
+<div class="row">
+  <div class="col-lg-3 col-sm-6">
+    <%= render 'home/index/widgets/current_predictions' %>
+  </div>
+  <div class="col-lg-3 col-sm-6">
+    <%= render 'home/index/widgets/score' %>
+  </div>
+  <div class="col-lg-3 col-sm-6">
+    <%= render 'home/index/widgets/leagues' %>
+  </div>
+  <div class="col-lg-3 col-sm-6">
+    <%= render 'home/index/widgets/matches' %>
+  </div>
+</div>
 <%= render 'home/index/score_evolution' %>
 <p><%= @predictions %></p>

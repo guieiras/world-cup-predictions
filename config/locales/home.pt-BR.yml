@@ -2,8 +2,19 @@ pt-BR:
   home:
     index:
       title: Página Inicial
-      total_score:
-        title: Pontuação Total
-        score_link: Meus palpites
+      widgets:
+        current_predictions:
+          title: Jogos abertos para palpite
+          link: Abrir Central de Palpites
+        leagues:
+          title: Participações em ligas
+          link: Abrir minhas ligas
+        matches:
+          title: Jogos hoje
+          link: Abrir Calendário de Jogos
+        score:
+          title: Minha pontuação total
+          link: Abrir histórico de palpites
+
       score_evolution:
         title: Pontuação por dia

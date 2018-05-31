@@ -8,6 +8,11 @@ class Match < ApplicationRecord
 
   before_save :populate_finished
 
+  scope :today, -> do
+    where(arel_table[:datetime].between(
+      Date.today.beginning_of_day..Date.today.end_of_day))
+  end
+
   scope :predictable, -> do
     where(arel_table[:datetime].between(predictable_time))
       .where(finished: false)

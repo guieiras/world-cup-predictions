@@ -1,0 +1,12 @@
+<%= link_to leagues_path do %>
+  <div class="small-box bg-gray-active">
+    <div class="inner">
+      <h3><%= @dashboard.leagues.count %></h3>
+      <p><%= t('.title') %></p>
+    </div>
+    <div class="icon"><i class="fa fa-trophy"></i></div>
+    <div class="small-box-footer">
+      <%= t('.link') %> <i class="fa fa-arrow-circle-right"></i>
+    </div>
+  </div>
+<% end %>
