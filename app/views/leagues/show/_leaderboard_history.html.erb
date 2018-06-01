@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="box box-default box-solid">
+      <div class="box-header with-border">
+        <h3 class="box-title"><%= t('.title') %></h3>
+      </div>
+      <div class="box-body">
+        <div class="chart">
+          <canvas id="leaderboard"></canvas>
+          <div id="leaderboard-tooltip" class="chartjs-tooltip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var randomColor = function() {
+    var randomHex = function() { return Math.floor(Math.random() * 256) }
+    return 'rgba(' + randomHex() + ',' + randomHex() + ',' + randomHex() + ',1)'
+  }
+  var leaderboardChartCanvas = $('#leaderboard').get(0).getContext('2d')
+  var leaderboardChart = new Chart(leaderboardChartCanvas)
+
+  var leaderboardChartData = <%= report.leaderboard_history.to_json.html_safe %>
+  leaderboardChartData.datasets = leaderboardChartData.datasets.map(function(dataset) {
+    var playerColor = randomColor();
+    return {
+      label               : dataset.label,
+      fillColor           : playerColor,
+      strokeColor         : playerColor,
+      pointColor          : playerColor,
+      data                : dataset.data.reduce(function(memo, result) {
+        var sum = (memo[memo.length - 1] || 0) + result;
+        memo.push(sum);
+
+        return memo;
+      }, [])
+    }
+  })
+
+  var leaderboardChartOptions = {
+    showScale: true,
+    scaleShowGridLines: false,
+    scaleGridLineColor: 'rgba(0,0,0,.05)',
+    scaleGridLineWidth: 2,
+    scaleShowHorizontalLines: true,
+    scaleShowVerticalLines: true,
+    bezierCurve: true,
+    bezierCurveTension: 0.3,
+    pointDot: true,
+    pointDotRadius: 4,
+    pointDotStrokeWidth: 1,
+    pointHitDetectionRadius: 20,
+    datasetStroke: true,
+    datasetStrokeWidth: 2,
+    datasetFill: false,
+    maintainAspectRatio: true,
+    customTooltips: function(tooltip) {
+      var tooltipEl = $("#leaderboard-tooltip");
+      if (!tooltip) { return tooltipEl.css({ opacity: 0 }); }
+      tooltipEl.removeClass('above below');
+      tooltipEl.addClass(tooltip.yAlign);
+
+      tooltipEl.html("<div>" + tooltip.title + "</div>" +
+      leaderboardChartData.datasets.map(function(player, i) {
+        return {
+          name: player.label,
+          color: tooltip.legendColors[i].fill,
+          score: parseInt(tooltip.labels[i], 10)
+        }
+      }).sort(function(a, b) {
+        return (a.score > b.score ? -1 : (a.score == b.score ? 0 : 1 ))
+      }).map(function(player) {
+        return "<div><i class='fa fa-circle' style='color:" + player.color + "'></i> " + player.name + " | " + player.score + "</div>"
+      }).join(""));
+      tooltipEl.css({
+        opacity: 1,
+        left: ((tooltip.x > tooltip.width / 2 ? -0.05 : 0.05) * tooltip.chart.width) + tooltip.chart.canvas.offsetLeft + tooltip.x + 'px',
+        top: tooltip.chart.canvas.offsetTop + tooltip.y + 'px',
+        fontFamily: tooltip.fontFamily,
+        fontSize: tooltip.fontSize,
+        fontStyle: tooltip.fontStyle
+      });
+    },
+    responsive: true
+  }
+
+  leaderboardChart.Line(leaderboardChartData, leaderboardChartOptions)
+</script>
