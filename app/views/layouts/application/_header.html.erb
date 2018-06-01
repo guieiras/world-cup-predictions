@@ -1,8 +1,8 @@
 <header class="main-header">
   <!-- Logo -->
-  <a href="#" class="logo">
+  <%= link_to root_path, class: "logo" do %>
     <span class="logo-lg"><%= t('application.name_html') %></span>
-  </a>
+  <% end %>
   <nav class="navbar navbar-static-top">
     <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"></a>
 
