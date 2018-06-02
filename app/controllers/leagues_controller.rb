@@ -26,8 +26,8 @@ class LeaguesController < ApplicationController
     end
   end
 
-  def members
-    @league = League.find_by_uuid params[:league_id]
+  def edit
+    @league = League.find_by_uuid params[:id]
     authorize @league
     @participations = @league.participations.includes(:user)
   end

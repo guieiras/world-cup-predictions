@@ -8,9 +8,7 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
-  resources :leagues, only: [:index, :show, :new, :create] do
-    get 'members'
-  end
+  resources :leagues, except: :destroy
   resources :league_invites, only: [:show, :create, :destroy] do
     get 'accept'
     get 'refuse'

@@ -18,7 +18,7 @@ class LeagueInvitesController < ApplicationController
     invite.save
     LeagueInviteMailer.with(invite: invite).welcome.deliver_now
     flash[:success] = I18n.t('league_invites.actions.created')
-    redirect_to league_members_path league.uuid
+    redirect_to edit_league_path league.uuid
   end
 
   def destroy
@@ -27,7 +27,7 @@ class LeagueInvitesController < ApplicationController
 
     authorize invite
     flash[:success] = I18n.t('league_invites.actions.destroyed') if invite.destroy
-    redirect_to league_members_path league.uuid
+    redirect_to edit_league_path league.uuid
   end
 
   def accept

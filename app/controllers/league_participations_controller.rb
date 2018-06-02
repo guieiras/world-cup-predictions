@@ -7,6 +7,6 @@ class LeagueParticipationsController < ApplicationController
     participation.destroy
 
     flash[:success] = I18n.t('league_participations.destroy.success')
-    redirect_to league_members_path league.uuid
+    redirect_to edit_league_path league.uuid
   end
 end

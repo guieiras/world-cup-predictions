@@ -13,7 +13,7 @@ pt-BR:
         details: Detalhes
         members: Participantes
       title: Minhas Ligas
-    members:
+    edit:
       current_participants: Participantes
       destroy: Excluir
       invite: Adicionar
@@ -25,9 +25,9 @@ pt-BR:
         invited_at: Convidado em
         name: Nome
         username: Nome de usuário
-      title: Gerenciar membros
+      title: Editar Liga
     show:
-      members: Gerenciar membros
+      edit: Editar
       title: Detalhes da Liga
       leaderboard:
         no_results: Sem Resultados
