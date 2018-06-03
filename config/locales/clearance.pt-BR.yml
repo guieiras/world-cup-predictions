@@ -1,10 +1,15 @@
 pt-BR:
+  clearance:
+    models:
+      clearance_mailer:
+        change_password: Alteração de Senha
   clearance_mailer:
     change_password:
       opening:
-        "Alguém, esperamos que você, solicitou que enviássemos um link para alterar a sua senha:"
+        "Você solicitou um link para alterarmos a sua senha. Clique no botão abaixo, e você receberá as instruções necessárias para efetuar a alteração."
       closing:
         "Se você não solicitou isso, ignore este email. Sua senha não foi alterada."
+      button: Alterar minha senha
   flashes:
     failure_when_forbidden:
       "Por favor, verifique a URL, ou tente enviar o formulário novamente."

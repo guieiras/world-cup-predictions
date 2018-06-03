@@ -1,16 +1,12 @@
-<div id="clearance" class="password-reset">
-  <h2><%= t(".title") %></h2>
-
+<h2 class="login-box-msg"><%= t(".title") %></h2>
+<%= form_for :password, url: passwords_path do |form| %>
   <p><%= t(".description") %></p>
 
-  <%= form_for :password, url: passwords_path do |form| %>
-    <div class="text-field">
-      <%= form.label :email %>
-      <%= form.text_field :email, type: 'email' %>
-    </div>
+  <div class="form-group has-feedback">
+    <%= form.email_field :email, class: 'form-control', placeholder: t('activerecord.attributes.user.email') %>
+    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+  </div>
 
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
-  <% end %>
-</div>
+  <%= form.submit class: "btn btn-primary btn-block btn-flat" %>
+<% end %>
+

@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :leagues, through: :participations
 
   scope :by_email, ->(email) { where(email: email) }
+
+  validates_presence_of :name
 end
