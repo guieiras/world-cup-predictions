@@ -1,7 +1,8 @@
 pt-BR:
   predictions:
     current:
-      message: "Nenhum jogo está disponível para palpite. Os jogos abrem para palpite 7 dias antes do horário do jogo ou quando o confronto for definido, e fecham 5 horas antes da partida."
+      closes_in: Fecha em %{time}
+      message: "Nenhum jogo está disponível para palpite. Os jogos abrem para palpite %{time_to_open} antes do horário do jogo ou quando o confronto for definido, e fecham %{time_to_close} antes da partida."
       title: Central de Palpites
       save: Salvar
     index:

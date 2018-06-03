@@ -3,12 +3,13 @@
     <div class="row">
       <% MatchPresenter.wrap(@matches).each do |match| %>
         <div class="col-sm-6 col-md-4">
-          <div class="panel panel-default game-info">
+          <div class="panel game-info panel-<%= match.status %>">
             <div class="panel-heading">
               <b><%= match.identifier %></b>
               <span class="hidden-lg"><br></span>
               <span class="hidden-xs hidden-sm hidden-md"> - </span>
               <%= match.datetime :long %>
+              <p class="closing"><%= t(".closes_in", time: distance_of_time_in_words_to_now(match.closed_at)) %></p>
             </div>
             <div class="panel-body">
               <div class="game-teams">
@@ -50,5 +51,10 @@
     </div>
   <% end %>
 <% else %>
-  <div class="well text-center"><%= t('.message') %></div>
+  <div class="well text-center">
+    <% time = Time.current %>
+    <%= t('.message',
+        time_to_open: distance_of_time_in_words(time, time + PredictionSettings.open_time),
+        time_to_close: distance_of_time_in_words(time, time + PredictionSettings.close_time)) %>
+  </div>
 <% end %>

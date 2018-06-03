@@ -8,7 +8,7 @@ class PredictionsController < ApplicationController
   end
 
   def current
-    @matches = Match.includes(:home_team, :away_team, :stadium).predictable
+    @matches = Match.includes(:home_team, :away_team, :stadium).order('datetime ASC').predictable
     @predictions = current_user.predictions.where(match_id: @matches).each_with_object({}) do |prediction, hash|
       hash[prediction.match_id] = prediction
     end

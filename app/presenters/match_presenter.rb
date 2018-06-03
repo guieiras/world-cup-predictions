@@ -39,4 +39,18 @@ class MatchPresenter < SimpleDelegator
   def stage
     I18n.t(match.stage, scope: 'match.stage')
   end
+
+  def closed_at
+    match.datetime - PredictionSettings.close_time
+  end
+
+  def status
+    if closed_at < 5.hours.from_now
+      "danger"
+    elsif closed_at < 1.day.from_now
+      "warning"
+    else
+      "default"
+    end
+  end
 end
