@@ -21,8 +21,10 @@ class Match < ApplicationRecord
 
   scope :closed, -> do
     where(arel_table[:datetime].lteq(PredictionSettings.close_time.from_now))
-      .or(where(finished: true))
+      .or(finished)
   end
+
+  scope :finished, -> { where(finished: true) }
 
   def past?
     datetime < DateTime.current

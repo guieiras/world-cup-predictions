@@ -1,6 +1,6 @@
 class NullTeam
   def id
-    0
+    nil
   end
 
   def fifa_code

@@ -23,9 +23,9 @@
                   <img class="team-flag" src="<%= match.away_team.flag_url %>">
                 </td>
                 <td class="match-actions">
-                  <a>
+                  <%= link_to match, remote: true do %>
                     <i class="fa fa-eye"></i>
-                  </a>
+                  <% end %>
                 </td>
               </tr>
             <% end %>

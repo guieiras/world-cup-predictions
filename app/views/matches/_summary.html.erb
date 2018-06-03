@@ -1,0 +1,37 @@
+<div class="modal fade" id="modal-summary">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fa fa-times"></i></span>
+        </button>
+        <h4 class="modal-title"><%= t(".title") %></h4>
+      </div>
+      <div class="modal-body">
+        <div style="font-size: 20px; text-align: center">
+          <span class="match-team match-home-team">
+            <img class="team-flag" src="<%= match.home_team.flag_url %>">
+            <strong class="team-name hidden-xs"><%= match.home_team.name %></strong>
+            <strong class="team-code hidden-lg hidden-md hidden-sm"><%= match.home_team.fifa_code %></strong>
+          </span>
+          <span class="match-score match-home-score"><%= match.home_complete_score %></span>
+          <i class="fa fa-times m-l-sm m-r-sm"></i>
+          <span class="match-score match-away-score"><%= match.away_complete_score %></span>
+          <span class="match-team match-away-team">
+            <strong class="team-code hidden-lg hidden-md hidden-sm"><%= match.away_team.fifa_code %></strong>
+            <strong class="team-name hidden-xs"><%= match.away_team.name %></strong>
+            <img class="team-flag" src="<%= match.away_team.flag_url %>">
+          </span>
+        </div>
+
+        <p class="text-center m-t-md m-b-none"><%= match.datetime(:long) %></p>
+        <p class="text-sm text-center m-t-md m-b-none"><%= match.stadium.name %></p>
+        <p class="text-sm text-center m-t-none"><%= match.stadium.city %></p>
+        <p class="text-sm text-center m-t-none"><%= match.stage %></p>
+
+        <%= render partial: 'matches/team_history', locals: { team: match.home_team } %>
+        <%= render partial: 'matches/team_history', locals: { team: match.away_team } %>
+      </div>
+    </div>
+  </div>
+</div>

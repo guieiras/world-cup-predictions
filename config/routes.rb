@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'refuse'
   end
   resources :league_participations, only: [:create, :destroy]
-  resources :matches, only: :index
+  resources :matches, only: [:index, :show]
   resources :predictions, only: [:index, :create] do
     collection do
       get :current

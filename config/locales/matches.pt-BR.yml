@@ -13,6 +13,24 @@ pt-BR:
         update: Salvar
   match:
     identifier: Jogo %{code}
+    stage:
+      group_a: Grupo A
+      group_b: Grupo B
+      group_c: Grupo C
+      group_d: Grupo D
+      group_e: Grupo E
+      group_f: Grupo F
+      group_g: Grupo G
+      group_h: Grupo H
+      round_16: Oitavas de Final
+      round_8: Quartas de Final
+      round_4: Semi-Final
+      round_2_loser: Disputa de 3° Lugar
+      round_2: Final
   matches:
     index:
       title: Tabela de Jogos
+    summary:
+      title: "Detalhes do Jogo"
+    team_history:
+      title: Histórico de Partidas - %{team}

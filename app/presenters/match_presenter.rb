@@ -35,4 +35,8 @@ class MatchPresenter < SimpleDelegator
   def datetime format=:xshort
     I18n.l(match.datetime, format: format)
   end
+
+  def stage
+    I18n.t(match.stage, scope: 'match.stage')
+  end
 end
