@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="box box-default">
+      <div class="box-body no-padding">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th style="width: 10px">#</th>
+              <th><%= t(".labels.player") %></th>
+              <th class="text-center" style="width: 40px"><%= t(".labels.score") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @leaders.each_with_index do |row, idx| %>
+              <tr>
+                <td><strong><%= idx + 1 %></strong></td>
+                <td><%= row.player_name %></td>
+                <td class="text-center"><%= row.total_score %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

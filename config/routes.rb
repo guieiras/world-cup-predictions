@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :users, only: Clearance.configuration.user_actions do
     resource :password,
-      controller: 'clearance/passwords',
-      only: [:create, :edit, :update]
+    controller: 'clearance/passwords',
+    only: [:create, :edit, :update]
   end
 
   resources :leagues, except: :destroy
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :leaderboard, only: :index
     resources :matches, only: [:index, :update]
     resources :settings, only: [:index, :create]
   end

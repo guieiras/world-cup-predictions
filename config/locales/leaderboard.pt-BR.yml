@@ -1,0 +1,8 @@
+pt-BR:
+  admin:
+    leaderboard:
+      index:
+        title: Classificação Geral
+        labels:
+          player: Nome do Jogador
+          score: Pontuação

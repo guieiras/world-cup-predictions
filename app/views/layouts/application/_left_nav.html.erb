@@ -28,6 +28,7 @@
       <% if current_user.admin? %>
         <%= menu_header_for t('navigation.headers.admin') %>
         <%= menu_item_for admin_matches_path, icon: 'calendar-check-o', text: t('navigation.match_management') %>
+        <%= menu_item_for admin_leaderboard_index_path, icon: 'users', text: t('navigation.leaderboard') %>
         <%= menu_item_for admin_settings_path, icon: 'cog', text: t('navigation.settings') %>
       <% end %>
     </ul>

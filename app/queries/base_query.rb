@@ -1,7 +1,7 @@
 class BaseQuery
   attr_reader :payload
 
-  def self.execute(payload)
+  def self.execute(payload = {})
     new(payload).execute
   end
 
