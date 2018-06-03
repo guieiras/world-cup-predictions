@@ -1,6 +1,6 @@
 class UsersController < Clearance::UsersController
   def user_params
-    params.require(:user).permit(:name, :username, :email, :password)
+    params.require(:user).permit(:name, :email, :password)
   end
 
   def url_after_create

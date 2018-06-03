@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_30_115628) do
+ActiveRecord::Schema.define(version: 2018_06_03_123254) do
 
   create_table "league_invites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email"
@@ -130,7 +130,6 @@ ActiveRecord::Schema.define(version: 2018_05_30_115628) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "username"
     t.string "email"
     t.string "avatar"
     t.datetime "created_at", null: false

@@ -8,7 +8,6 @@ describe "Sign Up", type: :feature do
       visit sign_up_path
 
       fill_in "user_name",	with: user.name
-      fill_in "user_username",	with: user.username
       fill_in "user_email",	with: user.email
       fill_in "user_password",	with: user.password
       click_button "Registrar-se"

@@ -5,7 +5,6 @@ pt-BR:
     attributes:
       user:
         name: "Nome"
-        username: "Nome de Usuário"
         email: "E-mail"
         password: "Senha"
       league:

@@ -1,22 +1,15 @@
 <aside class="main-sidebar">
   <section class="sidebar">
     <div class="user-panel">
-      <div class="pull-left image">
-        <span class="fa-stack fa-lg user-image">
-          <i class="fa fa-circle-thin fa-stack-2x"></i>
-          <i class="fa fa-user fa-stack-1x"></i>
-        </span>
-      </div>
-      <div class="pull-left info">
-        <p><%= current_user.name %></p>
+      <p class="name">
         <% if current_user.admin? %>
-          <span class="text-sm">
-            <i class="fa fa-gears text-white"></i> <%= t('navigation.admin') %></span>
+          <i class="fa fa-gears text-white"></i>
         <% else %>
-          <span class="text-sm">
-            <i class="fa fa-globe text-white"></i> <%= current_user.username %></span>
+          <i class="fa fa-user text-white"></i>
         <% end %>
-      </div>
+        <%= current_user.name %>
+      </p>
+      <span class="email"><%= current_user.email %></span>
     </div>
     <ul class="sidebar-menu" data-widget="tree">
       <%= menu_header_for t('navigation.headers.main') %>

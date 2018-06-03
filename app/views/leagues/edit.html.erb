@@ -34,7 +34,6 @@
       <thead>
         <tr>
           <th><%= t('.labels.name') %></th>
-          <th><%= t('.labels.username') %></th>
           <th><%= t('.labels.email') %></th>
           <th><%= t('.labels.actions') %></th>
         </tr>
@@ -42,7 +41,6 @@
       <% @participations.each do |participation| %>
         <tr>
           <td><%= participation.user.name %></td>
-          <td><%= participation.user.username %></td>
           <td><%= participation.user.email %></td>
           <td>
             <% if participation.user_id != current_user.id %>

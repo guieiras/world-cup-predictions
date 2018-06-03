@@ -43,10 +43,6 @@
               <div class="box-body">
                 <p class="text-center">
                   <%= current_user.name %>
-                  <span class="text-center text-muted">
-                    <br/>
-                    <%= current_user.username %>
-                  </span>
                 </p>
                 <p class="text-center"><%= current_user.email %></p>
                 <%= button_to sign_out_path, method: :delete, class: "btn btn-default btn-flat btn-xs btn-block text-center" do %>
