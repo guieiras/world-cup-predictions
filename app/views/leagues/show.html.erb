@@ -3,7 +3,7 @@
     <%= @league.name %>
     <small><%= @league.description %></small>
     <% if policy(@league).edit? %>
-      <%= link_to t('.edit'), edit_league_path(@league.uuid), class: 'btn btn-success pull-right' %>
+      <%= link_to t('.edit'), edit_league_path(@league.uuid), class: 'btn btn-info pull-right' %>
     <% end %>
   </h1>
 <% end %>

@@ -1,5 +1,8 @@
 pt-BR:
   leagues:
+    actions:
+      updated: A Liga foi atualizada com sucesso
+      not_updated: Não foi possível atualizar os dados da Liga
     info:
       message_html:
         <p>As ligas são um jeito rápido e divertido para disputar o bolão com sua turma!</p>
@@ -15,6 +18,7 @@ pt-BR:
       title: Minhas Ligas
     edit:
       current_participants: Participantes
+      data: Dados da Liga
       destroy: Excluir
       invite: Adicionar
       invites: Convites pendentes
@@ -56,3 +60,5 @@ pt-BR:
       title: Criação de Ligas
     create:
       title: Criação de Ligas
+    update:
+      title: Editar Liga
