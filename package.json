@@ -10,6 +10,9 @@
   "contributors": [
     "Guilherme Eiras <guialbertoeiras@hotmail.com>"
   ],
+  "engines": {
+    "node": ">8"
+  },
   "dependencies": {
     "admin-lte": "^2.4.3",
     "peity": "^3.3.0",
