@@ -11,9 +11,9 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
 
 # Frontend
+gem 'font-awesome-rails', '~>4.7.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'turbolinks', '~> 5'
 
 # API
 gem 'jbuilder', '~> 2.5'

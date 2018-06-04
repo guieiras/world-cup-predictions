@@ -7,7 +7,7 @@
   <% end %>
   <div class="form-group has-feedback <%= "has-error" if @user.errors[:name].present? %>">
     <%= form.text_field :name, type: 'text', class: 'form-control', placeholder: t('activerecord.attributes.user.name') %>
-    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+    <span class="fa fa-user form-control-feedback"></span>
   </div>
 
   <div class="form-group has-feedback <%= "has-error" if @user.errors[:email].present? %>">
@@ -16,12 +16,12 @@
     <% else %>
       <%= form.text_field :email, type: 'email', class: 'form-control', placeholder: t('activerecord.attributes.user.email') %>
     <% end %>
-    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+    <span class="fa fa-envelope form-control-feedback"></span>
   </div>
 
   <div class="form-group has-feedback <%= "has-error" if @user.errors[:password].present? %>">
     <%= form.password_field :password, class: 'form-control', placeholder: t('activerecord.attributes.user.password') %>
-    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+    <span class="fa fa-lock form-control-feedback"></span>
   </div>
 
   <%= form.submit class: "btn btn-primary btn-block btn-flat" %>
