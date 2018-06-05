@@ -21,7 +21,7 @@ class BaseQuery
     rows = ActiveRecord::Base.connection.execute(build)
     if schema
       rows.map do |row|
-        OpenStruct.new(row.map.with_index { |column, idx| [schema[idx], column] }.to_h)
+        OpenStruct.new(row.map.with_index { |column, idx| [schema[idx], column[1]] }.to_h)
       end
     else
       rows

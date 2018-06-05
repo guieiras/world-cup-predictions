@@ -6,15 +6,14 @@ class LeaderboardQuery < BaseQuery
   def build
     <<-SQL
 SELECT u.id, u.name,
-       if(COUNT(p.id) = 0, '{}',
-		  json_objectagg(COALESCE(p.match_id, 0),
-						 json_object(
-							"home_score", p.home_score,
-                            "away_score", p.away_score,
-                            "home_penalty", p.home_penalty,
-                            "away_penalty", p.away_penalty,
-                            "score", COALESCE(res.score, -1))
-	   )) results,
+       CASE COUNT(p.id)
+       WHEN 0 THEN '{}'::json
+       ELSE
+       json_object_agg(COALESCE(p.match_id, 0),
+        json_object(
+          ARRAY['home_score', 'away_score', 'home_penalty', 'away_penalty', 'score'],
+          ARRAY[p.home_score::text, p.away_score::text, p.home_penalty::text, p.away_penalty::text, COALESCE(res.score, -1)::text]))
+       END results,
        COALESCE(sum(res.score), 0) total_score
 FROM users u
 LEFT JOIN predictions p ON u.id = p.user_id

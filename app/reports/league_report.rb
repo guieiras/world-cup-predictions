@@ -24,7 +24,7 @@ class LeagueReport
             values: MatchPresenter.new(OpenStruct.new(values)),
             score: values['score']
           }
-        end.sort_by { |prediction| - (prediction[:score] || -1) }
+        end.sort_by { |prediction| - (prediction[:score].to_i || -1) }
       )
     end
   end
