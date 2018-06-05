@@ -2,6 +2,7 @@ app:
   build: .
   environment:
     EMAIL_HOST: "localhost:3000"
+    EMAIL_SENDER: development@bolaocopa.com
     RAILS_ENV: development
   ports:
     - "3000:3000"
