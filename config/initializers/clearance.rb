@@ -1,6 +1,7 @@
 Clearance.configure do |config|
-  config.mailer_sender = "reply@example.com"
+  config.mailer_sender = ENV.fetch('EMAIL_HOST')
   config.rotate_csrf_on_sign_in = true
+  config.sign_in_guards = [EmailConfirmationGuard]
 end
 
 Rails.application.config.to_prepare do

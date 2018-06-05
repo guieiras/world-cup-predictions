@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_05_012453) do
+ActiveRecord::Schema.define(version: 2018_06_05_014949) do
 
   create_table "league_invites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email"
@@ -139,7 +139,9 @@ ActiveRecord::Schema.define(version: 2018_06_05_012453) do
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128
     t.datetime "confirmed_at"
+    t.string "email_token"
     t.index ["email"], name: "index_users_on_email"
+    t.index ["email_token"], name: "index_users_on_email_token", unique: true
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 

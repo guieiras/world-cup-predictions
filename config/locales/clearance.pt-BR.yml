@@ -10,15 +10,30 @@ pt-BR:
       closing:
         "Se você não solicitou isso, ignore este email. Sua senha não foi alterada."
       button: Alterar minha senha
+  user_mailer:
+    welcome:
+      subject: Bem-vindo ao Bolão da Copa do Mundo 2018
+      body_html:
+        <p>Olá %{user}</p>
+        <p>
+          Estamos muito contentes em saber que você deseja mitar no Bolão da Copa do Mundo!
+          E você está quase lá, só precisamos confirmar seu e-mail e já está pronto para ser o melhor!
+        </p>
+        <p>Basta clicar no botão abaixo, e você estará pronto! Esperamos que se divirta.</p>
+      button: Confirmar E-mail
   flashes:
     failure_when_forbidden:
       "Por favor, verifique a URL, ou tente enviar o formulário novamente."
     failure_after_update:
       "Senha não pode ficar em branco."
     failure_after_create:
-      "Email ou senha não encontrados. Deseja criar uma nova conta? <a href='%{sign_up_path}'>Registrar-se</a>."
+      "Email ou senha não encontrados."
     failure_when_access_denied:
       "Por favor, efetue login."
+    failure_when_not_signed_in:
+      "Por favor, efetue login."
+    failure_when_email_is_not_confirmed:
+      "Por favor, confirme seu e-mail antes de prosseguir com a autenticação."
   helpers:
     submit:
       password:
@@ -77,3 +92,6 @@ pt-BR:
         "Criar uma conta"
       sign_in:
         "Entrar"
+    welcome:
+      description:
+        "Nos próximos minutos você receberá um e-mail contendo instruções para concluir a configuração da sua conta."

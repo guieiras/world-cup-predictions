@@ -1,8 +1,18 @@
 module FlashHelper
+  TYPES = {
+    alert: :warning,
+    danger: :error,
+    error: :error,
+    notice: :warning,
+    info: :info,
+    success: :success,
+    warning: :warning
+  }.freeze
+
   def flash_notification_script
     flashes = []
-    [:alert, :info, :success, :error].each do |type|
-      flashes << [type, flash[type]] if flash[type].present?
+    TYPES.keys.each do |type|
+      flashes << [TYPES[type], flash[type]] if flash[type].present?
     end
 
     if flashes.any?

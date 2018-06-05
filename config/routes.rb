@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users, only: Clearance.configuration.user_actions do
+    get 'confirm'
+    collection do
+      get 'welcome'
+    end
     resource :password,
     controller: 'clearance/passwords',
     only: [:create, :edit, :update]
