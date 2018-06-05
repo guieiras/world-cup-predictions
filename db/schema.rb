@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2018_06_05_014949) do
 
-  create_table "league_invites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "league_invites", force: :cascade do |t|
     t.string "email"
     t.string "uuid"
     t.datetime "created_at", null: false
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 2018_06_05_014949) do
     t.index ["league_id"], name: "index_league_invites_on_league_id"
   end
 
-  create_table "league_participations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "league_participations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_06_05_014949) do
     t.index ["user_id"], name: "index_league_participations_on_user_id"
   end
 
-  create_table "leagues", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "leagues", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.string "uuid"
@@ -45,13 +48,13 @@ ActiveRecord::Schema.define(version: 2018_06_05_014949) do
     t.index ["uuid"], name: "index_leagues_on_uuid", unique: true
   end
 
-  create_table "matchdays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "matchdays", force: :cascade do |t|
     t.integer "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "matches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "matches", force: :cascade do |t|
     t.integer "home_score"
     t.integer "away_score"
     t.integer "home_penalty"
@@ -73,7 +76,7 @@ ActiveRecord::Schema.define(version: 2018_06_05_014949) do
     t.index ["stadium_id"], name: "index_matches_on_stadium_id"
   end
 
-  create_table "prediction_results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "prediction_results", force: :cascade do |t|
     t.boolean "home_score"
     t.boolean "away_score"
     t.boolean "game_winner"
@@ -88,7 +91,7 @@ ActiveRecord::Schema.define(version: 2018_06_05_014949) do
     t.index ["prediction_id"], name: "index_prediction_results_on_prediction_id"
   end
 
-  create_table "predictions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "predictions", force: :cascade do |t|
     t.integer "home_score"
     t.integer "away_score"
     t.integer "home_penalty"
@@ -101,7 +104,7 @@ ActiveRecord::Schema.define(version: 2018_06_05_014949) do
     t.index ["user_id"], name: "index_predictions_on_user_id"
   end
 
-  create_table "settings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "settings", force: :cascade do |t|
     t.string "var", null: false
     t.text "value"
     t.integer "thing_id"
@@ -111,7 +114,7 @@ ActiveRecord::Schema.define(version: 2018_06_05_014949) do
     t.index ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true
   end
 
-  create_table "stadiums", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "stadiums", force: :cascade do |t|
     t.string "name"
     t.string "city"
     t.float "latitude"
@@ -120,7 +123,7 @@ ActiveRecord::Schema.define(version: 2018_06_05_014949) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "teams", force: :cascade do |t|
     t.string "name"
     t.string "fifa_code"
     t.string "flag_url"
@@ -128,7 +131,7 @@ ActiveRecord::Schema.define(version: 2018_06_05_014949) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "avatar"

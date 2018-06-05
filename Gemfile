@@ -7,7 +7,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.0'
 
 # Infrastructure
-gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+gem 'pg'
 gem 'puma', '~> 3.11'
 
 # Frontend

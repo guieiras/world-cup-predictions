@@ -1,10 +1,10 @@
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   pool: 5
   username: root
   password: root
-  host: mysql
+  host: postgres
 
 development:
   <<: *default

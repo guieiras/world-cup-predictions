@@ -25,3 +25,7 @@ package-lock.json
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignoring volumes
+/docker/volumes/postgres/*
+!/docker/volumes/postgres/.keep
