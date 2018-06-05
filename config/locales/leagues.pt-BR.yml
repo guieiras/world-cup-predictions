@@ -3,6 +3,7 @@ pt-BR:
     actions:
       updated: A Liga foi atualizada com sucesso
       not_updated: Não foi possível atualizar os dados da Liga
+      destroyed: A Liga foi removida com sucesso
     info:
       message_html:
         <p>As ligas são um jeito rápido e divertido para disputar o bolão com sua turma!</p>
@@ -17,6 +18,7 @@ pt-BR:
         members: Participantes
       title: Minhas Ligas
     edit:
+      confirm_delete: Tem certeza que deseja remover a liga? Essa ação é irreversível.
       current_participants: Participantes
       data: Dados da Liga
       destroy: Excluir
@@ -28,6 +30,7 @@ pt-BR:
         invite: "Convidar novos membros:"
         invited_at: Convidado em
         name: Nome
+      remove: Excluir Liga
       title: Editar Liga
     show:
       edit: Editar

@@ -32,10 +32,19 @@ class LeaguesController < ApplicationController
     @participations = @league.participations.includes(:user)
   end
 
+  def destroy
+    @league = League.find_by_uuid params[:id]
+    authorize @league
+    if @league.destroy
+      flash[:success] = I18n.t('leagues.actions.updated')
+      redirect_to edit_league_path @league.uuid
+    end
+  end
+
   def update
     @league = League.find_by params[:id]
     authorize @league
-    
+
     if @league.update(params.require(:league).permit(:name, :description))
       flash[:success] = I18n.t('leagues.actions.updated')
       redirect_to edit_league_path @league.uuid

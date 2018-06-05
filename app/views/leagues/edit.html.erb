@@ -92,3 +92,5 @@
     <% end %>
   </div>
 </div>
+
+<%= link_to t('.remove'), league_path(@league.uuid), class: 'btn btn-danger btn-block', method: :delete, data: { confirm: t('.confirm_delete') } %>

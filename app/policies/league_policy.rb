@@ -6,8 +6,12 @@ class LeaguePolicy < ApplicationPolicy
   def edit?
     record.creator_id == user.id
   end
-  
+
   def update?
+    record.creator_id == user.id
+  end
+
+  def destroy?
     record.creator_id == user.id
   end
 end

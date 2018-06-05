@@ -3,8 +3,15 @@ class LeagueInvitesController < ApplicationController
 
   def show
     @invite = LeagueInvite.find_by_uuid params[:id]
+    @user = User.find_by(email: @invite.email)
     authorize @invite
-    redirect_to sign_up_path(invite: @invite.uuid) if current_user.nil?
+    if current_user.nil?
+      redirect_to(if @user.present?
+                    sign_in_path
+                  else
+                    sign_up_path(invite: @invite.uuid)
+                  end)
+    end
   end
 
   def create
@@ -47,6 +54,6 @@ class LeagueInvitesController < ApplicationController
     authorize invite
     invite.destroy
     flash[:success] = I18n.t('league_invites.actions.refused')
-    redirect_back(fallback_location: root_path)
+    redirect_to root_path
   end
 end
