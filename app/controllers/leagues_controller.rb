@@ -37,12 +37,12 @@ class LeaguesController < ApplicationController
     authorize @league
     if @league.destroy
       flash[:success] = I18n.t('leagues.actions.updated')
-      redirect_to edit_league_path @league.uuid
+      redirect_to leagues_path
     end
   end
 
   def update
-    @league = League.find_by params[:id]
+    @league = League.find params[:id]
     authorize @league
 
     if @league.update(params.require(:league).permit(:name, :description))
