@@ -25,7 +25,7 @@ In order to test and develop this application, you may use Docker and Docker Com
 Running `docker-compose up`, 3 containers will start:
 
 - Rails Web Server on port 3000
-- MySQL Server on port 3306
+- PostgreSQL Server on port 5432
 - Mailcatcher on HTTP Port 1080 and SMTP Port 1025
 
 ## Configuration
