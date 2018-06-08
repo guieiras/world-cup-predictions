@@ -1,0 +1,12 @@
+pt-BR:
+  layouts:
+    application:
+      edit_profile: Editar Perfil
+  profile:
+    actions:
+      not_updated: Não foi possível atualizar os dados do usuário.
+      updated: O usuário foi atualizado com sucesso!
+    edit:
+      title: Editar Perfil
+    update:
+      title: Editar Perfil

@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       league: Liga
+      user: Usuário
     attributes:
       user:
         name: "Nome"

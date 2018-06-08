@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       get :current
     end
   end
+  resources :profile, only: [:edit, :update]
 
   namespace :admin do
     resources :leaderboard, only: :index
