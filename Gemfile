@@ -24,6 +24,7 @@ gem 'pundit'
 
 # Utilities
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'codelog'
 
 # General
 gem 'rails-settings-cached'
