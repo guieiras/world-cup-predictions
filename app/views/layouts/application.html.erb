@@ -4,12 +4,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <%= tag.meta name:"apple-mobile-web-app-capable", content: "yes" %>
+    <%= tag.meta name:"apple-mobile-web-app-title", content: t('application.title') %>
+
     <title><%= t('application.title') %></title>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= favicon_link_tag %>
+    <%= tag.link rel: 'manifest', href: asset_path('config/manifest.json') %>
+    <%= tag.link rel: 'apple-touch-icon', sizes: '167x167', href: asset_path('icon-ios.png') %>
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
