@@ -3,7 +3,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 1.0.1 - 2018-06-12
+
+### Added
+- Mobile Behavior
+- iOS and Android Home Screen icons
+- JSON Application Manifest
+
+### Changed
+- PostgreSQL volume path on host changed from `./tmp/postgres` to `./docker/volumes/postgres`
+
+---
 ## 1.0.0 - 2018-06-08
+
 ### Added
 - Initial Release
 - Authentication

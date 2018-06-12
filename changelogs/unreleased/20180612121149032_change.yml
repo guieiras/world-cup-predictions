@@ -1,2 +1,0 @@
-"Changed":
-  - PostgreSQL volume path on host changed from `./tmp/postgres` to `./docker/volumes/postgres`
