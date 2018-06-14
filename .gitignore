@@ -27,5 +27,5 @@ package-lock.json
 /config/master.key
 
 # Ignoring volumes
-/docker/volumes/postgres/*
-!/docker/volumes/postgres/.keep
+/docker/volumes/*
+!/docker/volumes/.keep
