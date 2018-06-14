@@ -71,7 +71,7 @@
         }
       }).sort(function(a, b) {
         return (a.score > b.score ? -1 : (a.score == b.score ? 0 : 1 ))
-      }).map(function(player) {
+      }).slice(0, 3).map(function(player) {
         return "<div><i class='fa fa-circle' style='color:" + player.color + "'></i> " + player.name + " | " + player.score + "</div>"
       }).join(""));
       tooltipEl.css({
