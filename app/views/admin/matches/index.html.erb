@@ -7,7 +7,7 @@
         </div>
         <div class="box-body">
           <%= render partial: 'admin/matches/form', \
-                     locals: { matchday: matchday, matches: matchday.matches } %>
+                     locals: { matchday: matchday, matches: matchday.matches.order(:datetime) } %>
         </div>
       </div>
     </div>

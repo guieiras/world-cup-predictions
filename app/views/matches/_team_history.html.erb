@@ -1,5 +1,5 @@
 <% if team.id.present? %>
-  <% history = MatchPresenter.wrap(team.matches) %>
+  <% history = MatchPresenter.wrap(team.matches.order(:datetime)) %>
   <% if history.present? %>
     <table class="table table-bordered m-t-lg">
       <thead>
