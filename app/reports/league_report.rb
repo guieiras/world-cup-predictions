@@ -21,9 +21,9 @@ class LeagueReport
           {
             player_name: player.player_name,
             values: MatchPresenter.new(OpenStruct.new(values)),
-            score: values['score']
+            score: values['score'].blank? ? -2 : values['score'].to_i
           }
-        end.sort_by { |prediction| - (prediction[:score].to_i || -1) }
+        end.sort_by { |prediction| - prediction[:score] }
       )
     end
   end

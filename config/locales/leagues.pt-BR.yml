@@ -52,6 +52,7 @@ pt-BR:
       match_predictions:
         none: Nenhum jogo finalizado para palpites!
         no_prediction: Não feito
+        no_score: Não contabilizado
         title: Palpites dos Jogos
         labels:
           position: "#"

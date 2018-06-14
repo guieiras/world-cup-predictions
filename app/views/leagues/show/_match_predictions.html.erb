@@ -42,7 +42,7 @@
                   <td><%= idx + 1 %></td>
                   <td><%= prediction[:player_name] %></td>
                   <td>
-                    <% if prediction[:score].nil? %>
+                    <% if prediction[:score] == -2 %>
                       <p><%= t('.no_prediction') %>
                     <% else %>
                       <span><%= prediction[:values].home_complete_score %></span>
@@ -50,7 +50,13 @@
                       <span><%= prediction[:values].away_complete_score %></span>
                     <% end %>
                   </td>
-                  <td><%= prediction[:score] %></td>
+                  <td>
+                    <%= case prediction[:score]
+                        when -1; t('.no_score')
+                        when -2; ""
+                        else; prediction[:score]
+                        end %>
+                  </td>
                 </tr>
               <% end %>
             <% end %>
