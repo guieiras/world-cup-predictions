@@ -1,13 +1,16 @@
-<% @matchdays.each do |matchday| %>
+<% @days.each do |day, matches| %>
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
-        <div class="panel-heading"><%= I18n.t(matchday.code, scope: 'matchday') %></div>
+        <div class="panel-heading"><%= I18n.l(day) %></div>
         <div class="panel-body">
           <table class="table table-bordered match-table">
-            <% MatchPresenter.wrap(matchday.matches).each do |match| %>
+            <% MatchPresenter.wrap(matches).each do |match| %>
               <tr>
-                <td class="match-code hidden-xs"><%= match.identifier %></td>
+                <td class="match-code hidden-xs">
+                  <i class="fa fa-circle m-r-xs <%= match.match.stage %>" title="<%= match.stage %>"></i>
+                  <%= match.identifier %>
+                </td>
                 <td class="match-date hidden-xs"><%= match.datetime %></td>
                 <td class="match-stadium hidden-xs hidden-sm"><%= match.stadium.name %></td>
                 <td class="match-team match-home-team">

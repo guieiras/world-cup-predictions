@@ -1,6 +1,9 @@
 class MatchesController < ApplicationController
   def index
-    @matchdays = Matchday.includes(matches: [:home_team, :away_team, :stadium]).all
+    @days = Match.order(datetime: :asc)
+                 .includes(:matchday, :home_team, :away_team, :stadium)
+                 .all
+                 .group_by { |match| match.datetime.to_date }
   end
 
   def show
