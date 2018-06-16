@@ -1,4 +1,5 @@
 class PredictionsController < ApplicationController
+  skip_forgery_protection only: [:create]
   def index
     @predictions = current_user
                      .predictions
@@ -15,18 +16,20 @@ class PredictionsController < ApplicationController
   end
 
   def create
-    params[:predictions].permit!
+    prediction = permitted_params
+    if prediction[:home].present? && prediction[:away].present?
+      Prediction
+        .find_or_initialize_by(user: current_user, match_id: prediction[:match].to_i)
+        .update(home_score: prediction[:home], away_score: prediction[:away])
 
-    Prediction.transaction do
-      params[:predictions].to_h.each do |match_id, prediction|
-        if prediction[:home_score].present? && prediction[:away_score].present?
-          Prediction
-            .find_or_initialize_by(user: current_user, match_id: match_id.to_i)
-            .update(home_score: prediction[:home_score], away_score: prediction[:away_score])
-        end
-      end
+      return head :ok
     end
+    head :unprocessable_entity
+  end
 
-    redirect_to predictions_path
+  private
+
+  def permitted_params
+    params.permit('home', 'away', 'match')
   end
 end

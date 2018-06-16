@@ -1,55 +1,58 @@
 <% if @matches.present? %>
-  <%= form_tag predictions_path, method: :post do %>
-    <div class="row">
-      <% MatchPresenter.wrap(@matches).each do |match| %>
-        <div class="col-sm-6 col-md-4">
-          <div class="panel game-info panel-<%= match.status %>">
-            <div class="panel-heading">
-              <b><%= match.identifier %></b>
-              <span class="hidden-lg"><br></span>
-              <span class="hidden-xs hidden-sm hidden-md"> - </span>
-              <%= match.datetime :long %>
-              <p class="closing"><%= t(".closes_in", time: distance_of_time_in_words_to_now(match.closed_at)) %></p>
-            </div>
-            <div class="panel-body">
-              <div class="game-teams">
-                <div class="home-team">
-                  <img class="team-flag" src="<%= match.home_team.flag_url %>">
-                  <span class="team-name"><%= match.home_team.name %></span>
-                  <span class="team-score">
-                    <input
-                      type="text"
-                      class="form-control game-prediction-score"
-                      name="predictions[<%=match.id%>][home_score]"
-                      value="<%= @predictions[match.id]&.home_score %>"
-                      data-inputmask="'mask': '9'">
-                  </span>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="away-team">
-                  <img class="team-flag" src="<%= match.away_team.flag_url %>">
-                  <span class="team-name"><%= match.away_team.name %></span>
-                  <span class="team-score">
-                    <input
-                      type="text"
-                      class="form-control game-prediction-score"
-                      name="predictions[<%=match.id%>][away_score]"
-                      value="<%= @predictions[match.id]&.away_score %>"
-                      data-inputmask="'mask': '9'">
-                  </span>
-                  <div class="clearfix"></div>
-                </div>
+  <div class="row">
+    <% MatchPresenter.wrap(@matches).each do |match| %>
+      <div class="col-sm-6 col-md-4">
+        <div class="panel game-info panel-<%= match.status %>" js-match="<%= match.id %>">
+          <div class="panel-heading">
+            <b><%= match.identifier %></b>
+            <span class="hidden-lg"><br></span>
+            <span class="hidden-xs hidden-sm hidden-md"> - </span>
+            <%= match.datetime :long %>
+            <p class="closing"><%= t(".closes_in", time: distance_of_time_in_words_to_now(match.closed_at)) %></p>
+          </div>
+          <div class="panel-body">
+            <div class="game-teams">
+              <div class="home-team">
+                <img class="team-flag" src="<%= match.home_team.flag_url %>">
+                <span class="team-name"><%= match.home_team.name %></span>
+                <span class="team-score">
+                  <input
+                    type="text"
+                    class="form-control game-prediction-score"
+                    name="predictions[<%=match.id%>][home_score]"
+                    value="<%= @predictions[match.id]&.home_score %>"
+                    data-inputmask="'mask': '9'"
+                    js-match="<%= match.id %>"
+                    js-score="home">
+                </span>
+                <div class="clearfix"></div>
+              </div>
+              <div class="away-team">
+                <img class="team-flag" src="<%= match.away_team.flag_url %>">
+                <span class="team-name"><%= match.away_team.name %></span>
+                <span class="team-score">
+                  <input
+                    type="text"
+                    class="form-control game-prediction-score"
+                    name="predictions[<%=match.id%>][away_score]"
+                    value="<%= @predictions[match.id]&.away_score %>"
+                    data-inputmask="'mask': '9'"
+                    js-match="<%= match.id %>"
+                    js-score="away">
+                </span>
+                <div class="clearfix"></div>
               </div>
             </div>
           </div>
         </div>
-      <% end %>
-      <div class="clearfix"></div>
-      <div class="col-md-12 text-right">
-        <button class="btn btn-primary"><%= t('.save') %></button>
       </div>
+    <% end %>
+    <div class="clearfix"></div>
+    <div class="col-md-12 text-right">
+      <button class="btn btn-primary"><%= t('.save') %></button>
     </div>
-  <% end %>
+  </div>
+  <%= javascript_include_tag 'views/current_predictions' %>
 <% else %>
   <div class="well text-center">
     <% time = Time.current %>
