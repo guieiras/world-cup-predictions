@@ -21,7 +21,7 @@ LEFT JOIN prediction_results res ON p.id = res.prediction_id
 JOIN league_participations l ON u.id = l.user_id
 WHERE l.league_id = #{payload.league_id}
 GROUP BY u.id, u.name
-ORDER BY total_score DESC
+ORDER BY total_score DESC, name ASC
     SQL
   end
 end

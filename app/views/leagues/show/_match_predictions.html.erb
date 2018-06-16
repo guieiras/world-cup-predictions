@@ -29,7 +29,6 @@
                 </td>
               </tr>
               <tr data-row="<%= row.match.id %>" class="hidden">
-                <th><%= t('.labels.position') %></th>
                 <th><%= t('.labels.player_name') %></th>
                 <th><%= t('.labels.prediction') %></th>
                 <th>
@@ -39,7 +38,6 @@
               </tr>
               <% row.predictions.each_with_index do |prediction, idx| %>
                 <tr data-row="<%= row.match.id %>" class="hidden">
-                  <td><%= idx + 1 %></td>
                   <td><%= prediction[:player_name] %></td>
                   <td>
                     <% if prediction[:score] == -2 %>

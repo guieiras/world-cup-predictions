@@ -17,12 +17,14 @@
             </tr>
           </thead>
           <tbody>
+            <% current_score = 0 %>
             <% report.query.each_with_index do |row, idx| %>
               <tr>
-                <td><strong><%= idx + 1 %></strong></td>
+                <td><strong><%= row.total_score == current_score ? "" : idx + 1 %></strong></td>
                 <td><%= row.player_name %></td>
                 <td class="text-center"><%= row.total_score %></td>
               </tr>
+              <% current_score = row.total_score %>
             <% end %>
           </tbody>
         </table>
