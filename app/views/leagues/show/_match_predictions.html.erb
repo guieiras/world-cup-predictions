@@ -43,7 +43,7 @@
                   <td><%= prediction[:player_name] %></td>
                   <td>
                     <% if prediction[:score] == -2 %>
-                      <p><%= t('.no_prediction') %>
+                      <%= t('.no_prediction') %>
                     <% else %>
                       <span><%= prediction[:values].home_complete_score %></span>
                       <span> x </span>
