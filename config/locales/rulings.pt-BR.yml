@@ -1,0 +1,40 @@
+pt-BR:
+  rulings:
+    index:
+      title: Regras
+      introduction: Introdução
+      introduction_html:
+        <p>O <b>Bolão da Copa</b> funciona com uma abordagem bastante simples.
+        Você pode prever os resultados e mudar os palpites quantas vezes quiser,
+        até o momento antes da bola rolar.</p>
+      pontuation: Pontuação
+      pontuation_html:
+        <p>Os critérios de pontuação são bem dinâmicos, o que garante muita emoção em cada jogo.
+        Após o término de cada jogo, a pontuação é calculada automaticamente.</p>
+      pontuation_criteria:
+        group: "Durante jogos na fase de grupos:"
+        knockout: "Durante jogos na fase eliminatória:"
+        home_score: Quantidade de gols do time local
+        away_score: Quantidade de gols do time visitante
+        score_difference: Saldo de gols
+        penalty_result: Placar nos pênaltis
+        game_winner_knockout: Vencedor do confronto até a prorrogação (inclui empate)
+        game_winner: Vencedor do confronto (inclui empate)
+        penalty_winner: Vencedor nos pênaltis
+        match_winner: Equipe vencedora
+      prediction_central: Central de Palpites
+      prediction_central_html:
+        <p>A <em>Central de Palpites</em> é o lugar aonde você coloca seus resultados no bolão.
+        Os jogos abrem para palpite <strong>%{open}</strong> antes do horário do jogo ou quando o confronto for definido, e fecham <strong>%{close}</strong> antes da partida.
+        Os palpites são salvos automaticamente enquanto você digita.</p>
+      leagues: Ligas
+      leagues_html:
+        "<p>A liga é o lugar ideal para competir o Bolão com seus amigos!</p>
+         <p>Você pode participar de quantas ligas quiser. Para participar de uma liga, você tem duas opções: Criar uma nova liga ou receber um convite para participar de uma liga existente. Os convites são enviados por e-mail, e podem ser aceitos através da própria plataforma. <b>Apenas o criador da liga pode convidar outros jogadores.</b></p>"
+      league_rulings: Regras da Liga
+      league_rulings_html:
+        <p>As ligas seguem os mesmos critérios de pontuação e abertura/fechamento da plataforma.</p>
+        <p>Todos os palpites dos membros da liga são ocultos durante o período do jogo na Central.
+        Quando uma partida é fechada para palpites, os jogadores podem consultar todos os palpites feitos pelos outros membros.
+        A classificação geral é feito apenas por pontuação. Em caso de pontuação igual, <b>não há critério de desempate</b>.
+        Para efeito visual na tabela, os participantes serão ordenados por ordem alfabética.</p>

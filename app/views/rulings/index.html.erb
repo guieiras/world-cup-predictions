@@ -1,0 +1,87 @@
+<div class="box">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-12">
+        <%= t('.introduction_html') %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="m-t-lg"><%= t('.prediction_central') %></h3>
+        <%= t('.prediction_central_html', open: @time_to_open, close: @time_to_close) %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3><%= t('.pontuation') %></h3>
+
+        <%= t('.pontuation_html') %>
+        <table class="table table-bordered">
+          <tr>
+            <td colspan=2><b><%= t('.pontuation_criteria.group') %></b></td>
+          </tr>
+          <tr>
+            <td><%= t('.pontuation_criteria.home_score') %></td>
+            <td class="score-column"><%= ScoreSettings.home_score %></td>
+          </tr>
+          <tr>
+            <td><%= t('.pontuation_criteria.away_score') %></td>
+            <td class="score-column"><%= ScoreSettings.away_score %></td>
+          </tr>
+          <tr>
+            <td><%= t('.pontuation_criteria.score_difference') %></td>
+            <td class="score-column"><%= ScoreSettings.score_difference %></td>
+          </tr>
+          <tr>
+            <td><%= t('.pontuation_criteria.game_winner') %></td>
+            <td class="score-column"><%= (ScoreSettings.game_winner + ScoreSettings.match_winner) %></td>
+          </tr>
+          <tr>
+            <td colspan=2><b><%= t('.pontuation_criteria.knockout') %></b></td>
+          </tr>
+          <tr>
+            <td><%= t('.pontuation_criteria.home_score') %></td>
+            <td class="score-column"><%= ScoreSettings.home_score %></td>
+          </tr>
+          <tr>
+            <td><%= t('.pontuation_criteria.away_score') %></td>
+            <td class="score-column"><%= ScoreSettings.away_score %></td>
+          </tr>
+          <tr>
+            <td><%= t('.pontuation_criteria.score_difference') %></td>
+            <td class="score-column"><%= ScoreSettings.score_difference %></td>
+          </tr>
+          <tr>
+            <td><%= t('.pontuation_criteria.game_winner') %></td>
+            <td class="score-column"><%= ScoreSettings.game_winner %></td>
+          </tr>
+          <tr>
+            <td><%= t('.pontuation_criteria.penalty_winner') %></td>
+            <td class="score-column"><%= ScoreSettings.penalty_winner %></td>
+          </tr>
+          <tr>
+            <td><%= t('.pontuation_criteria.penalty_result') %></td>
+            <td class="score-column"><%= ScoreSettings.penalty_result %></td>
+          </tr>
+          <tr>
+            <td><%= t('.pontuation_criteria.match_winner') %></td>
+            <td class="score-column"><%= ScoreSettings.match_winner %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3><%= t('.leagues') %></h3>
+        <%= t('.leagues_html') %>
+      </div>
+      <div class="col-md-12">
+        <h4><%= t('.league_rulings') %></h4>
+        <%= t('.league_rulings_html') %>
+      </div>
+    </div>
+  </div>
+</div>

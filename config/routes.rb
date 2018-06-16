@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     end
   end
   resources :profile, only: [:edit, :update]
+  resources :rulings, only: :index
 
   namespace :admin do
     resources :leaderboard, only: :index

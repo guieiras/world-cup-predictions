@@ -22,6 +22,8 @@
         <%= menu_item_for new_league_path, icon: 'plus', text: t('navigation.leagues.new') %>
       <% end %>
 
+      <%= menu_item_for rulings_path, icon: 'book', text: t('navigation.rulings') %>
+
       <%= menu_header_for t('navigation.headers.tournament') %>
       <%= menu_item_for matches_path, icon: 'table', text: t('navigation.matches') %>
 
