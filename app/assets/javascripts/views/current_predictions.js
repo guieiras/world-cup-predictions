@@ -1,19 +1,27 @@
 $('[js-score]').keyup(function() {
   var matchId = $(this).attr('js-match');
-  var gameBox = $('.panel[js-match=' + matchId + ']');
+  var gameStatus = $('.panel[js-match=' + matchId + ']').find('.game-status');
   var homeScore = $('[js-score=home][js-match=' + matchId + ']').val()
   var awayScore = $('[js-score=away][js-match=' + matchId + ']').val()
 
   if (homeScore !== "" && awayScore !== "" ) {
-    gameBox.css('border-color', '#a7a7a7')
+    gameStatus.addClass(['fa-spin', 'fa-spinner'])
     $.post('.', { home: homeScore, away: awayScore, match: matchId  })
     .done(function() {
-        setTimeout(function() {
-          gameBox.css('border-color', '')
-        }, 750)
-     })
+      setTimeout(function() {
+        gameStatus.removeClass(['fa-spin', 'fa-spinner'])
+        gameStatus.addClass('fa-check')
+        gameStatus.animate({
+          opacity: 0.15
+        }, 3000, function () {
+          gameStatus.removeClass('fa-check')
+          gameStatus.css('opacity', 1)
+        });
+      }, 750)
+    })
     .fail(function() {
-      gameBox.css('border-color', '#F04864')
+      gameStatus.removeClass(['fa-spin', 'fa-spinner'])
+      gameStatus.addClass('fa-exclamation-triangle')
     })
   }
 })
