@@ -52,7 +52,7 @@ class LeagueReport
           {
             label: player[:name],
             data: labels.values.map do |date|
-              date.map { |match_id| player[:dataset][match_id] }.sum
+              date.map { |match_id| (player[:dataset][match_id] || 0).to_i }.sum
             end
           }
         end
