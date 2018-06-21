@@ -3,10 +3,14 @@
     <div class="box box-default box-solid">
       <div class="box-header with-border">
         <h3 class="box-title"><%= t('.title') %></h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
       </div>
       <div class="box-body">
         <div class="chart">
           <canvas id="leaderboard"></canvas>
+          <div id="leaderboard-legend"></div>
           <div id="leaderboard-tooltip" class="chartjs-tooltip"></div>
         </div>
       </div>
@@ -15,6 +19,7 @@
 </div>
 
 <script>
+  (function() {
   var randomColor = function() {
     var randomHex = function() { return Math.floor(Math.random() * 256) }
     return 'rgba(' + randomHex() + ',' + randomHex() + ',' + randomHex() + ',1)'
@@ -46,8 +51,7 @@
     scaleGridLineWidth: 2,
     scaleShowHorizontalLines: true,
     scaleShowVerticalLines: true,
-    bezierCurve: true,
-    bezierCurveTension: 0.3,
+    bezierCurve: false,
     pointDot: true,
     pointDotRadius: 4,
     pointDotStrokeWidth: 1,
@@ -56,13 +60,14 @@
     datasetStrokeWidth: 2,
     datasetFill: false,
     maintainAspectRatio: true,
+    legendTemplate : "<ul style=\"list-style:none; padding: 15px 0 0 0;\" class=\"<%%=name.toLowerCase()%>-legend\"><%% for (var i=0; i<datasets.length; i++){%><li style=\"display: inline-block; margin-right: 20px;\"><i class=\"fa fa-circle\" style=\"margin-right: 5px; color:<%%=datasets[i].strokeColor%>\"></i><%%if(datasets[i].label){%><%%=datasets[i].label%><%%}%></li><%%}%></ul>",
     customTooltips: function(tooltip) {
       var tooltipEl = $("#leaderboard-tooltip");
       if (!tooltip) { return tooltipEl.css({ opacity: 0 }); }
       tooltipEl.removeClass('above below');
       tooltipEl.addClass(tooltip.yAlign);
 
-      tooltipEl.html("<div>" + tooltip.title + "</div>" +
+      tooltipEl.html("<div> <%= t('.top3') %> - " + tooltip.title + "</div>" +
       leaderboardChartData.datasets.map(function(player, i) {
         return {
           name: player.label,
@@ -86,5 +91,7 @@
     responsive: true
   }
 
-  leaderboardChart.Line(leaderboardChartData, leaderboardChartOptions)
+  var chart = leaderboardChart.Line(leaderboardChartData, leaderboardChartOptions)
+  $("#leaderboard-legend").html(chart.generateLegend())
+  })()
 </script>

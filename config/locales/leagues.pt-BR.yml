@@ -45,10 +45,7 @@ pt-BR:
           score: Pontos
       leaderboard_history:
         title: Histórico de Classificação
-        labels:
-          player: Jogador
-          performance: Desempenho
-          score: Pontos
+        top3: Top 3
       match_predictions:
         none: Nenhum jogo finalizado para palpites!
         no_prediction: Não feito
