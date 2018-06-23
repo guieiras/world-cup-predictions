@@ -15,7 +15,7 @@
           </div>
         <% else %>
           <table class="table table-bordered predictions-table">
-            <% predictions.group_by(&:league).each do |league, pred|%>
+            <% predictions.group_by(&:league).each do |league, rows|%>
               <tr class="header">
                 <td class="league-name"><%= JSON.parse(league).values[0] %></td>
                 <td><%= t('.labels.prediction') %></td>
@@ -24,7 +24,7 @@
                   <span class="hidden-sm hidden-md hidden-lg"><i class="fa fa-star"></i></span>
                 </td>
               </tr>
-              <% predictions.each do |row| %>
+              <% rows.each do |row| %>
                 <tr>
                   <td><%= row.user_name %></td>
                   <td><%= match_score(row) %></td>
