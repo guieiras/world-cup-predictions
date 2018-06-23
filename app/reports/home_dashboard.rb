@@ -1,9 +1,21 @@
 class HomeDashboard
-  attr_reader :user, :items
+  attr_reader :user, :items, :predictions
 
   def initialize(user, scope)
     @user = user
     @items = scope.to_a
+    @predictions = user
+      .predictions
+      .pluck(:match_id, :home_score, :away_score, :home_penalty, :away_penalty)
+      .reduce({}) do |memo, prediction|
+        memo[prediction[0]] = {
+          home_score: prediction[1],
+          away_score: prediction[2],
+          home_penalty: prediction[3],
+          away_penalty: prediction[4]
+        }
+        memo
+      end
   end
 
   def leagues

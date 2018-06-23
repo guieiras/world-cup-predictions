@@ -1,0 +1,73 @@
+<div class="box box-default">
+  <div class="box-header with-border">
+    <h3 class="box-title"><%= t('.title') %></h3>
+  </div>
+  <div class="box-body">
+    <div class="row">
+      <% MatchPresenter.wrap(Match.today.order(:datetime)).each do |match| %>
+        <div class="col-md-3">
+          <div class="panel game-info panel-default" js-match="<%= match.id %>">
+            <div class="panel-heading">
+              <%= link_to match_details_path(match_id: match.id), class: "pull-right", remote: true do %>
+                <i class="fa fa-eye"></i>
+              <% end %>
+              <i class="fa game-status pull-right m-r-md m-t-xs"></i>
+              <b><%= l(match.match.datetime, format: :hhmm) %> | <%= match.identifier %></b>
+            </div>
+            <div class="panel-body">
+              <div class="game-teams">
+                <div class="home-team">
+                  <img class="team-flag" src="<%= match.home_team.flag_url %>">
+                  <span class="team-name"><%= match.home_team.name %></span>
+                  <span class="team-score">
+                    <% if match.predictable? %>
+                      <input
+                        type="text"
+                        class="form-control game-prediction-score"
+                        name="predictions[<%=match.id%>][home_score]"
+                        value="<%= @dashboard.predictions.dig(match.id, :home_score) %>"
+                        data-inputmask="'mask': '9'"
+                        js-match="<%= match.id %>"
+                        js-score="home">
+                    <% else %>
+                      <input
+                        type="text"
+                        class="form-control game-prediction-score"
+                        disabled=true
+                        value="<%= @dashboard.predictions.dig(match.id, :home_score) %>">
+                    <% end %>
+                  </span>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="away-team">
+                  <img class="team-flag" src="<%= match.away_team.flag_url %>">
+                  <span class="team-name"><%= match.away_team.name %></span>
+                  <span class="team-score">
+                    <% if match.predictable? %>
+                      <input
+                        type="text"
+                        class="form-control game-prediction-score"
+                        name="predictions[<%=match.id%>][away_score]"
+                        value="<%= @dashboard.predictions.dig(match.id, :away_score) %>"
+                        data-inputmask="'mask': '9'"
+                        js-match="<%= match.id %>"
+                        js-score="away">
+                    <% else %>
+                      <input
+                        type="text"
+                        class="form-control game-prediction-score"
+                        disabled=true
+                        value="<%= @dashboard.predictions.dig(match.id, :away_score) %>">
+                    <% end %>
+                  </span>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag 'views/current_predictions' %>

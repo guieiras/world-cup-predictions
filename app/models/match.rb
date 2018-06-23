@@ -10,7 +10,7 @@ class Match < ApplicationRecord
 
   scope :today, -> do
     where(arel_table[:datetime].between(
-      Date.today.beginning_of_day..Date.today.end_of_day))
+      Date.current.beginning_of_day..Date.current.end_of_day))
   end
 
   scope :predictable, -> do
