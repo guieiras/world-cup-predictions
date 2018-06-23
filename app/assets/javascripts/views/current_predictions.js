@@ -6,7 +6,7 @@ $('[js-score]').keyup(function() {
 
   if (homeScore !== "" && awayScore !== "" ) {
     gameStatus.addClass(['fa-spin', 'fa-spinner'])
-    $.post('.', { home: homeScore, away: awayScore, match: matchId  })
+    $.post('/predictions', { home: homeScore, away: awayScore, match: matchId  })
     .done(function() {
       setTimeout(function() {
         gameStatus.removeClass(['fa-spin', 'fa-spinner'])
