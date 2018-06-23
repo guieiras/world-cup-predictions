@@ -1,0 +1,2 @@
+$("#modal-summary").remove();
+$("<%= j(render(partial: "matches/predictions", locals: { match: @match, predictions: @predictions })) %>").modal();

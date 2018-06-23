@@ -14,11 +14,13 @@ Rails.application.routes.draw do
 
   resources :leagues
   resources :league_invites, only: [:show, :create, :destroy] do
-    get 'accept'
-    get 'refuse'
+    get :accept
+    get :refuse
   end
   resources :league_participations, only: [:create, :destroy]
-  resources :matches, only: [:index, :show]
+  resources :matches, only: [:index, :show] do
+    get :details
+  end
   resources :predictions, only: [:index, :create] do
     collection do
       get :current

@@ -30,6 +30,12 @@ pt-BR:
   matches:
     index:
       title: Tabela de Jogos
+    predictions:
+      labels:
+        prediction: Palpite
+        score: Pontuação
+      title: "Detalhes do Jogo"
+      unclosed: Os palpites dos membros das suas ligas aparecerão aqui quando a partida for fechada.
     summary:
       title: "Detalhes do Jogo"
     team_history:

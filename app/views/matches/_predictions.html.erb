@@ -1,0 +1,40 @@
+<div class="modal fade" id="modal-summary">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fa fa-times"></i></span>
+        </button>
+        <h4 class="modal-title"><%= t(".title") %></h4>
+      </div>
+      <div class="modal-body">
+        <%= render partial: 'matches/summary', locals: { match: match } %>
+        <% if match.predictable? %>
+          <div class="well text-center">
+            <%= t("predictions.current.closes_in", time: distance_of_time_in_words_to_now(match.closed_at)) %>
+          </div>
+        <% else %>
+          <table class="table table-bordered predictions-table">
+            <% predictions.group_by(&:league).each do |league, pred|%>
+              <tr class="header">
+                <td class="league-name"><%= JSON.parse(league).values[0] %></td>
+                <td><%= t('.labels.prediction') %></td>
+                <td>
+                  <span class="hidden-xs"><%= t('.labels.score') %></span>
+                  <span class="hidden-sm hidden-md hidden-lg"><i class="fa fa-star"></i></span>
+                </td>
+              </tr>
+              <% predictions.each do |row| %>
+                <tr>
+                  <td><%= row.user_name %></td>
+                  <td><%= match_score(row) %></td>
+                  <td><%= row.score %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

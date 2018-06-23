@@ -9,4 +9,9 @@ class MatchesController < ApplicationController
   def show
     @match = MatchPresenter.new(Match.find(params[:id]))
   end
+
+  def details
+    @match = MatchPresenter.new(Match.find(params[:match_id]))
+    @predictions = MatchPredictionsQuery.execute(match_id: @match.id, user_id: current_user.id)
+  end
 end
