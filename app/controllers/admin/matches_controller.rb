@@ -5,9 +5,13 @@ class Admin::MatchesController < AdminController
   end
 
   def update
-    match_params = params.require(:match).permit(:home_penalty, :away_penalty, :home_score, :away_score)
+    match_params = params
+      .require(:match)
+      .permit(:home_penalty, :away_penalty, :home_score, :away_score, :home_team_id, :away_team_id)
     match = Match.find(params[:id])
 
-    ConsolidatePredictionResultsJob.perform_now(match.id) if match.update(match_params)
+    if match.update(match_params) && match.home_score.present? && match.away_score.present?
+      ConsolidatePredictionResultsJob.perform_now(match.id)
+    end
   end
 end

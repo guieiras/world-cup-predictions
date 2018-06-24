@@ -16,7 +16,7 @@
 //= require slimscroll/example/ssmaster/jquery.slimscroll.min
 //= require bootstrap/dist/js/bootstrap.min
 //= require admin-lte/dist/js/adminlte.min
-//= require select2/select2
+//= require select2/dist/js/select2.min
 //= require bootstrap-datepicker/dist/js/bootstrap-datepicker
 //= require bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min
 //= require inputmask/dist/min/jquery.inputmask.bundle.min

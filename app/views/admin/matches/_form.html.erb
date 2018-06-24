@@ -7,9 +7,13 @@
           <%= match.datetime %>
         </td>
         <td class="match-team match-home-team">
-          <img class="team-flag" src="<%= match.home_team.flag_url %>">
-          <span class="team-name hidden-xs"><%= match.home_team.name %></span>
-          <span class="team-code hidden-lg hidden-md hidden-sm"><%= match.home_team.fifa_code %></span>
+          <% if match.home_team.id %>
+            <img class="team-flag" src="<%= match.home_team.flag_url %>">
+            <span class="team-name hidden-xs"><%= match.home_team.name %></span>
+            <span class="team-code hidden-lg hidden-md hidden-sm"><%= match.home_team.fifa_code %></span>
+          <% else %>
+            <%= f.select :home_team_id, [], {}, { class: "form-control select2" } %>
+          <% end %>
         </td>
         <% if match.knockout? %>
           <td class="match-score match-score-input match-home-score">
@@ -48,9 +52,13 @@
           </td>
         <% end %>
         <td class="match-team match-away-team">
-          <span class="team-code hidden-lg hidden-md hidden-sm"><%= match.away_team.fifa_code %></span>
-          <span class="team-name hidden-xs"><%= match.away_team.name %></span>
-          <img class="team-flag" src="<%= match.away_team.flag_url %>">
+          <% if match.away_team.id %>
+            <span class="team-code hidden-lg hidden-md hidden-sm"><%= match.away_team.fifa_code %></span>
+            <span class="team-name hidden-xs"><%= match.away_team.name %></span>
+            <img class="team-flag" src="<%= match.away_team.flag_url %>">
+          <% else %>
+            <%= f.select :away_team_id, [], {}, { class: "form-control select2" } %>
+          <% end %>
         </td>
         <td class="match-details-actions text-center">
           <% if match.finished? %>

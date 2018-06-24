@@ -33,5 +33,6 @@ Rails.application.routes.draw do
     resources :leaderboard, only: :index
     resources :matches, only: [:index, :update]
     resources :settings, only: [:index, :create]
+    resources :teams, only: [:index]
   end
 end
