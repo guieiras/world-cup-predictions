@@ -17,6 +17,16 @@
                 <img class="team-flag" src="<%= match.home_team.flag_url %>">
                 <span class="team-name"><%= match.home_team.name %></span>
                 <span class="team-score">
+                  <% if match.match_type == "knockout" %>
+                    <input
+                      type="text"
+                      class="form-control game-prediction-score game-penalty"
+                      name="predictions[<%=match.id%>][home_penalty]"
+                      value="<%= @predictions[match.id]&.home_penalty %>"
+                      data-inputmask="'mask': '9'"
+                      js-match="<%= match.id %>"
+                      js-penalty="home">
+                  <% end %>
                   <input
                     type="text"
                     class="form-control game-prediction-score"
@@ -32,6 +42,16 @@
                 <img class="team-flag" src="<%= match.away_team.flag_url %>">
                 <span class="team-name"><%= match.away_team.name %></span>
                 <span class="team-score">
+                  <% if match.match_type == "knockout" %>
+                    <input
+                      type="text"
+                      class="form-control game-prediction-score game-penalty"
+                      name="predictions[<%=match.id%>][away_penalty]"
+                      value="<%= @predictions[match.id]&.away_penalty %>"
+                      data-inputmask="'mask': '9'"
+                      js-match="<%= match.id %>"
+                      js-penalty="away">
+                  <% end %>
                   <input
                     type="text"
                     class="form-control game-prediction-score"

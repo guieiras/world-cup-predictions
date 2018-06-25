@@ -1,27 +1,59 @@
-$('[js-score]').keyup(function() {
-  var matchId = $(this).attr('js-match');
-  var gameStatus = $('.panel[js-match=' + matchId + ']').find('.game-status');
-  var homeScore = $('[js-score=home][js-match=' + matchId + ']').val()
-  var awayScore = $('[js-score=away][js-match=' + matchId + ']').val()
-
-  if (homeScore !== "" && awayScore !== "" ) {
-    gameStatus.addClass(['fa-spin', 'fa-spinner'])
-    $.post('/predictions', { home: homeScore, away: awayScore, match: matchId  })
-    .done(function() {
-      setTimeout(function() {
-        gameStatus.removeClass(['fa-spin', 'fa-spinner'])
-        gameStatus.addClass('fa-check')
-        gameStatus.animate({
-          opacity: 0.15
-        }, 3000, function () {
-          gameStatus.removeClass('fa-check')
-          gameStatus.css('opacity', 1)
-        });
-      }, 750)
+(function() {
+  var postResult = function (homeScore, awayScore, homePenalty, awayPenalty, matchId, $control) {
+    homePenalty = (homeScore === awayScore) ? homePenalty : "";
+    awayPenalty = (homeScore === awayScore) ? awayPenalty : "";
+    $control.addClass(['fa-spin', 'fa-spinner']);
+    $.post('/predictions', {
+      home: homeScore, away: awayScore, home_penalty: homePenalty, away_penalty: awayPenalty, match: matchId
     })
-    .fail(function() {
-      gameStatus.removeClass(['fa-spin', 'fa-spinner'])
-      gameStatus.addClass('fa-exclamation-triangle')
-    })
+      .done(function () {
+        setTimeout(function () {
+          $control.removeClass(['fa-spin', 'fa-spinner'])
+          $control.addClass('fa-check')
+          $control.animate({
+            opacity: 0.5
+          }, 1000, function () {
+            $control.removeClass('fa-check')
+            $control.css('opacity', 1)
+          });
+        }, 500)
+      })
+      .fail(function () {
+        $control.removeClass(['fa-spin', 'fa-spinner'])
+        $control.addClass('fa-exclamation-triangle')
+      });
   }
-})
+
+  $('input[js-match]').each(function() {
+    var matchId = $(this).attr('js-match');
+    var gameStatus = $('.panel[js-match=' + matchId + ']').find('.game-status')[0];
+    var inputHomeScore = $('[js-score=home][js-match=' + matchId + ']')[0];
+    var inputAwayScore = $('[js-score=away][js-match=' + matchId + ']')[0];
+    var inputHomePenalty = $('[js-penalty=home][js-match=' + matchId + ']')[0];
+    var inputAwayPenalty = $('[js-penalty=away][js-match=' + matchId + ']')[0];
+
+    var controlInputs = function(event) {
+      var homeScore = inputHomeScore.value;
+      var awayScore = inputAwayScore.value;
+      var homePenalty = inputHomePenalty && inputHomePenalty.value;
+      var awayPenalty = inputAwayPenalty && inputAwayPenalty.value;
+
+      if (homeScore !== "" && awayScore !== "") {
+        if ((homeScore === awayScore) && inputHomePenalty && inputAwayPenalty)  {
+          $(inputHomePenalty).show();
+          $(inputAwayPenalty).show();
+        } else {
+          $(inputHomePenalty).hide();
+          $(inputAwayPenalty).hide();
+        }
+
+        if (((homeScore !== awayScore) || (homePenalty && awayPenalty && (homePenalty !== awayPenalty))) && !event.skipRequest) {
+          postResult(homeScore, awayScore, homePenalty, awayPenalty, matchId, $(gameStatus))
+        }
+      }
+    }
+
+    $(this).keyup(controlInputs);
+    controlInputs({ skipRequest: true });
+  })
+})();

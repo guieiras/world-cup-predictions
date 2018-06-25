@@ -20,7 +20,8 @@ class PredictionsController < ApplicationController
     if prediction[:home].present? && prediction[:away].present?
       Prediction
         .find_or_initialize_by(user: current_user, match_id: prediction[:match].to_i)
-        .update(home_score: prediction[:home], away_score: prediction[:away])
+        .update(home_score: prediction[:home], away_score: prediction[:away],
+                home_penalty: prediction[:home_penalty], away_penalty: prediction[:away_penalty])
 
       return head :ok
     end
@@ -30,6 +31,6 @@ class PredictionsController < ApplicationController
   private
 
   def permitted_params
-    params.permit('home', 'away', 'match')
+    params.permit('home', 'away', 'home_penalty', 'away_penalty', 'match')
   end
 end
