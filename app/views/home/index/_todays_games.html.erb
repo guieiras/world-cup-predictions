@@ -5,7 +5,7 @@
   <div class="box-body">
     <div class="row">
       <% MatchPresenter.wrap(Match.today.order(:datetime)).each do |match| %>
-        <div class="col-md-3">
+        <div class="col-md-6">
           <div class="panel game-info panel-default" js-match="<%= match.id %>">
             <div class="panel-heading">
               <%= link_to match_details_path(match_id: match.id), class: "pull-right", remote: true do %>
