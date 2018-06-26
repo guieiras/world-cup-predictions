@@ -46,8 +46,7 @@
           $(inputHomePenalty).hide();
           $(inputAwayPenalty).hide();
         }
-
-        if (((homeScore !== awayScore) || (homePenalty && awayPenalty && (homePenalty !== awayPenalty))) && !event.skipRequest) {
+        if ((!(inputHomePenalty && inputAwayPenalty) || (homeScore !== awayScore) || (homePenalty && awayPenalty && (homePenalty !== awayPenalty))) && !event.skipRequest) {
           postResult(homeScore, awayScore, homePenalty, awayPenalty, matchId, $(gameStatus))
         }
       }
