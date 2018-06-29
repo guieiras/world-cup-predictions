@@ -1,9 +1,15 @@
 <% if @matches.present? %>
+  <div class="callout callout-info">
+    <%= t('.alert.pre_link_html') %><%= link_to t('.alert.link'), help_predictions_path, remote: true %><%= t('.alert.post_link_html') %>
+  </div>
   <div class="row">
     <% MatchPresenter.wrap(@matches).each do |match| %>
       <div class="col-sm-6 col-md-4">
         <div class="panel game-info panel-<%= match.status %>" js-match="<%= match.id %>">
           <div class="panel-heading">
+            <%= link_to match, remote: true, class: 'm-l-md pull-right' do %>
+              <i class="fa fa-bar-chart"></i>
+            <% end %>
             <i class="fa game-status pull-right"></i>
             <b><%= match.identifier %></b>
             <span class="hidden-lg"><br></span>
@@ -60,6 +66,14 @@
                     data-inputmask="'mask': '9'"
                     js-match="<%= match.id %>"
                     js-score="away">
+                </span>
+                <div class="clearfix"></div>
+              </div>
+              <div class="input-info">
+                <i class="fa fa-question-circle" data-toggle="tooltip" title="<%= t('.subtitle.help') %>"></i>
+                <span class="team-score">
+                  <span js-penalty="info" js-match="<%= match.id %>"><%= t('.subtitle.penalty') %></span>
+                  <span><%= t('.subtitle.score') %></span>
                 </span>
                 <div class="clearfix"></div>
               </div>

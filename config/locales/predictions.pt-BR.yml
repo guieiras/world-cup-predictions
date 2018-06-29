@@ -1,8 +1,17 @@
 pt-BR:
   predictions:
     current:
+      alert:
+        pre_link_html: "Precisa de ajuda para preencher os palpites? "
+        post_link_html: " e entenda mais sobre a <b>Central de Palpites</b>."
+        link: Clique aqui
       closes_in: Fecha em %{time}
       message: "Nenhum jogo está disponível para palpite. Os jogos abrem para palpite %{time_to_open} antes do horário do jogo ou quando o confronto for definido, e fecham %{time_to_close} antes da partida."
+      subtitle:
+        help: O placar contempla o resultado como a soma de Tempo Regulamentar e Prorrogação (120 minutos)
+        score: Placar
+        penalty: Pênaltis
+      score_help: O placar contempla o resultado como a soma de Tempo Regulamentar e Prorrogação (120 minutos)
       title: Central de Palpites
     index:
       not_finished: Este jogo ainda não foi finalizado

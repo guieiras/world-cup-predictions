@@ -31,6 +31,7 @@
     var inputAwayScore = $('[js-score=away][js-match=' + matchId + ']')[0];
     var inputHomePenalty = $('[js-penalty=home][js-match=' + matchId + ']')[0];
     var inputAwayPenalty = $('[js-penalty=away][js-match=' + matchId + ']')[0];
+    var infoPenalty = $('[js-penalty=info][js-match=' + matchId + ']')[0];
 
     var controlInputs = function(event) {
       var homeScore = inputHomeScore.value;
@@ -39,16 +40,24 @@
       var awayPenalty = inputAwayPenalty && inputAwayPenalty.value;
 
       if (homeScore !== "" && awayScore !== "") {
-        if ((homeScore === awayScore) && inputHomePenalty && inputAwayPenalty)  {
+        if ((homeScore === awayScore) && inputHomePenalty && inputAwayPenalty && (homeScore !== ''))  {
           $(inputHomePenalty).show();
           $(inputAwayPenalty).show();
+          $(infoPenalty).show();
         } else {
+          $(inputHomePenalty).val("");
+          $(inputAwayPenalty).val("");
           $(inputHomePenalty).hide();
           $(inputAwayPenalty).hide();
+          $(infoPenalty).hide();
         }
         if ((!(inputHomePenalty && inputAwayPenalty) || (homeScore !== awayScore) || (homePenalty && awayPenalty && (homePenalty !== awayPenalty))) && !event.skipRequest) {
           postResult(homeScore, awayScore, homePenalty, awayPenalty, matchId, $(gameStatus))
         }
+      } else {
+        $(inputHomePenalty).hide();
+        $(inputAwayPenalty).hide();
+        $(infoPenalty).hide();
       }
     }
 

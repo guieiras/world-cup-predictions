@@ -36,7 +36,7 @@ pt-BR:
         score: Pontuação
       title: "Detalhes do Jogo"
       unclosed: Os palpites dos membros das suas ligas aparecerão aqui quando a partida for fechada.
-    summary:
+    record:
       title: "Detalhes do Jogo"
     team_history:
       title: Histórico de Partidas - %{team}

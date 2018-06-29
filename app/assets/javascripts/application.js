@@ -28,3 +28,6 @@
 
 $.fn.datepicker.defaults.language = "pt-BR"
 $.fn.datepicker.defaults.orientation = "bottom"
+$(document).ready(function() {
+  $('[data-toggle="tooltip"]').tooltip();
+});
