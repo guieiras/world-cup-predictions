@@ -9,10 +9,33 @@ pt-BR:
       message: "Nenhum jogo está disponível para palpite. Os jogos abrem para palpite %{time_to_open} antes do horário do jogo ou quando o confronto for definido, e fecham %{time_to_close} antes da partida."
       subtitle:
         help: O placar contempla o resultado como a soma de Tempo Regulamentar e Prorrogação (120 minutos)
-        score: Placar
-        penalty: Pênaltis
+        score: "*Placar"
+        penalty: "*Pênaltis"
       score_help: O placar contempla o resultado como a soma de Tempo Regulamentar e Prorrogação (120 minutos)
       title: Central de Palpites
+    help_modal:
+      title: Ajuda com a Central de Palpites
+      tooltip:
+        statistics: Detalhes do Jogo
+      introduction:
+        Para facilitar o preenchimento e incentivar que todos os jogadores acompanhem o bolão, o sistema funciona com palpites contínuos,
+        o que significa que os jogos só poderão ser preenchidos a partir de um determinado momento próximo a data do jogo.
+      rulings_link: Consulte a página de regras para entender os detalhes de quando o sistema abre e fecha os palpites.
+      filling_info: "A Central de Palpites mostra apenas os jogos abertos. Para preencher é bem simples:"
+      game:
+        identifier: Jogo XX
+        closing: Tempo restante para fechar o jogo
+        home_team: Time 1
+        away_team: Time 2
+        penalties: Pênaltis
+        score: Placar
+      score_description_html:
+        O Placar é válido para o Tempo Regulamentar e a Prorrogação (120 minutos de jogo).
+        No caso da persistência de empate serão aplicados os critérios de disputa de pênaltis.
+        <b>O palpite dos pênaltis é obrigatório em palpipes de jogos eliminatórios com empate.</b>
+        Palpites inválidos não são salvos pelo sistema. Para ter certeza que o palpite foi salvo, aguarde o ícone
+        <i class="fa fa-check"></i> no topo da caixa do jogo que está sendo digitado.
+
     index:
       not_finished: Este jogo ainda não foi finalizado
       prediction: Palpite

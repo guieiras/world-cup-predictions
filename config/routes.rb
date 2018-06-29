@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :predictions, only: [:index, :create] do
     collection do
       get :current
+      get :help
     end
   end
   resources :profile, only: [:edit, :update]

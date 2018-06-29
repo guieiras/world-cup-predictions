@@ -1,0 +1,62 @@
+<div class="modal fade" id="modal-summary">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fa fa-times"></i></span>
+        </button>
+        <h4 class="modal-title"><%= t(".title") %></h4>
+      </div>
+      <div class="modal-body">
+        <p><%= t('.introduction') %></p>
+        <p><%= link_to t('.rulings_link'), rulings_path %></p>
+        <hr>
+
+        <p><%= t('.filling_info') %></p>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default game-info">
+              <div class="panel-heading">
+                <i class="fa fa-bar-chart m-l-md pull-right" data-toggle="tooltip" title="<%= t('.tooltip.statistics') %>"></i>
+                <b><%= t('.game.identifier') %></b>
+                <br>
+                <span><%= l(DateTime.current, format: :long) %></span>
+                <p class="closing"><%= t('.game.closing') %></p>
+              </div>
+              <div class="panel-body">
+                <div class="game-teams">
+                  <div class="home-team">
+                    <i class="fa fa-2x fa-flag"></i>
+                    <span class="team-name"><%= t('.game.home_team') %></span>
+                    <span class="team-score">
+                      <input type="text" readonly class="form-control game-prediction-score game-penalty">
+                      <input type="text" readonly class="form-control game-prediction-score">
+                    </span>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="away-team">
+                    <i class="fa fa-2x fa-flag"></i>
+                    <span class="team-name"><%= t('.game.away_team') %></span>
+                    <span class="team-score">
+                      <input type="text" readonly class="form-control game-prediction-score game-penalty">
+                      <input type="text" readonly class="form-control game-prediction-score">
+                    </span>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="input-info">
+                    <span class="team-score">
+                      <span><%= t('.game.penalties') %></span>
+                      <span><%= t('.game.score') %></span>
+                    </span>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p><%= t('.score_description_html') %></p>
+      </div>
+    </div>
+  </div>
+</div>
