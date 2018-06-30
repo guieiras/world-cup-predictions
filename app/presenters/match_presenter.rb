@@ -23,12 +23,12 @@ class MatchPresenter < SimpleDelegator
   end
 
   def home_complete_score
-    penalty_score = home_penalty ? "(#{home_penalty}) " : ""
+    penalty_score = home_penalty ? "(#{home_penalty})" : ""
     home_score ? home_score.to_s + penalty_score : '-'
   end
 
   def away_complete_score
-    penalty_score = away_penalty ? " (#{away_penalty})" : ""
+    penalty_score = away_penalty ? "(#{away_penalty})" : ""
     away_score ? away_score.to_s + penalty_score : '-'
   end
 

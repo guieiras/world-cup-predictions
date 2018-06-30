@@ -21,8 +21,20 @@
                   <%= match.home_team.name %>
                   <span class="hidden-xs"> (<%= match.home_team.fifa_code %>)</span>
                 </td>
-                <td class="text-center predictions-table-score"><%= prediction.home_score %></td>
-                <td class="text-center predictions-table-score"><b><%= match.home_score %></b></td>
+                <td class="text-center predictions-table-score">
+                  <%= prediction.home_score %>
+                  <% if prediction.home_penalty.present? %>
+                    <small>(<%= prediction.home_penalty %>)</small>
+                  <% end %>
+                </td>
+                <td class="text-center predictions-table-score">
+                  <b>
+                    <%= match.home_score %>
+                    <% if match.home_penalty.present? %>
+                      <small>(<%= match.home_penalty %>)</small>
+                    <% end %>
+                  </b>
+                </td>
               </tr>
               <tr>
                 <td>
@@ -30,8 +42,20 @@
                   <%= match.away_team.name %>
                   <span class="hidden-xs"> (<%= match.away_team.fifa_code %>)</span>
                 </td>
-                <td class="text-center predictions-table-score"><%= prediction.away_score %></td>
-                <td class="text-center predictions-table-score"><b><%= match.away_score %></b></td>
+                <td class="text-center predictions-table-score">
+                  <%= prediction.away_score %>
+                  <% if prediction.away_penalty.present? %>
+                    <small>(<%= prediction.away_penalty %>)</small>
+                  <% end %>
+                </td>
+                <td class="text-center predictions-table-score">
+                  <b>
+                    <%= match.away_score %>
+                    <% if match.away_penalty.present? %>
+                      <small>(<%= match.away_penalty %>)</small>
+                    <% end %>
+                  </b>
+                </td>
               </tr>
             </tbody>
           </table>
