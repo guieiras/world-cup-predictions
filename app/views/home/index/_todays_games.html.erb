@@ -8,8 +8,11 @@
         <div class="col-md-6">
           <div class="panel game-info panel-default" js-match="<%= match.id %>">
             <div class="panel-heading">
-              <%= link_to match_details_path(match_id: match.id), class: "pull-right", remote: true do %>
+              <%= link_to match_details_path(match_id: match.id), class: "m-l-md pull-right", remote: true do %>
                 <i class="fa fa-eye"></i>
+              <% end %>
+              <%= link_to match, remote: true, class: 'pull-right' do %>
+                <i class="fa fa-bar-chart"></i>
               <% end %>
               <i class="fa game-status pull-right m-r-md m-t-xs"></i>
               <b><%= l(match.match.datetime, format: :hhmm) %> | <%= match.identifier %></b>
@@ -21,6 +24,16 @@
                   <span class="team-name"><%= match.home_team.name %></span>
                   <span class="team-score">
                     <% if match.predictable? %>
+                      <% if match.match_type == "knockout" %>
+                        <input
+                          type="text"
+                          class="form-control game-prediction-score game-penalty"
+                          name="predictions[<%=match.id%>][home_penalty]"
+                          value="<%= @dashboard.predictions.dig(match.id, :home_penalty) %>"
+                          data-inputmask="'mask': '9'"
+                          js-match="<%= match.id %>"
+                          js-penalty="home">
+                      <% end %>
                       <input
                         type="text"
                         class="form-control game-prediction-score"
@@ -30,6 +43,13 @@
                         js-match="<%= match.id %>"
                         js-score="home">
                     <% else %>
+                      <% if @dashboard.predictions.dig(match.id, :home_penalty).present? %>
+                        <input
+                          type="text"
+                          class="form-control game-prediction-score game-penalty"
+                          disabled="true"
+                          value="<%= @dashboard.predictions.dig(match.id, :home_penalty) %>">
+                      <% end %>
                       <input
                         type="text"
                         class="form-control game-prediction-score"
@@ -44,6 +64,16 @@
                   <span class="team-name"><%= match.away_team.name %></span>
                   <span class="team-score">
                     <% if match.predictable? %>
+                      <% if match.match_type == "knockout" %>
+                        <input
+                          type="text"
+                          class="form-control game-prediction-score game-penalty"
+                          name="predictions[<%=match.id%>][away_penalty]"
+                          value="<%= @dashboard.predictions.dig(match.id, :away_penalty) %>"
+                          data-inputmask="'mask': '9'"
+                          js-match="<%= match.id %>"
+                          js-penalty="away">
+                      <% end %>
                       <input
                         type="text"
                         class="form-control game-prediction-score"
@@ -53,12 +83,26 @@
                         js-match="<%= match.id %>"
                         js-score="away">
                     <% else %>
+                      <% if @dashboard.predictions.dig(match.id, :away_penalty).present? %>
+                        <input
+                          type="text"
+                          class="form-control game-prediction-score game-penalty"
+                          disabled="true"
+                          value="<%= @dashboard.predictions.dig(match.id, :away_penalty) %>">
+                      <% end %>
                       <input
                         type="text"
                         class="form-control game-prediction-score"
                         disabled=true
                         value="<%= @dashboard.predictions.dig(match.id, :away_score) %>">
                     <% end %>
+                  </span>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="input-info">
+                  <span class="team-score">
+                    <span class="<%= 'hidden' unless @dashboard.predictions.dig(match.id, :home_penalty) %>"><%= t('.subtitle.penalty') %></span>
+                    <span><%= t('.subtitle.score') %></span>
                   </span>
                   <div class="clearfix"></div>
                 </div>

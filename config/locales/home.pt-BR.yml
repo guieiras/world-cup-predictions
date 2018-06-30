@@ -21,3 +21,6 @@ pt-BR:
 
       todays_games:
         title: Jogos hoje
+        subtitle:
+          penalty: "*Pênaltis"
+          score: "*Placar"

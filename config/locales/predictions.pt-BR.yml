@@ -8,10 +8,10 @@ pt-BR:
       closes_in: Fecha em %{time}
       message: "Nenhum jogo está disponível para palpite. Os jogos abrem para palpite %{time_to_open} antes do horário do jogo ou quando o confronto for definido, e fecham %{time_to_close} antes da partida."
       subtitle:
-        help: O placar contempla o resultado como a soma de Tempo Regulamentar e Prorrogação (120 minutos)
+        help: O placar contempla a soma do Tempo Regulamentar e da Prorrogação (120 minutos)
         score: "*Placar"
         penalty: "*Pênaltis"
-      score_help: O placar contempla o resultado como a soma de Tempo Regulamentar e Prorrogação (120 minutos)
+      score_help: O placar contempla a soma do Tempo Regulamentar e da Prorrogação (120 minutos)
       title: Central de Palpites
     help_modal:
       title: Ajuda com a Central de Palpites

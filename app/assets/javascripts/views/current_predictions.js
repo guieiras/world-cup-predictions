@@ -61,7 +61,9 @@
       }
     }
 
-    $(this).keyup(controlInputs);
-    controlInputs({ skipRequest: true });
+    if(inputHomeScore && inputAwayScore) {
+      $(this).keyup(controlInputs);
+      controlInputs({ skipRequest: true });
+    }
   })
 })();
