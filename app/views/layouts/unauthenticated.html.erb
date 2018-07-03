@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <%= tag.meta name:"apple-mobile-web-app-capable", content: "yes" %>
+    <%= tag.meta name:"apple-mobile-web-app-title", content: t('application.title') %>
+
+    <title><%= t('application.title') %></title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= favicon_link_tag %>
+    <%= tag.link rel: 'manifest', href: asset_path('config/manifest.json') %>
+    <%= tag.link rel: 'apple-touch-icon', sizes: '167x167', href: asset_path('icon-ios.png') %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body class="skin-blue layout-top-nav">
+    <div class="wrapper">
+      <header class="main-header">
+        <nav class="navbar navbar-static-top">
+          <%= link_to root_path, class: "logo" do %>
+            <span class="logo-lg"><%= t('application.name_html') %></span>
+          <% end %>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <li class="messages-menu">
+                <%= link_to t('.sign_in'), sign_in_path %>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <div class="content-wrapper">
+        <section class="content-header">
+          <% if content_for? :head %>
+            <%= yield :head %>
+          <% else %>
+            <h1 class="panel panel-body">
+              <%= t('title', scope: [controller_path.split('/'), action_name].flatten) %>
+            </h1>
+          <% end %>
+        </section>
+        <section class="content">
+          <%= yield %>
+        </section>
+      </div>
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b><%= t('application.version') %></b> <%= Package.version %>
+        </div>
+        <strong>&copy; <%= Date.current.year %> <%= t('application.company') %></strong> | <%= t('application.copyright') %>
+      </footer>
+      <%= flash_notification_script %>
+    </div>
+  </body>
+</html>

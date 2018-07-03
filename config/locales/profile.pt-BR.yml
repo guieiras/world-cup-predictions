@@ -2,6 +2,8 @@ pt-BR:
   layouts:
     application:
       edit_profile: Editar Perfil
+    unauthenticated:
+      sign_in: Iniciar Sessão
   profile:
     actions:
       not_updated: Não foi possível atualizar os dados do usuário.

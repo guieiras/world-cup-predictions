@@ -1,12 +1,18 @@
 class LeaguesController < ApplicationController
+  skip_before_action :require_login, only: [:show]
+
   def index
     @leagues = current_user.leagues.includes(:creator)
   end
 
   def show
     @league = League.find_by_uuid params[:id]
-    authorize @league
     @report = LeagueReport.new(@league)
+    if current_user
+      authorize @league
+    else
+      render 'leagues/summary', layout: 'unauthenticated'
+    end
   end
 
   def new
