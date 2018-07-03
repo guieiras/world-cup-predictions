@@ -8,10 +8,11 @@ class LeaguesController < ApplicationController
   def show
     @league = League.find_by_uuid params[:id]
     @report = LeagueReport.new(@league)
-    if current_user
-      authorize @league
-    else
+
+    if !current_user
       render 'leagues/summary', layout: 'unauthenticated'
+    elsif !policy(@league).show?
+      render 'leagues/summary'
     end
   end
 

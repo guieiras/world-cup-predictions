@@ -2,6 +2,7 @@
   <h1 class="panel panel-body"><%= @league.name %></h1>
 <% end %>
 
+<div class="alert alert-warning"><%= t('.contact_administrator') %></div>
 <%= render partial: "leagues/show/leaderboard", locals: { report: @report } %>
 <% if @league.participations.count > 1 %>
   <%= render partial: "leagues/show/leaderboard_history", locals: { report: @report } %>
